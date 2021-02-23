@@ -125,6 +125,16 @@ body {
     margin: 0;
 }
 
+.is-link {
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.4s ease-in;
+}
+
+.is-link:hover {
+    color: var(--background);
+}
+
 
 
 @media (max-width: 900px) {
