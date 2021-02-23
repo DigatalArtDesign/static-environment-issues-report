@@ -15,7 +15,7 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
-
+  <link rel="stylesheet" href="css/common.css"/>
   <link rel="stylesheet" href="css/index.css" />
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
@@ -24,20 +24,28 @@
 </head>
 
 <body>
-
+  <div class="nav-bar">
+    <h3 class="logo-text is-h3">SavePlanet</h3>
+    <nav class="is-half-flex-basis">
+      <ul class="is-ul main-content__navigation-bar">
+        <li class="is-list-item is-link is-h3">
+          <a>About</a>
+        </li>
+        <li class="is-list-item is-lint is-h3">
+          <a>Work</a>
+        </li>
+        <li class="is-list-item is-link is-h3">
+          <a>Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
   <main class="main-content">
-    <section class="main-content__section-video">
-      <div class="main-content__main-image"></div>
+    <section class="main-content__section-video is-half-flex-basis">
+      <div class="main-content__main-image">
+      </div>
     </section>
     <section class="main-content__section-content">
-      <nav>
-        <ul class="main-content__navigation-bar">
-          <li>Nav Item 1</li>
-          <li>Nav Item 2</li>
-          <li>Nav Item 3</li>
-          <li>Nav Item 4</li>
-        </ul>
-      </nav>
     </section>
   </main>
   <!-- Add your site or application content here -->
