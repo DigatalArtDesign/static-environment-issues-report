@@ -59,6 +59,10 @@
     --attract: #81EEA9;
     --simple-grey: rgba(0,0,0,0.4);
     --font-size: 12px;
+    --xs: 500px;
+    --sm: 650px;
+    --md: 900px;
+    --lg: 1260px;
 }
 
 /* common styles of application */
@@ -122,3 +126,9 @@ body {
 }
 
 
+
+@media (max-width: 900px) {
+  .is-h1 {
+      font-size: 4rem !important;
+  }
+}

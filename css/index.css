@@ -41,7 +41,6 @@
 
 .main-content__main-title {
   max-width: 490px;
-  width: 100%;
   color: var(--white);
   margin-left: 17%;
 }
@@ -51,4 +50,14 @@
   width: 37px;
   height: 37px;
   border-radius: 30px;
+}
+
+
+@media (max-width: 900px) {
+  .main-content {
+      flex-direction: column;
+  }
+  .main-content__section-content {
+    order: 1;
+  }
 }
