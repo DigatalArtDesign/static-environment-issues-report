@@ -1,0 +1,103 @@
+/* fonts connection */
+
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('./font/HelveticaNeueCyr-Medium.eot');
+    src: local('HelveticaNeueCyr-Medium'),
+    url('./font/HelveticaNeueCyr-Medium.eot?#iefix') format('embedded-opentype'),
+    url('./font/HelveticaNeueCyr-Medium.woff2') format('woff2'),
+    url('./font/HelveticaNeueCyr-Medium.woff') format('woff'),
+    url('./font/HelveticaNeueCyr-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HelveticaNeue';
+    src: url('./font/HelveticaNeueCyr-Light.eot');
+    src: local('HelveticaNeueCyr-Light'),
+    url('./font/HelveticaNeueCyr-Light.eot?#iefix') format('embedded-opentype'),
+    url('./font/HelveticaNeueCyr-Light.woff2') format('woff2'),
+    url('./font/HelveticaNeueCyr-Light.woff') format('woff'),
+    url('./font/HelveticaNeueCyr-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'HelveticaNeue';
+    src: url('./font/HelveticaNeueCyr-MediumItalic.eot');
+    src: local('HelveticaNeueCyr-MediumItalic'),
+    url('./font/HelveticaNeueCyr-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('./font/HelveticaNeueCyr-MediumItalic.woff2') format('woff2'),
+    url('./font/HelveticaNeueCyr-MediumItalic.woff') format('woff'),
+    url('./font/HelveticaNeueCyr-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'HelveticaNeue';
+    src: url('./font/HelveticaNeueCyr-Bold.eot');
+    src: local('HelveticaNeueCyr-Bold'),
+    url('./font/HelveticaNeueCyr-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./font/HelveticaNeueCyr-Bold.woff2') format('woff2'),
+    url('./font/HelveticaNeueCyr-Bold.woff') format('woff'),
+    url('./font/HelveticaNeueCyr-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+/* variables */
+:root {
+    --primary: #46CD9C;
+    --black: rgba(255,255,255, 1);
+    --white: rgba(255,255,255, 1);
+    --semi-white: rgba(255,255,255, 0.9);
+    --semi-black: rgba(0,0,0,0.9);
+    --background: #002629;
+    --attract: #81EEA9;
+    --simple-grey: rgba(0,0,0,0.4);
+}
+
+/* common styles of application */
+/* add this classes to organize your html */
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+/* flex */
+.is-display-flex {
+    display: flex;
+}
+
+.is-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.is-half-flex-basis {
+    flex-basis: 50%;
+}
+
+.is-order-1 {
+    order: 1;
+}
+
+/* h1, h2, h3 etc. */
+.is-h3 {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+/* other */
+.is-no-list-decoration {
+    list-style-type: none;
+}
+
+.is-ul {
+    list-style-type: none;
+}
+
