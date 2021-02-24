@@ -59,19 +59,19 @@ form {
   display: flex;
   
 }
-.ifaSelect1 {
+.ifa-select1 {
 
 }
 
-.ifaSelect2 {
-  margin-left: 5em;
+.ifa-select2 {
+  margin-left: 3em;
 
 }
-.ifaSelect3 {
-
+.ifa-select3 {
+  margin-left: 3em;
 }
 
-.mcSelectors {
+.mc-selectors {
   display: flex;
   
   
