@@ -29,12 +29,35 @@
   display: flex;
   justify-content: space-around;
   color: var(--semi-white);
-  font-size: 24px;
+  font-size: 2rem;
 }
 
 .logo-text {
   padding: 30px 0 0 30px;
-  flex-basis: 47%;
+  flex-basis: 49%;
   margin: 0;
   color: var(--semi-white);
+}
+
+.main-content__main-title {
+  max-width: 490px;
+  color: var(--white);
+  margin-left: 17%;
+}
+
+.dot-part > .circle {
+  background-color: var(--white);
+  width: 37px;
+  height: 37px;
+  border-radius: 30px;
+}
+
+
+@media (max-width: 900px) {
+  .main-content {
+      flex-direction: column;
+  }
+  .main-content__section-content {
+    order: 1;
+  }
 }
