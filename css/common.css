@@ -58,10 +58,18 @@
     --background: #002629;
     --attract: #81EEA9;
     --simple-grey: rgba(0,0,0,0.4);
+    --font-size: 12px;
+    --xs: 500px;
+    --sm: 650px;
+    --md: 900px;
+    --lg: 1260px;
 }
 
 /* common styles of application */
 /* add this classes to organize your html */
+html {
+    font-size: var(--font-size) !important;
+}
 body {
     width: 100%;
     height: 100vh;
@@ -71,6 +79,14 @@ body {
 /* flex */
 .is-display-flex {
     display: flex;
+}
+
+.is-justify-center {
+    justify-content: center;
+}
+
+.is-align-items-center {
+    align-items: center;
 }
 
 .is-flex-column {
@@ -87,8 +103,12 @@ body {
 }
 
 /* h1, h2, h3 etc. */
+.is-h1 {
+    font-size: 6rem;
+    font-weight: 500;
+}
 .is-h3 {
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: normal;
 }
 
@@ -101,3 +121,24 @@ body {
     list-style-type: none;
 }
 
+.m-0 {
+    margin: 0;
+}
+
+.is-link {
+    color: var(--white);
+    text-decoration: none;
+    transition: all 0.4s ease-in;
+}
+
+.is-link:hover {
+    color: var(--background);
+}
+
+
+
+@media (max-width: 900px) {
+  .is-h1 {
+      font-size: 4rem !important;
+  }
+}
