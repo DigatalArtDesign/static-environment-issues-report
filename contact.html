@@ -43,77 +43,69 @@
   <main class="main-content">
     <section class="main-content__section-video is-half-flex-basis">
       <div class="main-content__main-image">
-        <div class="form">
-            <h4>Tell us<br>what happened</h4>
-            <form>
-                <label for="fname" class="formNames">Name:</label><br>
-                <input type="text" id="fname" name="name" placeholder="Tommy Wiseau"><br>
-                <label for="iname" class="formNames">Issue name:</label><br>
-                <input type="text" id="iname" name="name" placeholder="Poaching on Costel river"><br>
-                <label for="mailbox" class="formNames">E-mail:</label><br>
-                <input type="email" id="mailbox" name="mailbox" placeholder="theroom@sp.com"><br>
-                <!--REGION SELECTOR-->
-                <p class="formNames">Injured from attack</p>
-                <div class="ifa">
-                    
-                    <div class="ifaSelect1">
-                        <input type="checkbox" id="ifa1" name="ifa1" value="rareSpecies">
-                        <label for="ifa1">Rare Species</label><br>
-                        <input type="checkbox" id="ifa2" name="ifa2" value="zombies">
-                        <label for="ifa2">Zombies</label><br>
-                        <input type="checkbox" id="ifa3" name="ifa3" value="plants">
-                        <label for="ifa3">Palnts</label>
+        
+        <div class="form-parent">
+          <div class="contact-bullet">
+            <h2 class="is-h2">Contact</h2>
+            <div class="dot-part is-display-flex is-align-items-center">
+                <div class="circle"></div>
+              </div>
+          </div>
+          <div class="form">
+              <h2 class="form-title is-h2">Tell us<br>what <span class="primary-color">happened</span>?</h2>
+              <form>
+                  <label for="fname" class="form-name is-h3">Name:</label>
+                  <input type="text" id="fname" name="name" class="text-input" placeholder="Tommy Wiseau">
+                  <label for="iname" class="form-name is-h3">Issue name:</label>
+                  <input type="text" id="iname" name="name" class="text-input" placeholder="Poaching on Costel river">
+                  <label for="mailbox" class="form-name is-h3">E-mail:</label>
+                  <input type="email" id="mailbox" name="mailbox" class="text-input" placeholder="theroom@sp.com">
+                  <!--REGION SELECTOR-->
+                  <p class="form-name is-h3">Injured from attack</p>
+                  <div class="ifa">
+                    <div class="ifa-select1">
+                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Rare Species</label></div>
+                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Zombies</label></div>
+                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Plants</label></div>
                     </div>
-                    <div class="ifaSelect2">
-                        <input type="checkbox" id="ifa4" name="ifa4" value="redBookPlants">
-                        <label for="ifa4">Red book plants</label><br>
-                        <input type="checkbox" id="ifa5" name="ifa5" value="rivers">
-                        <label for="ifa5">Rivers</label><br>
-                        <input type="checkbox" id="ifa6" name="ifa6" value="lakes">
-                        <label for="ifa6">Lakes</label>
+                    <div class="ifa-select2">
+                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Red book plants</label></div>
+                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Rivers</label></div>
+                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Lakes</label></div>
                     </div>
-                    <div class="ifaSelect3">
-                        <input type="checkbox" id="ifa7" name="ifa7" value="soil">
-                        <label for="ifa7">Soil</label><br>
-                        <input type="checkbox" id="ifa8" name="ifa8" value="cities">
-                        <label for="ifa8">Cities</label><br>
-                        <input type="checkbox" id="ifa9" name="ifa9" value="other">
-                        <label for="ifa9">Other</label><br>
+                    <div class="ifa-select3">
+                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Soil</label></div>
+                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Cities</label></div>
+                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Other</label></div>
                     </div>
-                </div>
-                <div class="mcSelectors">
-                    <div class="type">
-                        <p>Type</p>
-                        <div class="typeSelect">
-                            <input type="radio" id="poaching1" name="type" value="poaching1">
-                            <label for="poaching1">Poaching</label><br>
-                            <input type="radio" id="poaching2" name="type" value="poaching2">
-                            <label for="poaching2">Poaching</label><br>
-                            <input type="radio" id="poaching3" name="type" value="poaching3">
-                            <label for="poaching3">Poaching</label><br>
-                            <input type="radio" id="poaching4" name="type" value="poaching4">
-                            <label for="poaching4">Poaching</label><br>
-                        </div>
-                    </div>
-                    <div class="aoi">
-                        <p>Amount of injuries</p>
-                        <div class="typeSelect">
-                            <input type="radio" id="poaching5" name="aoi" value="poaching5">
-                            <label for="poaching5">Poaching</label><br>
-                            <input type="radio" id="poaching6" name="aoi" value="poaching6">
-                            <label for="poaching6">Poaching</label><br>
-                            <input type="radio" id="poaching7" name="aoi" value="poaching7">
-                            <label for="poaching7">Poaching</label><br>
-                        </div>
-                    </div>
-                </div>
-                <div class="descr">
-                    <p>Description</p>
-                    <textarea></textarea>
-                </div>
-                <button type="button">Send complaint</button><br>
-                <button type="button">Reset form</button>
-            </form>
+                  </div>
+                  <div class="mc-selectors">
+                      <div class="type">
+                          <div class="type-select">
+                            <p class="form-name is-h3">Type</p>
+                            <div class="r-container"><label class="label"><input type="radio" name="type"><span class="radiomark"></span>Poaching</label></div>
+                            <div class="r-container"><label class="label"><input type="radio" name="type"><span class="radiomark"></span>Poaching</label></div>
+                            <div class="r-container"><label class="label"><input type="radio" name="type"><span class="radiomark"></span>Poaching</label></div>
+                            <div class="r-container"><label class="label"><input type="radio" name="type"><span class="radiomark"></span>Poaching</label></div>
+                          </div>
+                      </div>
+                      <div class="aoi">
+                          <p class="form-name is-h3">Amount of injuries</p>
+                          <div class="aoi-select">
+                            <div class="r-container"><label class="label"><input type="radio" name="aoi"><span class="radiomark"></span>Poaching</label></div>
+                            <div class="r-container"><label class="label"><input type="radio" name="aoi"><span class="radiomark"></span>Poaching</label></div>
+                            <div class="r-container"><label class="label"><input type="radio" name="aoi"><span class="radiomark"></span>Poaching</label></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="descr">
+                      <p class="form-name is-h3">Description</p>
+                      <textarea></textarea>
+                  </div>
+                  <button type="button">Send complaint</button><br>
+                  <button type="button">Reset form</button>
+              </form>
+          </div>
         </div>
         <div class="adress">
             <h4>ASTERICS HILL</h4>

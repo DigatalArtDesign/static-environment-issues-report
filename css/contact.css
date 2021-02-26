@@ -1,5 +1,5 @@
 .main-content {
-  height: 100%;
+  height: 100wh;
   display: flex;
   width: 100%;
 }
@@ -10,11 +10,8 @@
 }
 
 .main-content__main-image {
-  height: 100%;
   background-size: cover;
   background-color: var(--primary);
-  background-repeat: no-repeat;
-  background-position: center;
   display: flex;
   flex-direction: column;
 }
@@ -39,40 +36,187 @@
   color: var(--semi-white);
 }
 
-.form {
+.primary-color{
+  color: var(--primary);
+}
+
+.form-parent{
   margin-left: 10em;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
-  width: 75%;
-  border: 5px solid black;
+}
+
+
+.contact-bullet {
+  color: var(--white);
+  display: flex;
+  margin-bottom: 7em;
+}
+
+.dot-part > .circle {
+  background-color: var(--white);
+  width: 37px;
+  height: 37px;
+  border-radius: 30px;
+}
+
+.dot-part {
+  padding-left: 1em;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--white);
+ 
 }
 
 form {
-  border: 5px solid black;
-  margin-left: 3em;
+  border: 5px solid var(--black);
+  margin-left: 2.5em;
   margin-right: 2em;
 }
 
+.form-title {
+  margin-left: 0.625em;
+  margin-bottom: 0em;
+  border: 5px solid var(--black);;
+}
+
+.form-name {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+.text-input {
+  width: 95%;
+  font-size: 1.3em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.3em;
+  padding-left: 0.7em;
+  border-bottom: 3px solid var(--black);
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+}
+
+.text-input:focus {
+  outline:none;
+}
+
+.label .checkmark, .label, .r-container .radiomark, .radiomark{
+  cursor: pointer;
+}
+
 .ifa {
-  display: flex;
+  display:flex;
   
 }
-.ifaSelect1 {
+
+.ifa-select2 {
+  margin-left: 15%;
 
 }
 
-.ifaSelect2 {
+.ifa-select3 {
+  margin-left: 15%;
+}
+
+.mc-selectors {
+  display: flex;
+}
+
+.aoi {
   margin-left: 5em;
-
-}
-.ifaSelect3 {
-
 }
 
-.mcSelectors {
-  display: flex;
-  
-  
+.cb-container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-top: .7em;
+  margin-bottom: .7em;
+  font-size: 1.3em;
+}
+
+.cb-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: var(--white);
+  border: 2px solid var(--black);
+}
+
+.cb-container:hover input ~ .checkmark {
+  background-color: #0026298c;
+}
+
+.cb-container input:checked ~ .checkmark {
+  background-color: var(--background);
+}
+
+.r-container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-top: .7em;
+  margin-bottom: .7em;
+  font-size: 1.3em;
+}
+
+.r-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radiomark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: 3px solid var(--black);
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
+.r-container:hover input ~ .radiomark {
+  background-color: #0026298c;
+}
+
+.r-container input:checked ~ .radiomark {
+  background-color: var(--white);
+}
+
+.radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.r-container input:checked ~ .radiomark:after {
+  display: block;
+}
+
+.r-container .radiomark:after {
+  top: 1px;
+ left: 1px;
+ width: 13px;
+ height: 13px;
+ border-radius: 50%;
+ background: var(--background);
 }
