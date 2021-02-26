@@ -54,6 +54,7 @@
     --black: rgba(255,255,255, 1);
     --white: rgba(255,255,255, 1);
     --semi-white: rgba(255,255,255, 0.9);
+    --comment-white: rgba(255,255,255,0.7);
     --semi-black: rgba(0,0,0,0.9);
     --background: #002629;
     --attract: #81EEA9;
@@ -102,6 +103,10 @@ body {
     order: 1;
 }
 
+.is-absolute {
+    position: absolute;
+}
+
 /* h1, h2, h3 etc. */
 .is-h1 {
     font-size: 6rem;
@@ -112,6 +117,19 @@ body {
     font-weight: normal;
 }
 
+.is-comment-text {
+    color: var(--comment-white);
+    font-weight: 300;
+    font-size: 18px;
+    position: relative;
+}
+
+.is-comment-text:first-child::before {
+    content: '*';
+    position: absolute;
+    left: -8px;
+    top: 14%;
+}
 /* other */
 .is-no-list-decoration {
     list-style-type: none;
