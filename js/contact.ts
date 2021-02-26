@@ -1,4 +1,6 @@
-import {FormData} from "./classes/FormData.js";
+import {FormData} from "./classes/FormData";
+import {api} from "./api/api";
+
 "use strict"
 document.addEventListener('DOMContentLoaded', () => {
    const formData = new FormData();
@@ -7,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
    const initForm = () => {
     const injured = Object.values(formData.injuredFromAttack);
     for (let i = 0; i < checkboxes.length; i++) {
-        document.getElementsByClassName('checkbox')[i].checked = injured[i];
+        (document.getElementsByClassName('checkbox')[i] as HTMLInputElement).checked = injured[i];
     }
     Object.keys(formData).map((item, key) => {
         if(key < 3) {
-            document.getElementById(`form-${item}`).value = formData[item];
+            (document.getElementById(`form-${item}`) as HTMLInputElement).value = formData[item];
         } 
     });
-    document.getElementById('form-description').value = formData.description;
+    (document.getElementById('form-description') as HTMLInputElement).value = formData.description;
    }
 
    const listenDomElementCollection = (element, formObject, isRadio = false) => {
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             }
              const key = Object.keys(formObject).find((_, ind) => ind === i);
-             formObject[key] = e.target.checked;
+             formObject[key] = (e.target as HTMLInputElement).checked;
          });
     }
    }
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
    const listenDomElement = (elementName, formObject) => {
        const domObject = document.getElementById(elementName);
        domObject.addEventListener('input', (e) => {
-            formObject = e.target.value;
+            formObject = (e.target as HTMLInputElement).value;
             console.log(formData);
        })
    }
@@ -47,9 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
    listenDomElementCollection("form-radio-amount", formData.amountOfInjures, true);
    Object.keys(formData).map((item, key) => {
     if(key < 3) {
-        listenDomElement(`form-${item}`);
+        listenDomElement(`form-${item}`, formData[item]);
     } 
-    listenDomElement('form-description');
+    listenDomElement('form-description', formData[item]);
+
+    api.loadCountries().then(countries => console.log(countries));
 });
    
 });
