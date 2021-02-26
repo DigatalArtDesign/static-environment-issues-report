@@ -13,5 +13,8 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "uuid": "^3.4.0"
   }
 }
