@@ -7,13 +7,19 @@ import { Countriable } from "./interfaces/countries";
 
 document.addEventListener('DOMContentLoaded', () => {
    const formData = new FormData();
-   const checkboxes = document.getElementById('checkboxes').getElementsByClassName('checkbox');
 
    const initForm = () => {
-    const injured = Object.values(formData.injuredFromAttack);
-    for (let i = 0; i < checkboxes.length; i++) {
+    const checkboxes = document.getElementById('checkboxes').getElementsByClassName('checkbox');
+    const radioType = document.getElementsByClassName('form-radio-type');
+    const radioAmount = document.getElementsByClassName('form-radio-amount'); 
+
+    const injured = Object.values(formData.injuredFromAttack); 
+    for (let i = 0; i < injured.length; i++) {
         (document.getElementsByClassName('checkbox')[i] as HTMLInputElement).checked = injured[i];
     }
+    Object.keys(formData.type).map((item, index) => (document.getElementsByClassName('form-radio-type')[index] as HTMLInputElement).checked = formData.type[item]);
+    Object.keys(formData.amountOfInjures).map((item, index) => (document.getElementsByClassName('form-radio-amount')[index] as HTMLInputElement).checked = formData.amountOfInjures[item]);
+
     Object.keys(formData).map((item, key) => {
         if(key < 3) {
             (document.getElementById(`form-${item}`) as HTMLInputElement).value = formData[item];
@@ -22,19 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
     (document.getElementById('form-description') as HTMLInputElement).value = formData.description;
    }
 
-   const listenDomElementCollection = (element, formObject, isRadio = false) => {
+   const listenDomMultiselectCollection = (element, formObject, listener = 'input', inputClass, isRadio = false) => {
     const domObject = document.getElementsByClassName(element);
 
     for (let i = 0; i < domObject.length; i++) {
-        domObject[i].addEventListener('input', (e) => {
+        domObject[i].addEventListener(listener, (e) => {
             if (isRadio) {
                 Object.keys(formObject).map(i => {
                     formObject[i] = false
                 })
             }
              const key = Object.keys(formObject).find((_, ind) => ind === i);
-             formObject[key] = (e.target as HTMLInputElement).checked;
-         });
+             formObject[key] = !formObject[key];
+             const el = <HTMLInputElement>domObject[i].getElementsByClassName(inputClass)[0];
+             if ((el.checked) !== undefined) {
+                el.checked = formObject[key]
+             } else {
+                 console.error('Selection error: This element doesn\'t have input with checked attribute');
+             }
+         }, true);
     }
    }
 
@@ -42,14 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
        const domObject = document.getElementById(elementName);
        domObject.addEventListener('input', (e) => {
             formObject = (e.target as HTMLInputElement).value;
-            console.log(formData);
        })
    }
 
    initForm();
-   listenDomElementCollection("checkboxes", formData.injuredFromAttack);
-   listenDomElementCollection("form-radio-type", formData.type, true);
-   listenDomElementCollection("form-radio-amount", formData.amountOfInjures, true);
+   listenDomMultiselectCollection("cb-container", formData.injuredFromAttack, 'click', 'checkbox');
+   listenDomMultiselectCollection("form-radio-type-wrapper", formData.type, 'click', 'form-radio-type', true);
+   listenDomMultiselectCollection("form-radio-amount-wrapper", formData.amountOfInjures, 'click', 'form-radio-amount', true);
+
    Object.keys(formData).map((item, key) => {
     if(key < 3) {
         listenDomElement(`form-${item}`, formData[item]);
