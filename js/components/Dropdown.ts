@@ -106,6 +106,7 @@ export class Dropdown {
 
     private listenOptions(): void {
         const options = document.getElementsByClassName('option-dropdown');
+        const menu = document.getElementById(this.menuDropdown.id);
         for (let option of options) {
             option.addEventListener('click', (e) => {
                 const selected = document.getElementById(this.selected.id)
@@ -119,6 +120,9 @@ export class Dropdown {
                         option.classList.remove('dropdown-selected');
                     }
                 }
+
+                menu.classList.add('dropdown-leave');
+                menu.classList.remove('dropdown-enter')
 
             });
         }
