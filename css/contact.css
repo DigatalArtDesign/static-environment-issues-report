@@ -309,3 +309,17 @@ textarea:focus {
   padding-left: 10rem;
 }
 
+.address-box .address-title {
+  font-weight: 100;
+  color: var(--white);
+  letter-spacing: 7px;
+  font-size: 4rem;
+}
+
+.address-box .address {
+  font-size: 2.83rem;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 2px;
+}
+
