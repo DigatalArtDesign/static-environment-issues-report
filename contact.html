@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -15,114 +15,146 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
-  <link rel="stylesheet" href="css/common.css"/>
   <link rel="stylesheet" href="css/contact.css" />
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components/dropdown.css">
+  <link rel="stylesheet" href="css/common.css" />
 
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
   <header class="nav-bar">
-    <h3 class="logo-text is-h3">SavePlanet</h3>
+    <h3 class="logo-text is-h3">
+      <span class="cursor-pointer" onclick="window.location = './index.html'">SavePlanet</span>
+    </h3>
     <nav class="is-half-flex-basis">
       <ul class="is-ul main-content__navigation-bar">
-        <li class="is-list-item is-link is-h3">
-          <a>About</a>
+        <li class="is-list-item is-h3">
+          <a class="is-link" onclick="window.location = './redirected.html'" href="#">About</a>
         </li>
-        <li class="is-list-item is-lint is-h3">
-          <a>Work</a>
+        <li class="is-list-item is-h3">
+          <a class="is-link" href="#">Work</a>
         </li>
         <li class="is-list-item is-link is-h3">
-          <a href="contact.html">Contact</a>
+          <a class="is-link" onclick="window.location = './contact.html'" href="./contact.html">Contact</a>
         </li>
       </ul>
     </nav>
   </header>
-  <main class="main-content">
-    <section class="main-content__section-video is-half-flex-basis">
-      <div class="main-content__main-image">
-        
-        <div class="form-parent">
-          <div class="contact-bullet">
-            <h2 class="is-h2">Contact</h2>
-            <div class="dot-part is-display-flex is-align-items-center">
-                <div class="circle"></div>
-              </div>
-          </div>
-          <div class="form">
-              <h2 class="form-title is-h2">Tell us<br>what <span class="primary-color">happened</span>?</h2>
-              <form>
-                  <label for="fname" class="form-name is-h3">Name:</label>
-                  <input type="text" id="fname" name="name" class="text-input" placeholder="Tommy Wiseau">
-                  <label for="iname" class="form-name is-h3">Issue name:</label>
-                  <input type="text" id="iname" name="name" class="text-input" placeholder="Poaching on Costel river">
-                  <label for="mailbox" class="form-name is-h3">E-mail:</label>
-                  <input type="email" id="mailbox" name="mailbox" class="text-input" placeholder="theroom@sp.com">
-                  <!--REGION SELECTOR-->
-                  <p class="form-name is-h3">Injured from attack</p>
-                  <div class="ifa">
-                    <div class="ifa-select1">
-                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Rare Species</label></div>
-                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Zombies</label></div>
-                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Plants</label></div>
-                    </div>
-                    <div class="ifa-select2">
-                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Red book plants</label></div>
-                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Rivers</label></div>
-                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Lakes</label></div>
-                    </div>
-                    <div class="ifa-select3">
-                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Soil</label></div>
-                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Cities</label></div>
-                      <div class="cb-container"><label class="label"><input type="checkbox"><span class="checkmark"></span>Other</label></div>
-                    </div>
-                  </div>
-                  <div class="mc-selectors">
-                      <div class="type">
-                          <div class="type-select">
-                            <p class="form-name is-h3">Type</p>
-                            <div class="r-container"><label class="label"><input type="radio" name="type"><span class="radiomark"></span>Poaching</label></div>
-                            <div class="r-container"><label class="label"><input type="radio" name="type"><span class="radiomark"></span>Poaching</label></div>
-                            <div class="r-container"><label class="label"><input type="radio" name="type"><span class="radiomark"></span>Poaching</label></div>
-                            <div class="r-container"><label class="label"><input type="radio" name="type"><span class="radiomark"></span>Poaching</label></div>
-                          </div>
-                      </div>
-                      <div class="aoi">
-                          <p class="form-name is-h3">Amount of injuries</p>
-                          <div class="aoi-select">
-                            <div class="r-container"><label class="label"><input type="radio" name="aoi"><span class="radiomark"></span>Poaching</label></div>
-                            <div class="r-container"><label class="label"><input type="radio" name="aoi"><span class="radiomark"></span>Poaching</label></div>
-                            <div class="r-container"><label class="label"><input type="radio" name="aoi"><span class="radiomark"></span>Poaching</label></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="descr">
-                      <p class="form-name is-h3">Description</p>
-                      <textarea></textarea>
-                  </div>
-                  <button type="button">Send complaint</button><br>
-                  <button type="button">Reset form</button>
-              </form>
-          </div>
-        </div>
-        <div class="adress">
-            <h4>ASTERICS HILL</h4>
-            <p>RoadTown Highway Ohaio<br>Peara Novada 32A<br>2012-123112 Domenie<br>USA</p>
-        </div>
+  <main class="main-content is-flex-column">
+    <section class="section-call">
+      <div class="call">
+        <p>Reach us so that we can <br>take actions <span class="background-color">together</span>.</p>
       </div>
     </section>
-    <section class="main-content__section-content">
-        <div>
-            <h4>Reach us so that<br> we can take actions<br>together.</h4>
-            <h4>For more concrete cases send us an email to saveanimals@sas.com</h4>
+    <section class="section-form">
+      <div class="form-parent">
+        <div class="contact-bullet">
+          <h2 class="is-h2">Contact</h2>
+          <div class="dot-part is-display-flex is-align-items-center">
+            <div class="circle"></div>
+          </div>
         </div>
+        <div class="form">
+          <h2 class="form-title is-h2">Tell us<br>what <span class="primary-color">happened</span>?</h2>
+          <form>
+            <label class="form-name is-h3">Name:</label>
+            <input type="text" id="form-name" name="name" class="text-input" placeholder="Tommy Wiseau">
+            <label for="form-issue" class="form-name is-h3">Issue name:</label>
+            <input type="text" id="form-issue" name="name" class="text-input" placeholder="Poaching on Costel river">
+            <label for="form-email" class="form-name is-h3">E-mail:</label>
+            <input type="email" id="form-email" name="mailbox" class="text-input" placeholder="theroom@sp.com">
+            <div>
+              <p class="form-name is-h3">Select your region</p>
+              <div id="dropdown-section" class="dropdown-section">
+              </div>
+            </div>
+            <p class="form-name is-h3">Injured from attack</p>
+            <div id="checkboxes" class="ifa">
+              <div class="ifa-select1">
+                <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox" class="checkbox"><span
+                      class="checkmark"></span>Rare Species</label></div>
+                <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox" class="checkbox"><span
+                      class="checkmark"></span>Ozone Layer</label></div>
+                <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox" class="checkbox"><span
+                      class="checkmark"></span>Mean temperature</label></div>
+              </div>
+              <div class="ifa-select2">
+                <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox" class="checkbox"><span class="checkmark"></span>Red
+                    book plants</label></div>
+                <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox" class="checkbox"><span
+                      class="checkmark"></span>Rivers</label></div>
+                <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox" class="checkbox"><span
+                      class="checkmark"></span>Lakes</label></div>
+              </div>
+              <div class="ifa-select3">
+                <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox" class="checkbox"><span
+                      class="checkmark"></span>Soil</label></div>
+                <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox" class="checkbox"><span
+                      class="checkmark"></span>Cities</label></div>
+                <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox" class="checkbox"><span
+                      class="checkmark"></span>Other</label></div>
+              </div>
+            </div>
+            <div class="mc-selectors">
+              <div class="type">
+                <div class="type-select">
+                  <p class="form-name is-h3">Type</p>
+                  <div class="form-radio-type-wrapper cursor-pointer r-container"><label class="label"><input type="radio" name="type" class="form-radio-type"><span
+                        class="radiomark"></span>Pollution Assault</label></div>
+                  <div class="form-radio-type-wrapper cursor-pointer r-container"><label class="label"><input type="radio" name="type" class="form-radio-type"><span
+                        class="radiomark"></span>Endangered species poaching</label></div>
+                  <div class="form-radio-type-wrapper cursor-pointer r-container"><label class="label"><input type="radio" name="type" class="form-radio-type"><span
+                        class="radiomark"></span>Arson</label></div>
+                  <div class="form-radio-type-wrapper cursor-pointer r-container"><label class="label"><input type="radio" name="type" class="form-radio-type"><span
+                        class="radiomark"></span>Dump</label></div>
+                </div>
+              </div>
+              <div class="aoi">
+                <p class="form-name is-h3">Amount of injuries</p>
+                <div class="aoi-select">
+                  <div class="form-radio-amount-wrapper cursor-pointer r-container"><label class="label"><input type="radio" class="form-radio-amount" name="aoi"><span
+                        class="radiomark"></span>Minor</label></div>
+                  <div class="form-radio-amount-wrapper cursor-pointer r-container"><label class="label"><input type="radio" class="form-radio-amount" name="aoi"><span
+                        class="radiomark"></span>Medium</label></div>
+                  <div class="form-radio-amount-wrapper cursor-pointer r-container"><label class="label"><input type="radio" class="form-radio-amount" name="aoi"><span
+                        class="radiomark"></span>Severe</label></div>
+                </div>
+              </div>
+            </div>
+            <div class="description">
+              <p class="form-name is-h3">Description</p>
+              <textarea id="form-description" placeholder="Provide a detailed description"></textarea>
+            </div>
+            <div class="buttons">
+              <button id="send-compliant" type="button" class="s-complaint is-button is-h3">Send complaint</button>
+            </div>
+            <div class="buttons">
+              <button id="reset-form" type="button" class="r-form is-button is-h3">Reset form</button>
+            </div>
+          </form>
+        </div><!-- form -->
+      </div><!-- form-parent -->
+      <div class="form-call">
+        <p>For more concrete cases<br>send us an email to<br><span class="primary-color">saveanimals@sp.com</span></p>
+      </div>
     </section>
+    <section class="section-address">
+      <div class="address-box">
+        <h2 class="address-title is-h2">ASTERICS HILL</h2>
+        <p class="address is-h3">RoadTown Highway Ohaio<br>Peara Novada 32A<br>2012-123112 Domenie<br>USA</p>
+      </div>
+    </section>
+    <footer class="dummy">
+
+    </footer>
   </main>
   <!-- Add your site or application content here -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
+  <script defer type="text/javascript" src="js/components/contact.ts"></script>
   <script src="js/main.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
