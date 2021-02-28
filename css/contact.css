@@ -100,6 +100,7 @@ form {
   /* border: 5px solid var(--black); */
   margin-left: 2.5rem;
   margin-right: 2rem;
+  padding-top: 20px;
 }
 
 .form-title {
@@ -134,8 +135,13 @@ form {
   cursor: pointer;
 }
 
+.label {
+  padding-left: 10px;
+  display: block;
+}
+
 .ifa {
-  width: 100%;
+  width: 94%;
   display:flex;
   
 }
@@ -250,6 +256,7 @@ form {
 }
 
 textarea {
+  padding-left: 20px;
   width: 95%;
   height: 150px;
   font-size: 1.3rem !important; 

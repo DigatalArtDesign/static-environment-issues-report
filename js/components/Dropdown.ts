@@ -111,7 +111,6 @@ export class Dropdown {
             option.addEventListener('click', (e) => {
                 const selected = document.getElementById(this.selected.id)
                 selected.innerHTML = (e.target as HTMLButtonElement).value;
-                console.log(option)
 
                 for (let option of options) {
                     if ((option as HTMLInputElement).innerText === selected.innerText) {
