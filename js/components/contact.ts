@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
        const button = document.getElementById('send-compliant');
        button.addEventListener('click', (e) => {
             localStorage.setItem('formItem', JSON.stringify(formData));
-            window.open('./redirected-table.html');
+            window.open('./redirected.html');
        });
    }
 
