@@ -188,3 +188,14 @@ a:hover {
       font-size: 4rem !important;
   }
 }
+
+.is-button {
+    height: 60px;
+    width: 225px;
+    border: none;
+    cursor: pointer;
+}
+
+.is-button:focus {
+    outline:none;
+}

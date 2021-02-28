@@ -85,6 +85,7 @@
 }
 
 .menu-dropdown {
+    z-index: 3;
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
     transform-origin: top;
     position: absolute;
