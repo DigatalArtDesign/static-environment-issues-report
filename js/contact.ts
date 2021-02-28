@@ -1,7 +1,10 @@
 import {FormData} from "./classes/FormData";
 import {api} from "./api/api";
+import {Dropdown} from "./components/Dropdown";
+import { Countriable } from "./interfaces/countries";
 
 "use strict"
+
 document.addEventListener('DOMContentLoaded', () => {
    const formData = new FormData();
    const checkboxes = document.getElementById('checkboxes').getElementsByClassName('checkbox');
@@ -51,9 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if(key < 3) {
         listenDomElement(`form-${item}`, formData[item]);
     } 
-    listenDomElement('form-description', formData[item]);
+    listenDomElement('form-description', formData[item]);   
+    });
 
-    api.loadCountries().then(countries => console.log(countries));
-});
-   
+    const createDropdown = (async () => {
+        const dropdownContent: Countriable[] = await api.loadCountries();
+        const props = {
+            arrayOfElements: dropdownContent,
+            defaultText: "Select your region",
+            appendTo: "dropdown-section",
+        }
+        const drop = new Dropdown(props);
+    });
+
+    createDropdown();
 });

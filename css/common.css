@@ -51,6 +51,7 @@
 /* variables */
 :root {
     --primary: #46CD9C;
+    --primary-light: rgba(70, 205, 156, 0.6);
     --black: rgba(0,0,0, 1);
     --white: rgba(255,255,255, 1);
     --semi-white: rgba(255,255,255, 0.9);
@@ -58,7 +59,9 @@
     --semi-black: rgba(0,0,0,0.9);
     --background: #002629;
     --attract: #81EEA9;
+    --light-grey: #EDEDED;
     --simple-grey: rgba(0,0,0,0.4);
+    --simple-grey: rgba(0,0,0,0.2);
     --font-size: 12px;
     --xs: 500px;
     --sm: 650px;
@@ -93,6 +96,10 @@ body {
 .is-flex-column {
     display: flex;
     flex-direction: column;
+}
+
+.is-inline-flex {
+    display: inline-flex;
 }
 
 .is-half-flex-basis {
@@ -136,6 +143,10 @@ body {
     top: 14%;
 }
 /* other */
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .is-no-list-decoration {
     list-style-type: none;
 }
@@ -164,6 +175,11 @@ a:hover {
     text-decoration: none;
     transition: all 0.4s ease-in;
 }
+
+.is-w-full {
+    width: 100%;
+}
+
 
 
 

@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Country } from "../interfaces/countries";
+import { Countriable } from "../interfaces/countries";
 
 export class Api {
     globalHttp: AxiosInstance
@@ -10,10 +10,10 @@ export class Api {
         this.globalHttp = axios.create();
     }
 
-    async loadCountries(): Promise<Country[]> {
+    async loadCountries(): Promise<Countriable[]> {
         const countries = await this.http.get("https://api.first.org/data/v1/countries");
 
-        return countries.data.data;
+        return Object.values(countries.data.data);
     }
 
 }
