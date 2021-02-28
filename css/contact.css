@@ -288,8 +288,13 @@ textarea:focus {
 .r-form {
   background-color: var(--white);
   color: var(--black);
-  border-bottom: 3px solid var(--black);
   margin-bottom: 2rem;
+  border-bottom: 3px solid transparent !important;
+  transition: all 0.4s ease-in;
+}
+
+.r-form:hover {
+  border-bottom: 3px solid var(--black) !important;
 }
 
 .form-call {

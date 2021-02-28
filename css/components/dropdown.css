@@ -58,7 +58,7 @@
 
 .dropdown .select {
     width: 100%;
-    max-width: 16.67rem;
+    max-width: 97%;
     height: 3.91rem;
     background-color: var(--white);
     align-items: center;
@@ -92,7 +92,7 @@
     left: 0;
     margin-top: 2rem;
     width: 100%;
-    max-width: 16.67rem;
+    max-width: 97%;
     height: 20rem;
     background-color: var(--white);
     overflow: auto;
