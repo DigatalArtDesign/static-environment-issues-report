@@ -25,17 +25,19 @@
 
 <body>
   <header class="nav-bar">
-    <h3 class="logo-text is-h3">SavePlanet</h3>
+    <h3 class="logo-text is-h3">
+      <span class="cursor-pointer" onclick="window.location = './index.html'">SavePlanet</span>
+    </h3>
     <nav class="is-half-flex-basis">
       <ul class="is-ul main-content__navigation-bar">
         <li class="is-list-item is-h3">
-          <a class="is-link" href="#">About</a>
+          <a class="is-link" onclick="window.location = './redirected.html'" href="#">About</a>
         </li>
         <li class="is-list-item is-h3">
           <a class="is-link" href="#">Work</a>
         </li>
         <li class="is-list-item is-link is-h3">
-          <a class="is-link" href="./contact.html">Contact</a>
+          <a class="is-link" onclick="window.location = './contact.html'" href="./contact.html">Contact</a>
         </li>
       </ul>
     </nav>

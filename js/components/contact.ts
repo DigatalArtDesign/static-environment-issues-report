@@ -1,7 +1,7 @@
-import {FormData} from "./classes/FormData";
-import {api} from "./api/api";
-import {Dropdown} from "./components/Dropdown";
-import { Countriable } from "./interfaces/countries";
+import {FormData} from "../classes/FormData";
+import {api} from "../api/api";
+import {Dropdown} from "../classes/Dropdown";
+import { Countriable } from "../interfaces/countries";
 
 "use strict"
 
@@ -56,7 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
    const sendForm = () => {
        const button = document.getElementById('send-compliant');
        button.addEventListener('click', (e) => {
-            console.log(formData);
+            localStorage.setItem('formItem', JSON.stringify(formData));
+            window.open('./redirected-table.html');
        });
    }
 

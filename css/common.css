@@ -198,3 +198,27 @@ a:visited {
 .is-button:focus {
     outline:none;
 }
+
+
+/* Nav bar */
+
+.nav-bar {
+    display: flex;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .logo-text {
+    padding: 30px 0 0 30px;
+    flex-basis: 47%;
+    margin: 0;
+    color: var(--semi-white);
+  }
+  
+  .main-content__navigation-bar {
+    display: flex;
+    justify-content: space-around;
+    color: var(--semi-white);
+    font-size: 24px;
+  }
+  
