@@ -1,23 +1,19 @@
 body {
-  background-color: var(--background);
+  height: 100%;
 }
+
+.primary-color {
+  color: var(--primary);
+}
+
+.background-color {
+  color: var(--background);
+}
+
 .main-content {
   height: 100%;
   display: flex;
   width: 100%;
-}
-
-.main-content__section-content {
-  flex-basis: 50%;
-  background-color: var(--primary);
-}
-
-.main-content__main-image {
-  height: 100%;
-  background-size: cover;
-  background-color: var(--primary);
-  display: flex;
-  flex-direction: column;
 }
 
 .nav-bar {
@@ -40,20 +36,36 @@ body {
   color: var(--semi-white);
 }
 
-.primary-color {
-  color: var(--primary);
+.section-call {
+  background-color: var(--primary);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.background-color {
-  color: var(--background);
+.call {
+  margin: 20rem 30rem 0px 0;
+  font-size: 3.5rem;
+  color: var(--white);
+}
+
+.section-form {
+  background-color: var(--background);
+  height: 120rem;
+  padding-bottom: 420px;
+  position: relative;
+  color: var(--black);
 }
 
 .form-parent{
-  margin-top: 30rem;
+  max-width: 550px;
+  position: absolute;
   margin-left: 10rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  top: -25rem;
 }
 
 
@@ -75,7 +87,7 @@ body {
 }
 
 .form {
-  max-width: 550px;
+  /* max-width: 550px; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -258,7 +270,7 @@ textarea:focus {
 .buttons {
   display: flex;
   justify-content: center;
-  align-itrems: center;
+  align-items: center;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -273,9 +285,6 @@ textarea:focus {
   background-color: #3CD262;
   color: var(--white);
 }
-
-
-
 .r-form {
   background-color: var(--white);
   color: var(--black);
@@ -283,30 +292,28 @@ textarea:focus {
   margin-bottom: 2rem;
 }
 
-.slogan1, .slogan2{
-  color: var(--white);
-  font-weight: normal;
-  margin: 0 auto;
-  /* border: 1px solid var(--black); */
-}
-
-.slogan1 {
-  width: 55%;
-  margin-top: 4.5em;
-  font-size: 3.5rem;
-}
-
-.slogan2 {
-  width: 50%;
-  margin-top: 27em;
+.form-call {
   font-size: 3rem;
+  color: var(--white);
+  float: right;
+  margin: 60rem 9rem 0 0;
+}
+
+.section-address {
+  background-color: var(--primary);
 }
 
 .address-box {
-  height: 800px;
-  margin-top: 4rem;
-  background-color: var(--primary);
-  padding-left: 10rem;
+  margin: 10rem 0 10rem 10rem;
+}
+
+.address-box p{
+  line-height: 3.5rem;
+}
+
+.dummy {
+  background-color: var(--background);
+  height: 100px;
 }
 
 .address-box .address-title {
