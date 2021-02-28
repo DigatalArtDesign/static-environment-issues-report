@@ -269,7 +269,7 @@ textarea:focus {
 .buttons {
   display: flex;
   justify-content: center;
-  align-itrems: center;
+  align-items: center;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
