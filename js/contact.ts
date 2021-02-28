@@ -9,10 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
    const formData = new FormData();
 
    const initForm = () => {
-    const checkboxes = document.getElementById('checkboxes').getElementsByClassName('checkbox');
-    const radioType = document.getElementsByClassName('form-radio-type');
-    const radioAmount = document.getElementsByClassName('form-radio-amount'); 
-
     const injured = Object.values(formData.injuredFromAttack); 
     for (let i = 0; i < injured.length; i++) {
         (document.getElementsByClassName('checkbox')[i] as HTMLInputElement).checked = injured[i];
@@ -53,8 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
    const listenDomElement = (elementName, formObject) => {
        const domObject = document.getElementById(elementName);
        domObject.addEventListener('input', (e) => {
-            formObject = (e.target as HTMLInputElement).value;
+            formData[formObject] = (e.target as HTMLInputElement).value;
        })
+   }
+
+   const sendForm = () => {
+       const button = document.getElementById('send-compliant');
+       button.addEventListener('click', (e) => {
+            console.log(formData);
+       });
    }
 
    initForm();
@@ -63,11 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
    listenDomMultiselectCollection("form-radio-amount-wrapper", formData.amountOfInjures, 'click', 'form-radio-amount', true);
 
    Object.keys(formData).map((item, key) => {
-    if(key < 3) {
-        listenDomElement(`form-${item}`, formData[item]);
-    } 
-    listenDomElement('form-description', formData[item]);   
+        if(key < 3) {
+            listenDomElement(`form-${item}`, item);
+        } 
     });
+    listenDomElement('form-description', 'description');   
 
     const createDropdown = (async () => {
         const dropdownContent: Countriable[] = await api.loadCountries();
@@ -80,4 +83,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     createDropdown();
+    sendForm();
 });
