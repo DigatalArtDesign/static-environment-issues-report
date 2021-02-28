@@ -60,6 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
        });
    }
 
+   const resetForm = () => {
+       const reset = document.getElementById('reset-form');
+       reset.addEventListener('click', () => {
+            console.log('reset form');
+            formData.resetForm();
+            initForm();
+       });
+   }
+
    initForm();
    listenDomMultiselectCollection("cb-container", formData.injuredFromAttack, 'click', 'checkbox');
    listenDomMultiselectCollection("form-radio-type-wrapper", formData.type, 'click', 'form-radio-type', true);
@@ -84,4 +93,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createDropdown();
     sendForm();
+    resetForm();
 });
