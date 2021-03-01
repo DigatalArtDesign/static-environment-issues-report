@@ -53,7 +53,6 @@ body {
   padding-left: 1rem;
 }
 
-
 .about-img {
   width: 90%;
   margin: 5rem auto;
@@ -77,17 +76,17 @@ body {
 .about-right {
   width: 40%;
   color: var(--white);
-  padding-bottom: 10rem;
+  margin-bottom: 10rem;
 }
 
 .about-right img{
   width: 100%;
-  padding: 1.5rem 0;
+  margin: 1.5rem 0;
 }
 
 .right-textbox {
   justify-content: flex-end;
-  padding: 1rem 0;
+  margin: 1rem 0;
 }
 
 .right-title{
@@ -101,21 +100,161 @@ body {
 
 .section-icons {
   background-color: #A6FFD4;
+  position: relative;
 }
 
 .icons-title-text {
   justify-content: center;
+  padding-bottom: 37rem;
 }
 
 .icons-title {
   width: 40%;
+  margin-top: 5rem;
 }
 
 .icons-text {
   width: 40%;
-  padding-top: 10rem;
+  margin-top: 30rem;
 }
 
 .icons-text h3{
   width: 60%;
+}
+
+.iconbox-box {
+  justify-content: space-evenly;
+  position: absolute;
+  top: 60rem;
+}
+
+.iconbox {
+  background-color: var(--white);
+  width: 16%;
+}
+
+.icon-img {
+  width: 35%;
+  margin: 6rem 0 0rem 2.5rem;
+}
+
+.iconbox-title {
+  font-size: 2.5rem;
+  margin: 4rem 2.5rem 2rem 2.5rem;
+}
+
+.iconbox-text {
+  margin: 2rem 2.5rem 2rem 2.5rem;
+}
+
+.case-boxes {
+  margin-bottom: 60rem;
+}
+
+.cases-title {
+  width: 50%;
+  color: var(--white);
+  padding: 30rem 0 0 11rem; 
+}
+
+.title-title {
+  width: 70%;
+}
+
+.txt-img-box {
+  width: 20%;
+  position: relative;
+}
+
+.box-row2-txt {
+  color: var(--white);
+  width: 20%;
+}
+
+.box-row1 {
+  margin: 7rem 0 7rem 6rem;
+  justify-content: space-around;
+  position: relative;
+}
+
+.box-row2 {
+  margin: 50rem 0 7rem 6rem;
+  justify-content: space-around;
+  position: relative;
+}
+
+.tib1 {
+  position: absolute;
+  left: 7rem;
+}
+
+.tib2 {
+  position: absolute;
+  top: 10rem;
+}
+
+.tib3 {
+  position: absolute;
+  left: 78rem;
+  top: -10rem;
+}
+
+.tib6 {
+  margin: 0 auto;
+}
+
+.img-box {
+  width: 90%;
+  float: right;
+}
+
+.txt-box {
+  width: 80%;
+  position: absolute;
+  top: 13rem;
+  left: -4rem;
+}
+
+.txt-title {
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  width: 50%;
+}
+
+.txt-semitile {
+  margin: 0 0 1rem 2rem;
+}
+
+.txt {
+  margin: 0 0 2rem 2rem;
+  width: 65%;
+}
+
+.txt-box1 {
+  background-color: #DBF5AB;
+}
+
+.txt-box2 {
+  background-color: #02B385;
+}
+
+.txt-box3 {
+  background-color: #024B40;
+}
+
+.txt-box4 {
+  background-color: #024B40;
+}
+
+.txt-box5 {
+  background-color: #024B40;
+}
+
+.txt-box6 {
+  background-color: #DBF5AB;
+}
+
+.dummy {
+  background-color: var(--background);
+  height: 100px;
 }
