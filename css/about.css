@@ -13,7 +13,7 @@ body {
 }
 
 .main-content {
-  height: 100%;  
+  height: 100%;
 }
 
 .section-call {
@@ -58,7 +58,7 @@ body {
   margin: 5rem auto;
 }
 
-.about-img img{
+.about-img img {
   width: 100%;
 }
 
@@ -69,7 +69,7 @@ body {
 }
 
 .about-left {
-  width: 40%; 
+  width: 40%;
   color: var(--white);
 }
 
@@ -79,7 +79,7 @@ body {
   margin-bottom: 10rem;
 }
 
-.about-right img{
+.about-right img {
   width: 100%;
   margin: 1.5rem 0;
 }
@@ -89,7 +89,7 @@ body {
   margin: 1rem 0;
 }
 
-.right-title{
+.right-title {
   margin: 2.5rem 1rem 0 0;
   font-size: 1.3rem;
 }
@@ -99,7 +99,7 @@ body {
 }
 
 .section-icons {
-  background-color: #A6FFD4;
+  background-color: #a6ffd4;
   position: relative;
 }
 
@@ -118,7 +118,7 @@ body {
   margin-top: 30rem;
 }
 
-.icons-text h3{
+.icons-text h3 {
   width: 60%;
 }
 
@@ -138,7 +138,7 @@ body {
 
 .icon-img {
   width: 35%;
-  margin: 6rem 0 0rem 2.5rem;
+  margin: 6rem 0 0 2.5rem;
 }
 
 .iconbox-title {
@@ -153,7 +153,7 @@ body {
 .cases-title {
   width: 50%;
   color: var(--white);
-  padding: 30rem 0 0 11rem; 
+  padding: 30rem 0 0 11rem;
 }
 
 .title-title {
@@ -180,14 +180,14 @@ body {
   align-self: center;
   justify-self: end;
 }
-   
+
 .tib2 {
   grid-column: 2;
   grid-row: 1;
   align-self: end;
   justify-self: center;
 }
-   
+
 .tib3 {
   grid-column: 3;
   grid-row: 1;
@@ -211,14 +211,14 @@ body {
   color: var(--white);
   font-size: 1.5rem;
 }
-   
+
 .tib5 {
   grid-column: 3;
   grid-row: 3;
   align-self: start;
   justify-self: start;
 }
-   
+
 .tib6 {
   grid-column: 2;
   grid-row: 4;
@@ -231,6 +231,7 @@ body {
   float: right;
   margin-bottom: 6rem;
 }
+
 .txt-box {
   width: 50%;
   position: absolute;
@@ -255,8 +256,6 @@ body {
   font-weight: 300;
 }
 
-
-
 .text-box__light-green {
   background-color: var(--box-light-green);
   color: var(--black);
@@ -267,7 +266,7 @@ body {
   color: var(--white);
 }
 
-.text-box__dark-green  {
+.text-box__dark-green {
   background-color: var(--box-dark-green);
   color: var(--white);
 }
@@ -282,7 +281,7 @@ body {
   color: var(--white);
 }
 
-.text-box__semi-light-green{
+.text-box__semi-light-green {
   background-color: var(--box-semi-light-green);
   color: var(--black);
 }
