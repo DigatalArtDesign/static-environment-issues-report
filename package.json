@@ -6,17 +6,17 @@
   "license": "",
   "author": "Cristea Andrei && Diacenco Serghei",
   "scripts": {
-    "build": "parcel build index.html",
-    "dev": "parcel index.html --open",
-    "start": "npm run build && npm run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "build": "parcel build index.html",
+  "dev": "parcel index.html —open",
+  "start": "npm run build && npm run dev",
+  "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4",
-    "typescript": "^4.2.2"
+  "parcel-bundler": "^1.12.4",
+  "typescript": "^4.2.2"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "uuid": "^3.4.0"
+  "axios": "^0.21.1",
+  "uuid": "^3.4.0"
   }
-}
+  }
