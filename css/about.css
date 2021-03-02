@@ -123,15 +123,17 @@ body {
 }
 
 .iconbox-box {
-  justify-content: space-evenly;
+  padding-left: 50px;
   position: absolute;
   width: 100%;
   top: 60rem;
 }
 
 .iconbox {
+  margin-bottom: 60px;
   background-color: var(--white);
-  width: 16%;
+  flex-basis: 60%;
+  justify-content: center;
 }
 
 .icon-img {
@@ -161,7 +163,10 @@ body {
 .case-boxes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 20rem .7fr 1fr;
+  grid-template-rows: 45% 1fr 1fr;
+  grid-template-areas: "tib1 tib2 tib3" "tib4 box-row2-txt tib5" "tib6 tib6 tib6";
+  padding-top: 7rem;
+  padding-bottom: 12.5rem;
 }
 
 .txt-img-box {
@@ -181,7 +186,6 @@ body {
   grid-row: 1;
   align-self: end;
   justify-self: center;
-  margin-top: 100%;
 }
    
 .tib3 {
@@ -230,39 +234,73 @@ body {
 .txt-box {
   width: 50%;
   position: absolute;
-  top: 15rem;
-  padding: 1rem 4rem 2rem 2rem;
+  top: 22rem;
+  padding: 4rem 4rem 2rem 2rem;
 }
 
 .txt-title {
+  line-height: 1.2;
   font-size: 2.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-.txt-box1 {
-  background-color: #DBF5AB;
+.txt-semi-title {
+  font-size: 1.3rem;
+  font-weight: 200;
 }
 
-.txt-box2 {
-  background-color: #02B385;
+.txt {
+  font-size: 1.16rem;
+  font-weight: 300;
 }
 
-.txt-box3 {
-  background-color: #024B40;
+
+
+.text-box__light-green {
+  background-color: var(--box-light-green);
+  color: var(--black);
 }
 
-.txt-box4 {
-  background-color: #024B40;
+.text-box__green {
+  background-color: var(--box-green);
+  color: var(--white);
 }
 
-.txt-box5 {
-  background-color: #024B40;
+.text-box__dark-green  {
+  background-color: var(--box-dark-green);
+  color: var(--white);
 }
 
-.txt-box6 {
-  background-color: #DBF5AB;
+.text-box__darker-green {
+  background-color: var(--box-darker-green);
+  color: var(--white);
+}
+
+.text-box__darkest-green {
+  background-color: var(--box-darkest-green);
+  color: var(--white);
+}
+
+.text-box__semi-light-green{
+  background-color: var(--box-semi-light-green);
+  color: var(--black);
 }
 
 .dummy {
   background-color: var(--background);
   height: 100px;
+}
+
+/* adaptivity */
+@media screen and (max-width: 1858px) {
+  .cases-title {
+    padding-top: 55rem !important;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .cases-title {
+    padding-top: 121rem !important;
+  }
 }

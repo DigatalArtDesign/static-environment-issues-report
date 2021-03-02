@@ -59,6 +59,12 @@
     --semi-black: rgba(0,0,0,0.9);
     --background: #002629;
     --attract: #81EEA9;
+    --box-light-green: #DBF5AB;
+    --box-green: #02B385;
+    --box-dark-green: #024B40;
+    --box-darker-green: #004040;
+    --box-darkest-green: #002325;
+    --box-semi-light-green: #AFF2AF;
     --light-grey: #EDEDED;
     --simple-grey: rgba(0,0,0,0.4);
     --simple-grey: rgba(0,0,0,0.2);
@@ -67,6 +73,7 @@
     --sm: 650px;
     --md: 900px;
     --lg: 1260px;
+    --extra: 1858px;
 }
 
 /* common styles of application */
@@ -96,6 +103,10 @@ body {
 .is-flex-column {
     display: flex;
     flex-direction: column;
+}
+
+.is-flex-wrap {
+    flex-wrap: wrap;
 }
 
 .is-inline-flex {
