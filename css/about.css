@@ -125,6 +125,7 @@ body {
 .iconbox-box {
   justify-content: space-evenly;
   position: absolute;
+  width: 100%;
   top: 60rem;
 }
 
@@ -147,10 +148,6 @@ body {
   margin: 2rem 2.5rem 2rem 2.5rem;
 }
 
-.case-boxes {
-  margin-bottom: 60rem;
-}
-
 .cases-title {
   width: 50%;
   color: var(--white);
@@ -161,73 +158,84 @@ body {
   width: 70%;
 }
 
+.case-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 20rem .7fr 1fr;
+}
+
 .txt-img-box {
-  width: 20%;
-  position: relative;
-}
-
-.box-row2-txt {
-  color: var(--white);
-  width: 20%;
-}
-
-.box-row1 {
-  margin: 7rem 0 7rem 6rem;
-  justify-content: space-around;
-  position: relative;
-}
-
-.box-row2 {
-  margin: 50rem 0 7rem 6rem;
-  justify-content: space-around;
+  width: 80%;
   position: relative;
 }
 
 .tib1 {
-  position: absolute;
-  left: 7rem;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: end;
 }
-
+   
 .tib2 {
-  position: absolute;
-  top: 10rem;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  justify-self: center;
+  margin-top: 100%;
 }
-
+   
 .tib3 {
-  position: absolute;
-  left: 78rem;
-  top: -10rem;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: start;
 }
 
+.tib4 {
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: end;
+  align-self: start;
+}
+
+.box-row2-txt {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: center;
+  justify-self: center;
+  width: 70%;
+  height: 80%;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+   
+.tib5 {
+  grid-column: 3;
+  grid-row: 3;
+  align-self: start;
+  justify-self: start;
+}
+   
 .tib6 {
-  margin: 0 auto;
+  grid-column: 2;
+  grid-row: 4;
+  align-self: start;
+  justify-self: center;
 }
 
 .img-box {
-  width: 90%;
+  width: 75%;
   float: right;
+  margin-bottom: 6rem;
 }
-
 .txt-box {
-  width: 80%;
+  width: 50%;
   position: absolute;
-  top: 13rem;
-  left: -4rem;
+  top: 15rem;
+  padding: 1rem 4rem 2rem 2rem;
 }
 
 .txt-title {
   font-size: 2.5rem;
-  margin-left: 2rem;
-  width: 50%;
-}
-
-.txt-semitile {
-  margin: 0 0 1rem 2rem;
-}
-
-.txt {
-  margin: 0 0 2rem 2rem;
-  width: 65%;
 }
 
 .txt-box1 {
