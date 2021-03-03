@@ -1,0 +1,17 @@
+{
+  "doctype-first": true,
+  "head-script-disabled": true,
+  "style-disabled": true,
+  "title-require": true,
+  "attr-lowercase": true,
+  "attr-value-not-empty": true,
+  "attr-no-duplication": true,
+  "attr-no-unnecessary-whitespace": true,
+  "attr-unsafe-chars": true,
+  "id-class-ad-disabled": true,
+  "id-unique": true,
+  "inline-style-disabled": true,
+  "tag-pair": true,
+  "tag-self-close": true,
+  "alt-require": true
+}

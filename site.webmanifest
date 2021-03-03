@@ -1,6 +1,6 @@
 {
-  "short_name": "",
-  "name": "",
+  "short_name": "Save",
+  "name": "Save&Save",
   "icons": [{
     "src": "icon.png",
     "type": "image/png",
