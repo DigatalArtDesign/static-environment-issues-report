@@ -2,16 +2,16 @@
   "name": "save-save",
   "version": "0.0.1",
   "description": "This is save&save project",
-  "keywords": "save",
+  "keywords": ["static", "website", "save", "environment"],
   "license": "",
   "author": "Cristea Andrei && Diacenco Serghei",
   "scripts": {
     "build": "parcel build index.html",
-    "dev": "parcel index.html —open",
+    "dev": "parcel index.html --open",
     "start": "npm run build && npm run dev",
     "test": "jshint || true",
     "lint": "npm run lint:css && npm run lint:html",
-    "lint:css": "stylelint \"./css/*.css\" --formatter verbose --fix",
+    "lint:css": "stylelint \"./css/**/*.css\" --formatter verbose --fix",
     "lint:html": "npx htmlhint \"./*.html\""
   },
   "devDependencies": {
