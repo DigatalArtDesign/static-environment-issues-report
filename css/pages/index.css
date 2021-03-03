@@ -37,14 +37,13 @@
   left: 3%;
   bottom: 3%;
   color: var(--comment-white);
-
 }
-
 
 @media (max-width: 900px) {
   .main-content {
-      flex-direction: column;
+    flex-direction: column;
   }
+
   .main-content__section-content {
     order: 1;
   }
