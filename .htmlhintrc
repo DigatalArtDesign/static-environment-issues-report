@@ -10,7 +10,6 @@
   "attr-unsafe-chars": true,
   "id-class-ad-disabled": true,
   "id-unique": true,
-  "inline-script-disabled": true,
   "inline-style-disabled": true,
   "tag-pair": true,
   "tag-self-close": true,
