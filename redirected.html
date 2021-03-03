@@ -22,9 +22,10 @@
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/pages/redirected.css" />
 </head>
 <body>
-    <header class="nav-bar">
+    <header class="nav-bar is-relative">
         <h3 class="logo-text is-h3">
           <span class="cursor-pointer" onclick="window.location = './index.html'">SavePlanet</span>
         </h3>
@@ -46,6 +47,21 @@
         </nav>
       </header>
     <main>
+        <section class="title-section is-display-flex is-flex-end">
+            <div></div>
+            <article class="title-section__article is-half-flex-basis is-display-flex is-justify-center">
+                <div class="title-section__wrapper">
+                    <h2 class="title-section__main-text title-black">Congradulations!</h2>
+                    <h3 class="title-section__main-text">You have submitted the form. 
+                        It will take some time till our 
+                        moderators will check it.
+                        Meanwhile you can take 
+                        a look into some statistics.
+                    </h3>
+                </div>
+            </article>
+        </section>
     </main>
+    <script type="text/javascript" src="./js//components/redirected.ts"></script>
 </body>
 </html>

@@ -111,6 +111,10 @@ body {
   justify-content: center;
 }
 
+.is-flex-end {
+  justify-content: flex-end;
+}
+
 .is-align-items-center {
   align-items: center;
 }
@@ -137,7 +141,11 @@ body {
 }
 
 .is-absolute {
-  position: absolute;
+  position: absolute !important;
+}
+
+.is-relative {
+  position: relative !important;
 }
 
 /* h1, h2, h3 etc. */
