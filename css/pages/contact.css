@@ -33,7 +33,6 @@ body {
 .section-form {
   background-color: var(--background);
   height: 120rem;
-  padding-bottom: 420px;
   position: relative;
   color: var(--black);
 }

@@ -15,14 +15,12 @@
     "dev": "parcel index.html --open",
     "start": "npm run build && npm run dev",
     "test": "jshint || true",
-    "lint:js": "eslint \"**/*.ts\" --fix",
-    "lint": "npm run lint:css && npm run lint:html",
+    "lint": "npm run lint:css && npm run lint:html && npm run lint:js",
     "lint:css": "stylelint \"./css/**/*.css\" --formatter verbose --fix",
-    "lint:html": "npx htmlhint \"./*.html\""
+    "lint:html": "npx htmlhint \"./*.html\"",
+    "lint:js": "eslint \"**/*.ts\" --fix"
   },
   "devDependencies": {
-    "@parcel/optimizer-cssnano": "^2.0.0-nightly.612",
-    "@parcel/optimizer-htmlnano": "^2.0.0-nightly.612",
     "@parcel/packager-css": "^2.0.0-nightly.612",
     "@parcel/packager-html": "^2.0.0-nightly.612",
     "@parcel/packager-raw-url": "^2.0.0-nightly.2234",

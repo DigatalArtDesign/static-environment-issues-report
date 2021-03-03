@@ -123,9 +123,8 @@ body {
 }
 
 .iconbox-box {
-  padding-left: 50px;
+  margin-left: 50px;
   position: absolute;
-  width: 100%;
   top: 60rem;
 }
 
