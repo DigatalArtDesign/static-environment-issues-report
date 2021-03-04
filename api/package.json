@@ -1,0 +1,14 @@
+{
+    "name": "save_and_save_server",
+    "version": "1.0.0",
+    "description": "This is an api server for the NGO web application",
+    "main": "index.js",
+    "scripts": {
+        "start": "json-server -p 3001 -w db.json"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "json-server": "^0.16.1"
+    }
+}
