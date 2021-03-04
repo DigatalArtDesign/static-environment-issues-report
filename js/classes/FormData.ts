@@ -33,6 +33,7 @@ class InjuredFromAttack {
   }
 
   static propertyDeserializers =
+  // eslint-disable-next-line no-unused-vars
   new Map<string, ((value: any) => any) | undefined>([
     ["rareSpecies", undefined],
     ["ozoneLayer", undefined],
@@ -74,6 +75,7 @@ class InjureType {
   }
 
   static propertyDeserializers =
+  // eslint-disable-next-line no-unused-vars
   new Map<string, ((value: any) => any) | undefined>([
     ["polutionAssault", undefined],
     ["arson", undefined],
@@ -92,6 +94,7 @@ class AmountOfInjures {
   }
 
   static propertyDeserializers =
+  // eslint-disable-next-line no-unused-vars
   new Map<string, ((value: any) => any) | undefined>([
     ["minor", undefined],
     ["medium", undefined],
@@ -162,6 +165,7 @@ export default class FormData {
   }
 
   static propertyDeserializers =
+  // eslint-disable-next-line no-unused-vars
   new Map<string, ((value: any) => any) | undefined>([
     ["name", undefined],
     ["email", undefined],
