@@ -21,6 +21,8 @@
     "lint:js": "eslint \"**/*.ts\" --fix"
   },
   "devDependencies": {
+    "@parcel/optimizer-cssnano": "^2.0.0-nightly.612",
+    "@parcel/optimizer-htmlnano": "^2.0.0-nightly.612",
     "@parcel/packager-css": "^2.0.0-nightly.612",
     "@parcel/packager-html": "^2.0.0-nightly.612",
     "@parcel/packager-raw-url": "^2.0.0-nightly.2234",
@@ -47,6 +49,7 @@
     "axios": "^0.21.1",
     "npm": "^7.6.0",
     "semver": "^7.3.4",
+    "ts-serializer": "^2.2.6",
     "uuid": "^3.4.0"
   }
 }

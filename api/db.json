@@ -1,32 +1,65 @@
 {
-    "reports": {
-        "report": {
-            "id": 1,
-            "name": "Tommy",
-            "email": "vasi@gmail.com",
-            "amountOfInjures": {
-                "minor": true,
-                "medium": false,
-                "sever": false
-            },
-            "injuredFromAttack": {
-                "cities": false,
-                "lakes": false,
-                "meanTemperature": false,
-                "other": false,              
-                "ozoneLayer": false,
-                "plants": false,
-                "rareSpecies": true,
-                "rivers": false,
-                "soil": false
-            },
-            "type": {
-                "arson": false,
-                "dump": false,
-                "endangeredSpeciesPoaching": false,
-                "polutionAssault": true
-            },
-            "description": "Some detailed description"
-        }
+  "reports": [
+    {
+      "report": {
+        "name": "Wiseau",
+        "issue": "Pocahing",
+        "email": "the@gmail.com",
+        "id": "706b1327-fb3a-4a24-a71a-2b4149b58e41",
+        "injuredFromAttack": {
+          "rareSpecies": false,
+          "ozoneLayer": false,
+          "meanTemperature": false,
+          "plants": false,
+          "rivers": false,
+          "lakes": true,
+          "soil": false,
+          "cities": false,
+          "other": false
+        },
+        "type": {
+          "polutionAssault": true,
+          "endangeredSpeciesPoaching": false,
+          "arson": false,
+          "dump": false
+        },
+        "amountOfInjures": {
+          "minor": true,
+          "medium": false,
+          "severe": false
+        },
+        "description": ""
+      },
+      "id": 2
+    },
+    {
+      "name": "Andreo",
+      "issue": "Ismail",
+      "email": "Email",
+      "id": "69b4a1ac-adad-4ad0-89cb-0d4b6e5890f5",
+      "injuredFromAttack": {
+        "rareSpecies": true,
+        "ozoneLayer": false,
+        "meanTemperature": false,
+        "plants": false,
+        "rivers": true,
+        "lakes": true,
+        "soil": false,
+        "cities": false,
+        "other": false
+      },
+      "type": {
+        "polutionAssault": true,
+        "endangeredSpeciesPoaching": false,
+        "arson": false,
+        "dump": false
+      },
+      "amountOfInjures": {
+        "minor": true,
+        "medium": false,
+        "severe": false
+      },
+      "description": "Some dumb description"
     }
+  ]
 }
