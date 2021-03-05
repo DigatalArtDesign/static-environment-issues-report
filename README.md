@@ -10,6 +10,18 @@
 Could be found in `package.json` file.
 
 ### How to work with git
+#### clone repo
+`git clone git@clone.git`
+#### check git status (will show which files are untracked by commit)
+`git status`
+#### check last commits
+`git log`
+#### checkout to a branch
+`git checkout branchname`
+#### create new branch
+`git checkout -b branchname`
+#### check current branch
+`git branch`
 #### For adding to current git state (all files) 
 `git add .`
 ##### For adding to current git state (single file) 
