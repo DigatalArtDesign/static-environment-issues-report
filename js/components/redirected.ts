@@ -13,20 +13,55 @@ document.addEventListener("DOMContentLoaded", () => {
         elem: TableElements.TABLE,
         content: [
             {
-                elem: TableElements.TR,
+                elem: TableElements.T_HEAD,
                 content: [
                     {
-                        elem: TableElements.TD,
+                        elem: TableElements.TH,
                         content: "Simple Text"
                     },
                     {
-                        elem: TableElements.TD,
+                        elem: TableElements.TH,
                         content: "Simple Text"
+                    }
+                ]
+            },
+            {
+                elem: TableElements.T_BODY,
+                content: [
+                    {
+                        elem: TableElements.TR,
+                        content: [
+                            {
+                                elem: TableElements.TD,
+                                content: "Simple Text"
+                            },
+                            {
+                                elem: TableElements.TD,
+                                content: "Simple Text"
+                            },
+                            {
+                                elem: TableElements.TD,
+                                content: "Simple Text"
+                            },
+                        ]
                     },
                     {
-                        elem: TableElements.TD,
-                        content: "Simple Text"
-                    },
+                        elem: TableElements.TR,
+                        content: [
+                            {
+                                elem: TableElements.TD,
+                                content: "Simple Text"
+                            },
+                            {
+                                elem: TableElements.TD,
+                                content: "Simple Text"
+                            },
+                            {
+                                elem: TableElements.TD,
+                                content: "Simple Text"
+                            },
+                        ]
+                    }
                 ]
             }
         ]

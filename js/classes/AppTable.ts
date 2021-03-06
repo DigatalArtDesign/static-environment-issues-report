@@ -47,18 +47,73 @@ export class AppTbCreator extends AppElementCreator {
     }
 }
 
+export class AppTBodyCreator extends AppElementCreator {
+    public createElement(id: string, innerHTML?: string): AppElementUI {
+        const props: Elementable =  {
+            tag: TableElements.T_BODY,
+            class: [],
+            parentElementId: id,
+            id: uuid(),
+            innerHtml: innerHTML,
+            attributes: []
+        };
+        return new AppElementUI(props);
+    }
+}
+
+export class AppTHeadCreator extends AppElementCreator {
+    public createElement(id: string, innerHTML?: string): AppElementUI {
+        const props: Elementable =  {
+            tag: TableElements.T_HEAD,
+            class: [],
+            parentElementId: id,
+            id: uuid(),
+            innerHtml: innerHTML,
+            attributes: []
+        };
+        return new AppElementUI(props);
+    }
+}
+
+export class AppThCreator extends AppElementCreator {
+    public createElement(id: string, innerHTML?: string): AppElementUI {
+        const props: Elementable =  {
+            tag: TableElements.TH,
+            class: [],
+            parentElementId: id,
+            id: uuid(),
+            innerHtml: innerHTML,
+            attributes: []
+        };
+        return new AppElementUI(props);
+    }
+}
+
+
 export default class AppTable {
     private calculateElements(parentId: string, elem: TableElementProps[]) {
         elem.map((element) => {
-            if (typeof element.content === "string") {
-                const td = new AppTdCreator();
-                const el = td.createElement(parentId, element.content);
-                el.renderElement();
-                this.tds.push(el);
-                return;
-            }
-    
             switch(element.elem) {
+                case TableElements.T_BODY: {
+                    const tbody = new AppTBodyCreator();
+                    const el = tbody.createElement(parentId);
+                    el.renderElement();
+                    this.tbody.push(el);
+                    if (typeof element.content !== "string") {
+                        this.calculateElements(el.id, element.content);
+                    }
+                    break;
+                }
+                case TableElements.T_HEAD: {
+                    const thead = new AppTHeadCreator();
+                    const el = thead.createElement(parentId);
+                    el.renderElement();
+                    this.tbody.push(el);
+                    if (typeof element.content !== "string") {
+                        this.calculateElements(el.id, element.content);
+                    }
+                    break;
+                }
                 case TableElements.TR: {
                     const tr = new AppTrCreator();
                     const el = tr.createElement(parentId);
@@ -69,15 +124,36 @@ export default class AppTable {
                     }
                     break;
                 }
-                default: return;
+                case TableElements.TH: {
+                    if (typeof element.content === "string") {
+                        const th = new AppThCreator();
+                        const el = th.createElement(parentId, element.content);
+                        el.renderElement();
+                        this.tds.push(el);
+                        return;
+                    }
+                    break;
+                }
+                default: {
+                    if (typeof element.content === "string") {
+                        const td = new AppTdCreator();
+                        const el = td.createElement(parentId, element.content);
+                        el.renderElement();
+                        this.tds.push(el);
+                        return;
+                    }
+                    break;
+                }
             }
             return;
         });
     }
 
     public table: AppElementUI;
+    public tbody: AppElementUI[] = [];
     public tds: AppElementUI[] = [];
     public trs: AppElementUI[] = []; 
+    public ths: AppElementUI[] = [];
     
     constructor(props: TableElementProps) {
         const { parentId, content } = props;
