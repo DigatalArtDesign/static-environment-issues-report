@@ -14,7 +14,7 @@ export enum TableElements {
 export interface TableElementProps {
     parentId?: string;
     elem: TableElements,
-    content: (string[] | TableElementProps[])   
+    content: (string | TableElementProps[])   
 }
 
 
