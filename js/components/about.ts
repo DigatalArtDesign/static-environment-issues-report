@@ -13,24 +13,50 @@ document.addEventListener("DOMContentLoaded", () => {
  * iframe video.
  */
 function getVideos() {
-    var v = document.getElementsByClassName("youtube-player");
-    for (var n = 0; n < v.length; n++) {
-        var p = document.createElement("div");
-        var id = v[n].getAttribute("data-id");
+    const videoPlayers = document.getElementsByClassName("youtube-player");
 
-        var placeholder = v[n].hasAttribute("data-thumbnail")
-            ? v[n].getAttribute("data-thumbnail")
+    function hideOnClickOutside(element, id) {
+        const outsideClickListener = event => {
+            if (!element.contains(event.target) && event.target.id !== "youtube-thumbnail" &&  event.target.id !== "play-btn" && isVisible(element)) { 
+                removeIframe(id);
+                createImage(element);
+                removeClickListener();
+            }
+        };
+    
+        const removeClickListener = () => {
+            document.removeEventListener("click", outsideClickListener);
+        };
+    
+        document.addEventListener("click", outsideClickListener);
+    }
+
+    function createImage(element) {
+        const p = document.createElement("div");
+        const id = element.getAttribute("data-id");
+
+        const placeholder = element.hasAttribute("data-thumbnail")
+            ? element.getAttribute("data-thumbnail")
             : "";
 
         if (placeholder.length) p.innerHTML = createCustomThumbail(placeholder);
         else p.innerHTML = createThumbail(id);
 
-        v[n].appendChild(p);
+        element.appendChild(p);
         p.addEventListener("click", function () {
-            var parent = this.parentNode;
+            const parent = p.parentElement;
             createIframe(parent, parent.getAttribute("data-id"));
         });
+
+        hideOnClickOutside(element, "youtube-iframe");
     }
+
+    const isVisible = elem => !!elem && !!( elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length );
+
+    for (const videoPlayer of videoPlayers) {
+        createImage(videoPlayer);
+    }
+
 }
 
 /**
@@ -40,9 +66,9 @@ function getVideos() {
  */
 function createCustomThumbail(url) {
     return (
-        "<img class=\"youtube-thumbnail\" src=\"" +
+        "<img id=\"youtube-thumbnail\" class=\"youtube-thumbnail\" src=\"" +
         url +
-        "\" alt=\"Youtube Preview\" /><div class=\"youtube-play-btn\"></div>"
+        "\" alt=\"Youtube Preview\" /><div id=\"play-btn\" class=\"youtube-play-btn\"></div>"
     );
 }
 
@@ -62,9 +88,8 @@ function createThumbail(id) {
 /**
  * Create and load iframe in Youtube container
  **/
-function createIframe(v, id) {
+function createIframe(videoPlayer, id) {
     var iframe = document.createElement("iframe");
-    console.log(v);
     iframe.setAttribute(
         "src",
         "//www.youtube.com/embed/" +
@@ -73,5 +98,10 @@ function createIframe(v, id) {
     );
     iframe.setAttribute("frameborder", "0");
     iframe.setAttribute("class", "youtube-iframe");
-    v.firstChild.replaceWith(iframe);
+    iframe.id = "youtube-iframe";
+    videoPlayer.firstChild.replaceWith(iframe);
+}
+
+function removeIframe(id) {
+    document.getElementById(id).remove();
 }
