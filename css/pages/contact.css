@@ -319,7 +319,7 @@ textarea:focus {
   background-color: var(--background);
   color: var(--white);
   flex-basis: 50%;
-  padding: 3rem 5rem .5rem 5rem;
+  padding: 3rem 5rem 0.5rem 5rem;
 }
 
 .footer-left {
@@ -331,7 +331,11 @@ textarea:focus {
   width: 50%;
 }
 
-.internal-links h3 { 
+blockquote h3 {
+  margin: 0.5rem 0;
+}
+
+.internal-links h3 {
   margin: 1rem 0;
 }
 
@@ -367,10 +371,6 @@ textarea:focus {
   text-align: center;
 }
 
-blockquote h3 {
-  margin: .5rem 0;
-}
-
 .quote-phrase {
   font-style: italic;
 }
@@ -382,13 +382,13 @@ blockquote h3 {
 }
 
 .socials h3 {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 .ico-links {
   width: 100%;
   justify-content: space-between;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 .social-ico {
@@ -397,7 +397,7 @@ blockquote h3 {
 
 .go-up {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
 }
 
 .go-up:hover {
@@ -405,7 +405,7 @@ blockquote h3 {
 }
 
 .go-up h3 {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 /* background-boxes */
