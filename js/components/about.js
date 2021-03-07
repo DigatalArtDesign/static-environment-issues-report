@@ -40,9 +40,9 @@ function getVideos() {
  */
 function createCustomThumbail(url) {
     return (
-        '<img class="youtube-thumbnail" src="' +
+        "<img class=\"youtube-thumbnail\" src=\"" +
         url +
-        '" alt="Youtube Preview" /><div class="youtube-play-btn"></div>'
+        "\" alt=\"Youtube Preview\" /><div class=\"youtube-play-btn\"></div>"
     );
 }
 
@@ -53,9 +53,9 @@ function createCustomThumbail(url) {
  */
 function createThumbail(id) {
     return (
-        '<img class="youtube-thumbnail" src="//i.ytimg.com/vi_webp/' +
+        "<img class=\"youtube-thumbnail\" src=\"//i.ytimg.com/vi_webp/" +
         id +
-        '/maxresdefault.webp" alt="Youtube Preview"><div class="youtube-play-btn"></div>'
+        "/maxresdefault.webp\" alt=\"Youtube Preview\"><div class=\"youtube-play-btn\"></div>"
     );
 }
 
