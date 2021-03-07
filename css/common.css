@@ -85,6 +85,7 @@
 /* add this classes to organize your html */
 html {
   font-size: var(--font-size) !important;
+  scroll-behavior: smooth;
 }
 
 body {
