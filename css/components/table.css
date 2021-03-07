@@ -38,12 +38,12 @@
   font-weight: 500;
 }
 
-.table__body .table__body-element:first-child {
-  padding-left: 2.83rem;
-}
-
 .table__body .table__body-element:not(:first-child) {
   border-left-width: 10px !important;
   text-align: center;
   font-weight: 400 !important;
+}
+
+.table__body .table__head-tr .table__body-element:first-child {
+  padding-left: 2.83rem;
 }

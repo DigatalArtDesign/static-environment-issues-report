@@ -83,7 +83,7 @@ export class AppTdCreator extends AppElementCreator {
             parentElementId: id,
             id: uuid(),
             innerHtml: innerHTML,
-            attributes: [{name: "cellspacing", value: "15"}]
+            attributes: []
         };
         return new AppElementUI(props);
     }
@@ -142,6 +142,12 @@ export default class AppTable {
                         el.renderElement();
                         this.tds.push(el);
                         return;
+                    } else {
+                        const td = new AppTdCreator();
+                        const el = td.createElement(parentId);
+                        el.renderElement();
+                        this.tds.push(el);
+                        this.calculateElements(el.id, element.content);
                     }
                     break;
                 }
