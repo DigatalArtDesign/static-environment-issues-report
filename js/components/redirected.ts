@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     : Object.keys(injuredFromAttack).filter(i => filteredAttacks.includes(injuredFromAttack[i])).join(", ");
 
     const reports = await api.loadReports();
-    console.log(filterTrue(lastReport.injuredFromAttack), lastReport);
+    console.log(reports);
 
 
     const guestReportTable = new AppTable({
