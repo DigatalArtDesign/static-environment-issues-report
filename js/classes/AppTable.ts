@@ -4,40 +4,11 @@ import AppElementCreator from "./ElementCreator";
 import uuid from "uuid";
 import { TableElements, TableElementProps } from "../interfaces/appTable";
 
-export class AppTrCreator extends AppElementCreator {
-    public createElement(id: string, innerHTML?: string): AppElementUI {
-        const props: Elementable =  {
-            tag: TableElements.TR,
-            class: [],
-            parentElementId: id,
-            id: uuid(),
-            innerHtml: innerHTML,
-            attributes: []
-        };
-        return new AppElementUI(props);
-    }
-}
-
-
-export class AppTdCreator extends AppElementCreator {
-    public createElement(id: string, innerHTML?: string): AppElementUI {
-        const props: Elementable =  {
-            tag: TableElements.TD,
-            class: [],
-            parentElementId: id,
-            id: uuid(),
-            innerHtml: innerHTML,
-            attributes: []
-        };
-        return new AppElementUI(props);
-    }
-}
-
 export class AppTbCreator extends AppElementCreator {
     public createElement(id: string, innerHTML?: string): AppElementUI {
         const props: Elementable =  {
             tag: TableElements.TABLE,
-            class: [],
+            class: ["table"],
             parentElementId: id,
             id: uuid(),
             innerHtml: innerHTML,
@@ -51,7 +22,7 @@ export class AppTBodyCreator extends AppElementCreator {
     public createElement(id: string, innerHTML?: string): AppElementUI {
         const props: Elementable =  {
             tag: TableElements.T_BODY,
-            class: [],
+            class: ["table__body"],
             parentElementId: id,
             id: uuid(),
             innerHtml: innerHTML,
@@ -79,11 +50,40 @@ export class AppThCreator extends AppElementCreator {
     public createElement(id: string, innerHTML?: string): AppElementUI {
         const props: Elementable =  {
             tag: TableElements.TH,
-            class: [],
+            class: ["table__head-element"],
             parentElementId: id,
             id: uuid(),
             innerHtml: innerHTML,
             attributes: []
+        };
+        return new AppElementUI(props);
+    }
+}
+
+export class AppTrCreator extends AppElementCreator {
+    public createElement(id: string, innerHTML?: string): AppElementUI {
+        const props: Elementable =  {
+            tag: TableElements.TR,
+            class: ["table__head-tr"],
+            parentElementId: id,
+            id: uuid(),
+            innerHtml: innerHTML,
+            attributes: []
+        };
+        return new AppElementUI(props);
+    }
+}
+
+
+export class AppTdCreator extends AppElementCreator {
+    public createElement(id: string, innerHTML?: string): AppElementUI {
+        const props: Elementable =  {
+            tag: TableElements.TD,
+            class: ["table__body-element"],
+            parentElementId: id,
+            id: uuid(),
+            innerHtml: innerHTML,
+            attributes: [{name: "cellspacing", value: "15"}]
         };
         return new AppElementUI(props);
     }
@@ -125,6 +125,7 @@ export default class AppTable {
                     break;
                 }
                 case TableElements.TH: {
+
                     if (typeof element.content === "string") {
                         const th = new AppThCreator();
                         const el = th.createElement(parentId, element.content);

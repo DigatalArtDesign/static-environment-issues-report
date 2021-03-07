@@ -1,5 +1,5 @@
 import { Elementable } from "../interfaces/elementable";
-import Renderable from "../interfaces/renderElement";
+import { Renderable } from "../interfaces/renderElement";
 
 
 export default class AppElementUI implements Elementable, Renderable {

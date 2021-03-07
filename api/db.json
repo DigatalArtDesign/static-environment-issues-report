@@ -28,7 +28,8 @@
           "medium": false,
           "severe": false
         },
-        "description": ""
+        "description": "",
+        "sentTime": 1615077944445
       },
       "id": 2
     },
@@ -59,7 +60,38 @@
         "medium": false,
         "severe": false
       },
-      "description": "Some dumb description"
+      "description": "Some dumb description",
+      "sentTime": 1615077944434
+    },
+    {
+      "injuredFromAttack": {
+        "rareSpecies": false,
+        "ozoneLayer": false,
+        "meanTemperature": false,
+        "plants": false,
+        "rivers": false,
+        "lakes": false,
+        "soil": false,
+        "cities": false,
+        "other": false
+      },
+      "type": {
+        "polutionAssault": true,
+        "endangeredSpeciesPoaching": false,
+        "arson": false,
+        "dump": false
+      },
+      "amountOfInjures": {
+        "minor": true,
+        "medium": false,
+        "severe": false
+      },
+      "name": "",
+      "issue": "",
+      "email": "",
+      "id": "211a1f8a-f725-4914-8cd8-8349a82fd201",
+      "description": "",
+      "sentTime": 1615077944496
     }
   ]
 }

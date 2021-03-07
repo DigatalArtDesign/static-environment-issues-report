@@ -1,3 +1,3 @@
-export default interface Renderable {
+export interface Renderable {
     renderElement(): void;
 }

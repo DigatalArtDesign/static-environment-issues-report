@@ -1,6 +1,6 @@
 import uuid from "uuid";
 
-class InjuredFromAttack {
+export class InjuredFromAttack {
   rareSpecies: boolean = false;
   ozoneLayer: boolean = false;
   meanTemperature: boolean = false;
@@ -47,7 +47,7 @@ class InjuredFromAttack {
   ]);
 }
 
-class InjureType {
+export class InjureType {
   polutionAssault: boolean = true;
   endangeredSpeciesPoaching: boolean = false;
   arson: boolean = false;
@@ -84,7 +84,7 @@ class InjureType {
   ]);
 }
 
-class AmountOfInjures {
+export class AmountOfInjures {
   minor: boolean = true;
   medium: boolean = false;
   severe: boolean = false;
@@ -137,6 +137,8 @@ export default class FormData {
 
   description: string;
 
+  sentTime: number;
+
   public isDomLinked(obj: any) {
     return !["id"].includes(obj);
   }
@@ -149,7 +151,8 @@ export default class FormData {
     injuredFromAttack: InjuredFromAttack,
     type: InjureType,
     amountOfInjures: AmountOfInjures,
-    description: string
+    description: string,
+    sentTime: number
   ) {
     const formData = new FormData();
     formData.name = name;
@@ -160,6 +163,7 @@ export default class FormData {
     formData.type = type;
     formData.amountOfInjures = amountOfInjures;
     formData.description = description;
+    formData.sentTime = sentTime;
     return formData;
 
   }
@@ -172,6 +176,7 @@ export default class FormData {
     ["issue", undefined],
     ["id", undefined],
     ["description", undefined],
+    ["sentTime", undefined],
     ["injuredFromAttack", InjuredFromAttack.deserialize],
     ["type", InjureType.deserialize],
     ["amountOfInjures", AmountOfInjures.deserialize]

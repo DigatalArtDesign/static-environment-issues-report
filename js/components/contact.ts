@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Object.keys(formData.amountOfInjures).map((item, index) => (document.getElementsByClassName("form-radio-amount")[index] as HTMLInputElement).checked = formData.amountOfInjures[item]);
 
     Object.keys(formData).map((item) => {
-      if (typeof formData[item] !== "object" && item !== "description" && formData.isDomLinked(item)) {
+      if (typeof formData[item] !== "object" && item !== "description" && item !== "sentTime" && formData.isDomLinked(item)) {
         (document.getElementById(`form-${item}`) as HTMLInputElement).value = formData[item];
       }
     });
@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sendForm = () => {
     const button = document.getElementById("send-compliant");
     button.addEventListener("click", async () => {
+      formData.sentTime = new Date().getTime();
       await api.sendReport(formData);
       localStorage.setItem("formItem", JSON.stringify(formData));
       window.location.href = ("./redirected.html");
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
   listenDomMultiselectCollection("form-radio-amount-wrapper", formData.amountOfInjures, "click", "form-radio-amount", true);
 
   Object.keys(formData).map((item) => {
-    if (typeof formData[item] !== "object" && item !== "description" && formData.isDomLinked(item)) {
+    if (typeof formData[item] !== "object" && item !== "description" && item !== "sentTime" && formData.isDomLinked(item)) {
       listenDomElement(`form-${item}`, item);
     }
     return item;
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     // eslint-disable-next-line no-unused-vars
     const drop = new Dropdown(props);
+    console.log(drop);
   });
 
   createDropdown();
