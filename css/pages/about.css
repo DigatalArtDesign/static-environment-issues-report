@@ -206,7 +206,7 @@ blockquote h3 {
   background-color: var(--white);
   flex-basis: 60%;
   justify-content: center;
-}
+  }
 
 .icon-img {
   width: 35%;
