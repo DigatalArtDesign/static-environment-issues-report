@@ -17,7 +17,8 @@ function getVideos() {
 
     function hideOnClickOutside(element, id) {
         const outsideClickListener = event => {
-            if (!element.contains(event.target) && event.target.id !== "youtube-thumbnail" &&  event.target.id !== "play-btn" && isVisible(element)) { 
+            const el = document.getElementById(id);
+            if (!element.contains(event.target) && event.target.id !== "youtube-thumbnail" &&  event.target.id !== "play-btn" && isVisible(el)) { 
                 removeIframe(id);
                 createImage(element);
                 removeClickListener();
