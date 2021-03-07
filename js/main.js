@@ -11,9 +11,4 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(location.pathname);
         location.href = "./404.html";
     }
-
-
-    const scrollTop = () => {
-        document.body.scrollTop = 0;
-    };
 });
