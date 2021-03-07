@@ -85,6 +85,10 @@ img.youtube-thumbnail {
   height: auto;
 }
 
+.local-link {
+  color: var(--rose) !important;
+}
+
 div.youtube-play-btn {
   height: 72px;
   width: 72px;
