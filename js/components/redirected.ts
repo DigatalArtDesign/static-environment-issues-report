@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const findTrue = (elem: InjureType | AmountOfInjures): string => {
         const found = Object.keys(elem).find(i => elem[i] === true);
         if (!found) {
-            console.log("Bad input. No true values were found. Function will throw the whole input!");
+            console.error("Bad input. No true values were found. Function will throw the whole input!");
             return Object.values(elem)[1];
         }
         return found;
@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const now =  (new Date().getTime() / (1000* 60*60));
             return Math.ceil(now - time) > 2;
         }): reports; 
-        console.log(reportsOnTime);
         return (reportsOnTime.map(i => i[key][element])).filter(i => i).length;
     };
 
