@@ -1,9 +1,10 @@
-import { Elementable } from "../interfaces/elementable";
+import { Attr } from "../interfaces/elementable";
+import  AppElementUI from "../classes/AppElement";
 import uuid from "uuid";
 
 export default abstract class AppElementCreator {
     // eslint-disable-next-line no-unused-vars
-    public abstract createElement(id: string, innerHTML?: string): Elementable
+    public abstract createElement(id: string, attributes?: Attr[], innerHTML?: string): AppElementUI
 
     public toString(): string {
         const element = this.createElement(uuid());

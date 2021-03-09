@@ -1,3 +1,5 @@
+import { Attr } from "./elementable";
+
 export enum TableElements {
     TD = "td",
     TH = "th",
@@ -14,6 +16,7 @@ export enum TableElements {
 export interface TableElementProps {
     parentId?: string;
     elem: TableElements,
+    attributes?: Attr[];
     content: (string | TableElementProps[])   
 }
 

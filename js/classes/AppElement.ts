@@ -30,4 +30,8 @@ export default class AppElementUI implements Elementable, Renderable {
         const parent = document.getElementById(this.parentElementId);
         parent.appendChild(el);
     }
+
+    getInnerHtml() {
+        return this.innerHtml;
+    }
 }

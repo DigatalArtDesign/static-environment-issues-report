@@ -2,6 +2,9 @@ import { api } from "../api/api";
 import AppTable from "../classes/AppTable";
 import { TableElements, TableElementProps } from "../interfaces/appTable"; 
 import FormData, {InjureType, InjuredFromAttack, AmountOfInjures} from "../classes/FormData";
+import downloadPdf from "../utils/createPdf";
+
+
 
 enum ProgressType {
     PROCESSED = "In Process",
@@ -56,7 +59,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const filteredAttacks: string[] = filterTrue(lastReport.injuredFromAttack); 
     const injured: string = filteredAttacks.length == 0 
     ? "Other"
-    : Object.keys(injuredFromAttack).filter(i => filteredAttacks.includes(injuredFromAttack[i])).join(", ");
+    : filteredAttacks.join(", ");
+    console.log(lastReport.injuredFromAttack, filteredAttacks, injured);
 
     const reports = await api.loadReports();
     const countElements = (key: string, element: string, countResponses = false) => {
@@ -319,10 +323,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         elem: TableElements.TR, 
         content: [
             {
+                attributes: [{name: "head-connect", value: "column-one" }],
                 elem: TableElements.TD ,
                 content: Object.values(amountOfInjures)[k]
             }, 
             {
+                attributes: [{name: "head-connect", value: "column-one" }],
                 elem: TableElements.TD , 
                 content: String(countElements("amountOfInjures", Object.keys(amountOfInjures)[k]))
             }
@@ -334,10 +340,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         elem: TableElements.TR, 
         content: [
             {
+                attributes: [{name: "head-connect", value: "column-two" }],
                 elem: TableElements.TD ,
                 content: Object.values(amountOfInjures)[k]
             }, 
             {
+                attributes: [{name: "head-connect", value: "column-two" }],
                 elem: TableElements.TD , 
                 content: String(countElements("amountOfInjures", Object.keys(amountOfInjures)[k], true))
             }
@@ -349,10 +357,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         elem: TableElements.TR, 
         content: [
             {
+                attributes: [{name: "head-connect", value: "column-three" }],
                 elem: TableElements.TD ,
                 content: Object.values(amountOfInjures)[k]
             }, 
             {
+                attributes: [{name: "head-connect", value: "column-three" }],
                 elem: TableElements.TD , 
                 content: impactPercentCount(countElements("amountOfInjures", Object.keys(amountOfInjures)[k]), countElements("amountOfInjures", Object.keys(amountOfInjures)[k], true))
             }
@@ -371,19 +381,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                         content: [
                             {
                                 elem: TableElements.TH,
-                                content: "Severeness"
+                                content: "Severeness",
+                                attributes: [{name: "head-connect", value: "column-zero" }]
                             },
                             {
                                 elem: TableElements.TH,
-                                content: "Request sent"
+                                content: "Request sent",
+                                attributes: [{name: "head-connect", value: "column-one" }],
                             },
                             {
                                 elem: TableElements.TH,
-                                content: "Request responses"
+                                content: "Request responses",
+                                attributes: [{name: "head-connect", value: "column-two" }],
                             },
                             {
                                 elem: TableElements.TH,
-                                content: "Impact"
+                                content: "Impact",
+                                attributes: [{name: "head-connect", value: "column-three" }],
                             }
                         ]
                     },
@@ -397,7 +411,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                         content: [
                             {
                                 elem: TableElements.TD,
-                                content: "Severeness"
+                                content: "Severeness",
+                                attributes: [{name: "head-connect", value: "column-zero" }],
                             },
                             {
                                 elem: TableElements.TD,
@@ -417,6 +432,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         ]
     });
+
+    const downloadPdfWithBrowserPrint = () => { 
+        downloadPdf([ { table: guestReportTable, offset: 1 }, { table: guestAttacksTable, offset: 9 }, { table: guestTypeTable, offset: 4 }, { table: guestSeverenessTable, offset: 3 }]);
+    };
+
+    document.querySelector("#browser-print").addEventListener("click", downloadPdfWithBrowserPrint);
+
     
     console.log(guestReportTable, guestAttacksTable, guestSeverenessTable, guestTypeTable);
 });

@@ -92,6 +92,36 @@
       "id": "211a1f8a-f725-4914-8cd8-8349a82fd201",
       "description": "",
       "sentTime": 1615077944496
+    },
+    {
+      "injuredFromAttack": {
+        "rareSpecies": true,
+        "ozoneLayer": false,
+        "meanTemperature": true,
+        "plants": false,
+        "rivers": true,
+        "lakes": false,
+        "soil": false,
+        "cities": false,
+        "other": false
+      },
+      "type": {
+        "polutionAssault": false,
+        "endangeredSpeciesPoaching": false,
+        "arson": false,
+        "dump": true
+      },
+      "amountOfInjures": {
+        "minor": false,
+        "medium": false,
+        "severe": true
+      },
+      "name": "Tommy Vercitty",
+      "issue": "Agrar",
+      "email": "hrr@hm.com",
+      "id": "f16fd1a3-f4f4-49b4-9c2d-b3d4a4a5f94f",
+      "description": "Some description",
+      "sentTime": 1615296071404
     }
   ]
 }
