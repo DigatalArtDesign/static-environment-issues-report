@@ -9,10 +9,14 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 const createTable = (items: string[] | string) => {
     return ({
         table: {
-            widths: typeof items === "string" ? [110] : [70, 40],
-            body: typeof items === "string" ? ([[{text: items, alignment: "left"}]]) : [items.map((i, k) => k === 1 ? ({text: i, alignment: "center"}) : ({text: i, alignment: "left"}))]
+            widths: typeof items === "string" ? [115] : [70, 40],
+            body: typeof items === "string" ? ([[{text: items, fontSize: 9, alignment: "left", lineHeight: 1.5}]]) : [items.map((i, k) => k === 1 ? ({text: i, alignment: "center", lineHeight: 1.5}) : ({text: i, alignment: "left", fontSize: 9, lineHeight: 1.5}))]
         },
-        layout: "noBorders"
+        layout: "noBorders",
+        paddingLeft: function() { return 1; },
+        paddingRight: function() { return 1; },
+        paddingTop: function() { return 1; },
+        paddingBottom: function() { return 1; },
     });
 };
 
@@ -61,12 +65,17 @@ const createNewPdf = (name: string, tableEntity: prop[]) => {
                   body: contents[k],
                 },
                 layout: "noBorders",
+                paddingLeft: function() { return 2; },
+				paddingRight: function() { return 2; },
+                paddingTop: function() { return 2; },
+				paddingBottom: function() { return 2; },
               }
         );
     });
 
     return ({
-        header: { text: name, alignment: "center", fontSize: 24, margin: [0, 0, 0, 0] },
+        pageMargins: [ 40, 60, 40, 60 ],
+        header: { text: name, alignment: "center", fontSize: 20, margin: [0, 5, 0, 20] },
         footer: function(currentPage, pageCount) { return ({ text: `Page ${currentPage} of ${pageCount}`, alignment: "center" }); },
         content: tables,
         styles: {
@@ -93,9 +102,9 @@ type prop = {
 }
 
 const downloadPdf = (tables: prop[]) =>  {
-    const docDefinition = createNewPdf("Staticstics", tables);      
+    const docDefinition = createNewPdf("Statistics", tables);      
 
-    pdfMake.createPdf(docDefinition).download("Staticstics");
+    pdfMake.createPdf(docDefinition).download("Statistics");
 };
 
 export default downloadPdf;
