@@ -15,10 +15,10 @@
     "dev": "parcel index.html --open",
     "start": "npm run build && npm run dev",
     "test": "jshint || true",
-    "lint:js": "eslint \"**/*.ts\" --fix",
-    "lint": "npm run lint:css && npm run lint:html",
+    "lint": "npm run lint:css && npm run lint:html && npm run lint:js",
     "lint:css": "stylelint \"./css/**/*.css\" --formatter verbose --fix",
-    "lint:html": "npx htmlhint \"./*.html\""
+    "lint:html": "npx htmlhint \"./*.html\"",
+    "lint:js": "eslint \"**/*.ts\" --fix"
   },
   "devDependencies": {
     "@parcel/optimizer-cssnano": "^2.0.0-nightly.612",
@@ -47,8 +47,14 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "html2canvas": "^1.0.0-rc.7",
+    "jspdf": "^2.3.0",
+    "jspdf-autotable": "^3.5.14",
+    "lodash": "^4.17.21",
     "npm": "^7.6.0",
+    "pdfmake": "^0.1.70",
     "semver": "^7.3.4",
+    "ts-serializer": "^2.2.6",
     "uuid": "^3.4.0"
   }
 }

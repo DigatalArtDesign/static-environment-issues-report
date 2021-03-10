@@ -1,0 +1,127 @@
+{
+  "reports": [
+    {
+      "report": {
+        "name": "Wiseau",
+        "issue": "Pocahing",
+        "email": "the@gmail.com",
+        "id": "706b1327-fb3a-4a24-a71a-2b4149b58e41",
+        "injuredFromAttack": {
+          "rareSpecies": false,
+          "ozoneLayer": false,
+          "meanTemperature": false,
+          "plants": false,
+          "rivers": false,
+          "lakes": true,
+          "soil": false,
+          "cities": false,
+          "other": false
+        },
+        "type": {
+          "polutionAssault": true,
+          "endangeredSpeciesPoaching": false,
+          "arson": false,
+          "dump": false
+        },
+        "amountOfInjures": {
+          "minor": true,
+          "medium": false,
+          "severe": false
+        },
+        "description": "",
+        "sentTime": 1615120705323
+      },
+      "id": 2
+    },
+    {
+      "name": "Andreo",
+      "issue": "Ismail",
+      "email": "Email",
+      "id": "69b4a1ac-adad-4ad0-89cb-0d4b6e5890f5",
+      "injuredFromAttack": {
+        "rareSpecies": true,
+        "ozoneLayer": false,
+        "meanTemperature": false,
+        "plants": false,
+        "rivers": true,
+        "lakes": true,
+        "soil": false,
+        "cities": false,
+        "other": false
+      },
+      "type": {
+        "polutionAssault": true,
+        "endangeredSpeciesPoaching": false,
+        "arson": false,
+        "dump": false
+      },
+      "amountOfInjures": {
+        "minor": true,
+        "medium": false,
+        "severe": false
+      },
+      "description": "Some dumb description",
+      "sentTime": 1615077944434
+    },
+    {
+      "injuredFromAttack": {
+        "rareSpecies": false,
+        "ozoneLayer": false,
+        "meanTemperature": false,
+        "plants": false,
+        "rivers": false,
+        "lakes": false,
+        "soil": false,
+        "cities": false,
+        "other": false
+      },
+      "type": {
+        "polutionAssault": true,
+        "endangeredSpeciesPoaching": false,
+        "arson": false,
+        "dump": false
+      },
+      "amountOfInjures": {
+        "minor": true,
+        "medium": false,
+        "severe": false
+      },
+      "name": "",
+      "issue": "",
+      "email": "",
+      "id": "211a1f8a-f725-4914-8cd8-8349a82fd201",
+      "description": "",
+      "sentTime": 1615077944496
+    },
+    {
+      "injuredFromAttack": {
+        "rareSpecies": true,
+        "ozoneLayer": false,
+        "meanTemperature": true,
+        "plants": false,
+        "rivers": true,
+        "lakes": false,
+        "soil": false,
+        "cities": false,
+        "other": false
+      },
+      "type": {
+        "polutionAssault": false,
+        "endangeredSpeciesPoaching": false,
+        "arson": false,
+        "dump": true
+      },
+      "amountOfInjures": {
+        "minor": false,
+        "medium": false,
+        "severe": true
+      },
+      "name": "Tommy Vercitty",
+      "issue": "Agrar",
+      "email": "hrr@hm.com",
+      "id": "f16fd1a3-f4f4-49b4-9c2d-b3d4a4a5f94f",
+      "description": "Some description",
+      "sentTime": 1615296071404
+    }
+  ]
+}

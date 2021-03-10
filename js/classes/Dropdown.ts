@@ -1,19 +1,6 @@
 import uuid from "uuid";
 import { Countriable } from "../interfaces/countries";
-
-interface Attr {
-    name: string;
-    value: string;
-}
-
-interface Elementable {
-    tag: string;
-    id: string;
-    class: string[];
-    parentElementId: string;
-    innerHtml?: string;
-    attributes?: Attr[];
-}
+import { Elementable } from "../interfaces/elementable";
 
 interface DropdownContructor {
     arrayOfElements: Array<Countriable>;
