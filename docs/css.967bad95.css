@@ -1,0 +1,50 @@
+.main-content {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+}
+
+.main-content__section-content {
+  flex-basis: 50%;
+  background-color: var(--primary);
+}
+
+.main-content__main-image {
+  height: 100%;
+  background-size: cover;
+  background-image: url("/green_nature.f1cc2e57.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main-content__main-title {
+  max-width: 490px;
+  color: var(--white);
+  margin-left: 17%;
+}
+
+.dot-part > .circle {
+  background-color: var(--white);
+  width: 37px;
+  height: 37px;
+  border-radius: 30px;
+}
+
+.main-content__main-image > .sources {
+  left: 3%;
+  bottom: 3%;
+  color: var(--comment-white);
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .main-content__section-content {
+    order: 1;
+  }
+}

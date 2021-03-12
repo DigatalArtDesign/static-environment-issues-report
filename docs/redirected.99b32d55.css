@@ -1,0 +1,20 @@
+.table {
+  width: 100%;
+  max-width: 120rem;
+  /* border-collapse: collapse; */
+}
+
+.table .table__head .table__head-td {
+    border-collapse: collapse;
+}   
+
+.table__head-element {
+  font-size: 1.5rem;
+  color: var(--white);
+  height: 6.33rem;
+  background: var(--background);
+  width: 25rem;
+  /* border-collapse: collapse; */
+}
+
+/*# sourceMappingURL=redirected.99b32d55.css.map */

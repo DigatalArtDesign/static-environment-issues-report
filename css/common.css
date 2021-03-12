@@ -73,7 +73,7 @@
   --light-grey: #ededed;
   --simple-grey: rgba(0, 0, 0, 0.4);
   --simple-grey: rgba(0, 0, 0, 0.2);
-  --font-size: 12px;
+  --font-size: 75%;
   --xs: 500px;
   --sm: 650px;
   --md: 900px;
@@ -382,4 +382,8 @@ blockquote h3 {
 
 .go-up h3 {
   margin-left: 0.5rem;
+}
+
+.is-figcaption {
+  font-size: 1.5rem;
 }
