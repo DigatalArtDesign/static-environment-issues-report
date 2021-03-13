@@ -87,6 +87,7 @@
 html {
   font-size: var(--font-size) !important;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
@@ -169,7 +170,7 @@ body {
 .is-comment-text {
   color: var(--comment-white);
   font-weight: 300;
-  font-size: 18px;
+  font-size: 1.5rem;
   position: relative;
 }
 
@@ -178,6 +179,20 @@ body {
   position: absolute;
   left: -8px;
   top: 14%;
+}
+
+@media screen and (max-width: 700px) {
+  .is-h2 {
+    font-size: 2.5rem;
+  }
+
+  .is-h3 {
+    font-size: 1.55rem;
+  }
+
+  .is-comment-text {
+    font-size: 1rem;
+  }
 }
 
 /* other */
@@ -237,6 +252,7 @@ a:visited {
 /* Nav bar */
 
 .nav-bar {
+  z-index: 1;
   display: flex;
   position: absolute;
   width: 100%;
@@ -247,6 +263,29 @@ a:visited {
   flex-basis: 47%;
   margin: 0;
   color: var(--semi-white);
+}
+
+.nav-bar > *:nth-child(1) {
+  flex: 0 0 0;
+}
+
+.nav-bar > .logo-text {
+  flex: 1 1 50%;
+}
+
+.nav-bar > nav {
+  flex: 1 1 50%;
+}
+
+@media screen and (max-width: 700px) {
+  .nav-bar {
+    flex-wrap: wrap;
+  }
+
+  :is(.nav-bar) .logo-text {
+    justify-content: center;
+    display: flex;
+  }
 }
 
 .main-content__navigation-bar {
@@ -299,7 +338,7 @@ a:visited {
 }
 
 .footer-left {
-  width: 50%;
+  flex: 1 1 50%;
   margin-top: 3rem;
 }
 
@@ -339,7 +378,7 @@ blockquote h3 {
 }
 
 .footer-right {
-  width: 50%;
+  flex: 1 1 50%;
   position: relative;
 }
 
@@ -372,8 +411,7 @@ blockquote h3 {
 }
 
 .go-up {
-  position: absolute;
-  bottom: 0;
+  margin: 0;
 }
 
 .go-up:hover {
@@ -386,4 +424,39 @@ blockquote h3 {
 
 .is-figcaption {
   font-size: 1.5rem;
+}
+
+.dot-part > .circle {
+  background-color: var(--white);
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .footer {
+    flex-wrap: wrap;
+  }
+
+  .footer > * {
+    flex-basis: 100%;
+  }
+
+  .ico-links {
+    flex-wrap: wrap;
+  }
+
+  .ico-links > * {
+    flex-basis: 8ch;
+    margin-top: 3ch;
+  }
+
+  .dot-part > .circle {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .is-h1 {
+    font-size: 2.5rem !important;
+  }
 }

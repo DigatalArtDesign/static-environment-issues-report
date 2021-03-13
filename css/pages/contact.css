@@ -53,13 +53,6 @@ body {
   margin-bottom: 4rem;
 }
 
-.dot-part > .circle {
-  background-color: var(--white);
-  width: 37px;
-  height: 37px;
-  border-radius: 30px;
-}
-
 .dot-part {
   padding-left: 1rem;
 }
@@ -140,6 +133,7 @@ form {
 .label {
   padding-left: 10px;
   display: block;
+  max-width: 15ch;
 }
 
 .ifa {
@@ -293,3 +287,103 @@ textarea:focus {
 }
 
 /* background-boxes */
+
+@media screen and (max-width: 1200px) {
+  .section-form {
+    display: flex !important;
+    align-items: flex-end;
+    height: 130rem;
+  }
+
+  .form-call {
+    margin: 0 0 0 10rem;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .section-call {
+    justify-content: flex-start;
+  }
+
+  .call {
+    margin: 10rem 0 0 10rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .address-box .address-title {
+    font-size: 2rem;
+  }
+
+  .address-box .address {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .form-call {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .section-form {
+    flex-wrap: wrap;
+    background: none;
+    height: initial;
+    padding: 20px;
+  }
+
+  .form-parent {
+    position: inherit !important;
+    top: unset !important;
+    margin: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  :is(.form-call) .primary-color {
+    color: var(--background);
+  }
+
+  .section-call {
+    width: 100%;
+    height: fit-content;
+    margin-top: 22%;
+    justify-content: center;
+  }
+
+  .call {
+    margin: 0;
+  }
+
+  .address-box {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  :is(.ifa) .ifa-select1,
+  :is(.ifa) .ifa-select2,
+  :is(.ifa) .ifa-select3 {
+    margin: 0;
+    padding: 2ch;
+  }
+
+  .ifa {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .mc-selectors {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  :is(.mc-selectors) .aoi {
+    margin: 0;
+  }
+
+  .call {
+    margin-top: 4rem;
+  }
+}
