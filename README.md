@@ -4,10 +4,11 @@
 - **index.html** Route: `/`. Represents a Landing page of application. Purpose: Engage auditory and introduce the application mission
 - **contact.html** Route: `/contact.html`. A form page of application. Purpose: Report issue anf Contact with our department
 - **404.html** Route `/404.html`. A page which identifies an error in route path. 
+- **redirected.html** Route `/redirected.html`. Accessable by redirect from `/contact.html`, after submitting the form. In this page statisctics is represented and it is closely connected to `json-server`. Has biult-in table-creation class from json-like object. Is capable of printing table data `pdf` and download it. 
 
 
 ### Dependencies 
-Could be found in `package.json` file.
+Could be found in `package.json` file (backend-deps are found in `api/package.json`). 
 
 ### How to work with git
 #### clone repo
@@ -44,6 +45,10 @@ Could be found in `package.json` file.
 `npm run start`
 #### For development version on localhost
 `npm run dev`
+#### For backend server run
+1. Open new terminal window.
+2. `cd ./api`
+3. `npm run start`
 #### Build
 `npm run build`
 
