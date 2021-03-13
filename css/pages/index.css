@@ -26,13 +26,6 @@
   margin-left: 17%;
 }
 
-.dot-part > .circle {
-  background-color: var(--white);
-  width: 37px;
-  height: 37px;
-  border-radius: 30px;
-}
-
 .main-content__main-image > .sources {
   left: 3%;
   bottom: 3%;

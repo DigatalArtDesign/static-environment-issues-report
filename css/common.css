@@ -87,6 +87,7 @@
 html {
   font-size: var(--font-size) !important;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
@@ -169,7 +170,7 @@ body {
 .is-comment-text {
   color: var(--comment-white);
   font-weight: 300;
-  font-size: 18px;
+  font-size: 1.5rem;
   position: relative;
 }
 
@@ -178,6 +179,20 @@ body {
   position: absolute;
   left: -8px;
   top: 14%;
+}
+
+@media screen and (max-width: 700px) {
+  .is-h2 {
+    font-size: 2.5rem;
+  }
+
+  .is-h3 {
+    font-size: 1.55rem;
+  }
+
+  .is-comment-text {
+    font-size: 1rem;
+  }
 }
 
 /* other */
@@ -237,20 +252,28 @@ a:visited {
 /* Nav bar */
 
 .nav-bar {
+  z-index: 1;
   display: flex;
   position: absolute;
   width: 100%;
+}
+
+.logo-text {
+  padding: 30px 0 0 30px;
+  flex-basis: 47%;
+  margin: 0;
+  color: var(--semi-white);
 }
 
 .nav-bar > *:nth-child(1) {
   flex: 0 0 0;
 }
 
-.nav-bar > *:nth-child(2) {
+.nav-bar > .logo-text {
   flex: 1 1 50%;
 }
 
-.nav-bar > *:nth-child(3) {
+.nav-bar > nav {
   flex: 1 1 50%;
 }
 
@@ -263,13 +286,6 @@ a:visited {
     justify-content: center;
     display: flex;
   }
-}
-
-.logo-text {
-  padding: 30px 0 0 30px;
-  flex-basis: 47%;
-  margin: 0;
-  color: var(--semi-white);
 }
 
 .main-content__navigation-bar {
@@ -410,11 +426,37 @@ blockquote h3 {
   font-size: 1.5rem;
 }
 
+.dot-part > .circle {
+  background-color: var(--white);
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 30px;
+}
+
 @media screen and (max-width: 700px) {
   .footer {
     flex-wrap: wrap;
   }
+
   .footer > * {
     flex-basis: 100%;
+  }
+
+  .ico-links {
+    flex-wrap: wrap;
+  }
+
+  .ico-links > * {
+    flex-basis: 8ch;
+    margin-top: 3ch;
+  }
+
+  .dot-part > .circle {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .is-h1 {
+    font-size: 2.5rem !important;
   }
 }

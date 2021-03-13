@@ -122,6 +122,36 @@
       "id": "f16fd1a3-f4f4-49b4-9c2d-b3d4a4a5f94f",
       "description": "Some description",
       "sentTime": 1615296071404
+    },
+    {
+      "injuredFromAttack": {
+        "rareSpecies": false,
+        "ozoneLayer": false,
+        "meanTemperature": false,
+        "plants": true,
+        "rivers": true,
+        "lakes": false,
+        "soil": false,
+        "cities": true,
+        "other": false
+      },
+      "type": {
+        "polutionAssault": true,
+        "endangeredSpeciesPoaching": false,
+        "arson": false,
+        "dump": false
+      },
+      "amountOfInjures": {
+        "minor": false,
+        "medium": false,
+        "severe": true
+      },
+      "name": "Antonie",
+      "issue": "Factory \"Anand GmbH\" river Poison",
+      "email": "antonie@gmail.com",
+      "id": "fa415628-6f71-4506-9414-bcac251e2319",
+      "description": "They kill out city. Please help fighting with the monster company",
+      "sentTime": 1615659745407
     }
   ]
 }

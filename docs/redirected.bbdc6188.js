@@ -1,2 +1,0 @@
-!function(){var e=(0,("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequire0232)("2s1fH");e(),document.addEventListener("DOMContentLoaded",(()=>{const o=JSON.parse(localStorage.getItem("formItem"));console.log(o),e().api.loadReports().then((e=>console.log(e)))}))}();
-//# sourceMappingURL=redirected.bbdc6188.js.map
