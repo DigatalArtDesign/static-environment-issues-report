@@ -11,14 +11,19 @@
   "license": "",
   "author": "Cristea Andrei && Diacenco Serghei",
   "scripts": {
-    "build": "parcel build index.html",
-    "dev": "parcel index.html --open",
-    "start": "npm run build && npm run dev",
+    "build": "NODE_ENV=production parcel build index.html",
+    "serve": "NODE_ENV=development parcel build index.html",
+    "dev": "NODE_ENV=development parcel index.html --open",
+    "start": "npm run serve && npm run dev",
     "test": "jshint || true",
     "lint": "npm run lint:css && npm run lint:html && npm run lint:js",
     "lint:css": "stylelint \"./css/**/*.css\" --formatter verbose --fix",
     "lint:html": "npx htmlhint \"./*.html\"",
-    "lint:js": "eslint \"**/*.ts\" --fix"
+    "lint:js": "eslint \"**/*.ts\" --fix",
+    "firebase-backend:local": "npm run build && firebase emulators:start --only hosting",
+    "firebase-frontend:local": "npm run build && firebase emulators:start --only functions",
+    "firebase:local": "npm run firebase-frontend:local && firebase-backend:local",
+    "firebase:deploy": "npm run build && firebase deploy"
   },
   "devDependencies": {
     "@parcel/optimizer-cssnano": "^2.0.0-nightly.612",

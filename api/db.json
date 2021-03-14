@@ -18,7 +18,7 @@
           "other": false
         },
         "type": {
-          "polutionAssault": true,
+          "pollutionAssault": true,
           "endangeredSpeciesPoaching": false,
           "arson": false,
           "dump": false
@@ -50,7 +50,7 @@
         "other": false
       },
       "type": {
-        "polutionAssault": true,
+        "pollutionAssault": true,
         "endangeredSpeciesPoaching": false,
         "arson": false,
         "dump": false
@@ -76,7 +76,7 @@
         "other": false
       },
       "type": {
-        "polutionAssault": true,
+        "pollutionAssault": true,
         "endangeredSpeciesPoaching": false,
         "arson": false,
         "dump": false
@@ -106,7 +106,7 @@
         "other": false
       },
       "type": {
-        "polutionAssault": false,
+        "pollutionAssault": false,
         "endangeredSpeciesPoaching": false,
         "arson": false,
         "dump": true
@@ -136,7 +136,7 @@
         "other": false
       },
       "type": {
-        "polutionAssault": true,
+        "pollutionAssault": true,
         "endangeredSpeciesPoaching": false,
         "arson": false,
         "dump": false
@@ -152,6 +152,36 @@
       "id": "fa415628-6f71-4506-9414-bcac251e2319",
       "description": "They kill out city. Please help fighting with the monster company",
       "sentTime": 1615659745407
+    },
+    {
+      "injuredFromAttack": {
+        "rareSpecies": true,
+        "ozoneLayer": false,
+        "meanTemperature": false,
+        "plants": true,
+        "rivers": false,
+        "lakes": true,
+        "soil": false,
+        "cities": false,
+        "other": false
+      },
+      "type": {
+        "pollutionAssault": false,
+        "endangeredSpeciesPoaching": false,
+        "arson": true,
+        "dump": false
+      },
+      "amountOfInjures": {
+        "minor": false,
+        "medium": true,
+        "severe": false
+      },
+      "name": "Silvester Stalone",
+      "issue": "Human Life Injures",
+      "email": "sli@gmone.com",
+      "id": "71b15ed9-649c-41c4-9e09-14a2c03f0c24",
+      "description": "Forest is burning!",
+      "sentTime": 1615669676257
     }
   ]
 }
