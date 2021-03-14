@@ -22,7 +22,7 @@
 
 #### Local server with firebase
 ##### Create local firebase based server
-##### For fronend
+##### For frontend
 `npm run firebase-frontend:local`
 ##### For backend
 `npm run firebase-backend:local`
