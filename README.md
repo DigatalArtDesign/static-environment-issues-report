@@ -4,11 +4,37 @@
 - **index.html** Route: `/`. Represents a Landing page of application. Purpose: Engage auditory and introduce the application mission
 - **contact.html** Route: `/contact.html`. A form page of application. Purpose: Report issue anf Contact with our department
 - **404.html** Route `/404.html`. A page which identifies an error in route path. 
-- **redirected.html** Route `/redirected.html`. Accessable by redirect from `/contact.html`, after submitting the form. In this page statisctics is represented and it is closely connected to `json-server`. Has biult-in table-creation class from json-like object. Is capable of printing table data `pdf` and download it. 
+- **redirected.html** Route `/redirected.html`. Accessable by redirect from `/contact.html`, after submitting the form. Receives data from backend(json or firebase depending on your preference). Has biult-in table-creation class from json-like object. Is capable of printing table data `pdf` and download it. 
+
+
+### How to run?
+#### Local server and parcel server
+
+##### For first static server run 
+`npm run build:local`
+##### For development version on localhost
+`npm run dev:local`
+##### For backend server run **be aware that json-server and firebase server do not share same data!**
+`npm run host:local`
+##### Build and run both backend and front-end
+`npm run start:local`
+
+
+#### Local server with firebase
+##### Create local firebase based server
+##### For fronend
+`npm run firebase-frontend:local`
+##### For backend
+`npm run firebase-backend:local`
+##### Altogether
+`npm run firebase:local`
+
+##### For firebase deploy (**use it only if you have a stable version of application**)
+`npm run firebase:deploy`
 
 
 ### Dependencies 
-Could be found in `package.json` file (backend-deps are found in `api/package.json`). 
+Could be found in `package.json` file (backend-deps are found in `/api/package.json` for **json.server** and in `/functions/package.json` for firebase). 
 
 ### How to work with git
 #### clone repo
@@ -39,18 +65,6 @@ Could be found in `package.json` file (backend-deps are found in `api/package.js
 
 #### For more info about git type
 `git --help` or `git -h`
-
-### How to run?
-#### For first static server run 
-`npm run start`
-#### For development version on localhost
-`npm run dev`
-#### For backend server run
-1. Open new terminal window.
-2. `cd ./api`
-3. `npm run start`
-#### Build
-`npm run build`
 
 
 ### Linting
