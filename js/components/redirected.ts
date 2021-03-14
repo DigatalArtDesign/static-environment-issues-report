@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         arson: "Arson",
         dump: "Dump",
         endangeredSpeciesPoaching: "Endangered Species Poahing",
-        polutionAssault: "Polution Assault"
+        pollutionAssault: "Polution Assault"
 
     };
     const amountOfInjures = {

@@ -9,7 +9,8 @@ export class Api {
 
     constructor() {
       this.http = axios.create({
-        baseURL: "http://localhost:3001"
+        baseURL: "http://localhost:5001/save-and-save/us-central1/app/api" 
+        //"https://us-central1-save-and-save.cloudfunctions.net/app/api"
       });
       this.globalHttp = axios.create();
     }

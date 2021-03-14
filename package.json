@@ -18,7 +18,8 @@
     "lint": "npm run lint:css && npm run lint:html && npm run lint:js",
     "lint:css": "stylelint \"./css/**/*.css\" --formatter verbose --fix",
     "lint:html": "npx htmlhint \"./*.html\"",
-    "lint:js": "eslint \"**/*.ts\" --fix"
+    "lint:js": "eslint \"**/*.ts\" --fix",
+    "firebase:local": "npm run build && firebase emulators:start --only hosting"
   },
   "devDependencies": {
     "@parcel/optimizer-cssnano": "^2.0.0-nightly.612",

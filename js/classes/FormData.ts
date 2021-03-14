@@ -48,7 +48,7 @@ export class InjuredFromAttack {
 }
 
 export class InjureType {
-  polutionAssault: boolean = true;
+  pollutionAssault: boolean = true;
   endangeredSpeciesPoaching: boolean = false;
   arson: boolean = false;
   dump: boolean = false;
@@ -77,7 +77,7 @@ export class InjureType {
   static propertyDeserializers =
   // eslint-disable-next-line no-unused-vars
   new Map<string, ((value: any) => any) | undefined>([
-    ["polutionAssault", undefined],
+    ["pollutionAssault", undefined],
     ["arson", undefined],
     ["endangeredSpeciesPoaching", undefined],
     ["dump", undefined]
