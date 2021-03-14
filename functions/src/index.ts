@@ -22,7 +22,6 @@ app.post("/api/reports", (req, res) => {
   (
     async () => {
       try {
-        console.log(req);
         await db.collection("reports")
             .add({...req.body});
         return res.status(200).send({success: true});
@@ -35,17 +34,17 @@ app.post("/api/reports", (req, res) => {
 });
 
 app.get("/api/reports", (req, res) => {
-    try {
-      return db
-      .collection("reports")
-      .onSnapshot(snapshot => {
-          const data = snapshot.docs.map(doc => doc.data());
+  try {
+    return db
+        .collection("reports")
+        .onSnapshot((snapshot) => {
+          const data = snapshot.docs.map((doc) => doc.data());
           return res.status(200).send(data);
-      });
-    } catch (e) {
-      console.error(e);
-      return res.status(500).send(e);
-    };
+        });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).send(e);
+  }
 });
 
 exports.app = functions.https.onRequest(app);

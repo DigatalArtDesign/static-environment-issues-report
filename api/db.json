@@ -18,7 +18,7 @@
           "other": false
         },
         "type": {
-          "polutionAssault": true,
+          "pollutionAssault": true,
           "endangeredSpeciesPoaching": false,
           "arson": false,
           "dump": false
@@ -50,7 +50,7 @@
         "other": false
       },
       "type": {
-        "polutionAssault": true,
+        "pollutionAssault": true,
         "endangeredSpeciesPoaching": false,
         "arson": false,
         "dump": false
@@ -76,7 +76,7 @@
         "other": false
       },
       "type": {
-        "polutionAssault": true,
+        "pollutionAssault": true,
         "endangeredSpeciesPoaching": false,
         "arson": false,
         "dump": false
@@ -106,7 +106,7 @@
         "other": false
       },
       "type": {
-        "polutionAssault": false,
+        "pollutionAssault": false,
         "endangeredSpeciesPoaching": false,
         "arson": false,
         "dump": true
@@ -136,7 +136,7 @@
         "other": false
       },
       "type": {
-        "polutionAssault": true,
+        "pollutionAssault": true,
         "endangeredSpeciesPoaching": false,
         "arson": false,
         "dump": false
@@ -166,7 +166,7 @@
         "other": false
       },
       "type": {
-        "polutionAssault": false,
+        "pollutionAssault": false,
         "endangeredSpeciesPoaching": false,
         "arson": true,
         "dump": false
