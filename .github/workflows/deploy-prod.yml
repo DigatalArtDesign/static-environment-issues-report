@@ -20,5 +20,5 @@ jobs:
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_STATIC_ENVIRONMENT_ISSUES_REPORT }}"
-          projectId: your-Firebase-project-ID
+          projectId: save-and-save
           channelId: live
