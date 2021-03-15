@@ -1,6 +1,9 @@
 name: Deploy to Live Instance
 
-on: push
+on:
+  push:
+    tags:
+      - release-production-*
   # Optionally configure to run only for specific files. For example:
   # paths:
   # - "website/**"
@@ -9,13 +12,14 @@ jobs:
   deploy_live_website:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout the repository
+        uses: actions/checkout@master
       # Add any build steps here. For example:
       # - run: npm ci && npm run build
       - run: npm run lint && npm run build 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
         with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_STATIC_ENVIRONMENT_ISSUES_REPORT }}"
-          projectId: save-and-save
-          channelId: live
+          args: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}" --only hosting --non-interactive
+        env: 
+          FIREBASE_TOKEN: "${{ secrets.FIREBASE_TOKEN }}"
