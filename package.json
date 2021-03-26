@@ -28,6 +28,7 @@
     "firebase-backend:local": "firebase emulators:start --only functions",
     "tab:firebase-frontend:local": "ttab npm run firebase-frontend:local",
     "tab:firebase-backend:local": "ttab npm run firebase-backend:local",
+    "parcel:dev": "run-s tab:firebase-backend:local start",
     "firebase:local": "run-s tab:firebase-frontend:local tab:firebase-backend:local",
     "firebase:deploy": "npm run build && firebase deploy"
   },
