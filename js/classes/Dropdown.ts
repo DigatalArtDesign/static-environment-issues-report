@@ -89,19 +89,18 @@ export default class Dropdown {
         };
         this.createNewElement(elem);
       });
-
-      this.listenOptions();
       this.listenButton();
       this.clickOutsideListen();
     }
 
-    private listenOptions(): void {
+    public listenOptions(): void {
       const options = document.getElementsByClassName("option-dropdown");
       const menu = document.getElementById(this.menuDropdown.id);
       for (const option of options) {
         option.addEventListener("click", (e) => {
           const selected = document.getElementById(this.selected.id);
           selected.innerHTML = (e.target as HTMLButtonElement).value;
+          console.log(selected.innerHTML);
 
           for (const option of options) {
             if ((option as HTMLInputElement).innerText === selected.innerText) {

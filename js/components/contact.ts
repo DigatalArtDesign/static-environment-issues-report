@@ -1,4 +1,4 @@
-import FormData  from "../classes/FormData";
+import FormData  from "../classes/form-data/FormData";
 import { api } from "../api/api";
 import Dropdown from "../classes/Dropdown";
 import { Countriable } from "../interfaces/countries";
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Object.keys(formData.amountOfInjures).map((item, index) => (document.getElementsByClassName("form-radio-amount")[index] as HTMLInputElement).checked = formData.amountOfInjures[item]);
 
     Object.keys(formData).map((item) => {
-      if (typeof formData[item] !== "object" && item !== "description" && item !== "sentTime" && formData.isDomLinked(item)) {
+      if (typeof formData[item] !== "object" && item !== "description" && item !== "sentTime" && formData.isDomLinked(item) && item !== "country") {
         (document.getElementById(`form-${item}`) as HTMLInputElement).value = formData[item];
       }
     });
@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     // eslint-disable-next-line no-unused-vars
     const drop = new Dropdown(props);
+    drop.listenOptions();
     console.log(drop);
   });
 

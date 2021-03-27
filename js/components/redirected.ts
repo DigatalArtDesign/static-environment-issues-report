@@ -1,7 +1,7 @@
 import { api } from "../api/api";
 import AppTable from "../classes/AppTable";
 import { TableElements, TableElementProps } from "../interfaces/appTable"; 
-import FormData, {InjureType, InjuredFromAttack, AmountOfInjures} from "../classes/FormData";
+import FormData, {InjureType, InjuredFromAttack, AmountOfInjures} from "../classes/form-data/FormData";
 import downloadPdf from "../utils/createPdf";
 
 
