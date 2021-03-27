@@ -9,10 +9,14 @@ export default class AppElementUI implements Elementable, Renderable {
     public parentElementId;
     public innerHtml;
     public attributes; 
-    constructor(props: Elementable) {
+    constructor(props: Elementable, renderImmediate = false) {
         Object.keys(props).map((i) => {
             this[i] = props[i];
         }); 
+
+        if (renderImmediate) {
+            this.renderElement();
+        }
     }
 
     renderElement(): void {

@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import { Countriable } from "../interfaces/countries";
-import FormData from "../classes/form-data/FormData";
+import FormData from "../classes/app-form-data/FormData";
 
 export class Api {
     protected globalHttp: AxiosInstance

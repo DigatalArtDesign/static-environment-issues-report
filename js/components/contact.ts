@@ -1,6 +1,6 @@
-import FormData  from "../classes/form-data/FormData";
+import FormData  from "../classes/app-form-data/FormData";
 import { api } from "../api/api";
-import Dropdown from "../classes/Dropdown";
+import Dropdown from "../classes/app-dropdown/Dropdown";
 import { Countriable } from "../interfaces/countries";
 
 "use strict";
