@@ -1,84 +1,9 @@
 import uuid from "uuid";
 import Deserialiser, { SerialisableProperties } from "./Deserialiser";
 import { FormSerialisable } from "../../interfaces/formData";
-
-export class InjuredFromAttack implements FormSerialisable<InjuredFromAttack>{
-  rareSpecies: boolean = false;
-  ozoneLayer: boolean = false;
-  meanTemperature: boolean = false;
-  plants: boolean = false;
-  rivers: boolean = false;
-  lakes: boolean = false;
-  soil: boolean = false;
-  cities: boolean = false;
-  other: boolean= false;
-
-  constructor() {
-    Object.keys(i => this[i] = false);
-  }
-
-  private static get fields() {
-    const i = new InjuredFromAttack();
-    return Object.keys(i);
-  }
-
-  public deserialise(injured: any): InjuredFromAttack {
-    const props: SerialisableProperties[] = InjuredFromAttack.fields.map(i => ({propName: i}));
-    const serialiser = new Deserialiser(InjuredFromAttack, props);
-    return serialiser.deserialize(injured);
-  }
-}
-
-export class InjureType implements FormSerialisable<InjureType> {
-  pollutionAssault: boolean = true;
-  endangeredSpeciesPoaching: boolean = false;
-  arson: boolean = false;
-  dump: boolean = false;
-
-  constructor(value = 0) {
-    Object.keys(i => i === value ? this[i] = true : this[i] = false);
-  }
-
-  private static get fields() {
-    const i = new InjureType();
-    return Object.keys(i);
-  }
-
-  public deserialise(amount: any): InjureType {
-    const props: SerialisableProperties[] = InjureType.fields.map(i => ({propName: i}));
-    const serialiser = new Deserialiser(InjureType, props);
-    return serialiser.deserialize(amount);
-  }
-}
-
-export class AmountOfInjures implements FormSerialisable<AmountOfInjures> {
-  minor: boolean = true;
-  medium: boolean = false;
-  severe: boolean = false;
-
-  constructor(value = 0) {
-    Object.keys(i => i === value ? this[i] = true : this[i] = false);
-  }
-
-  private static get fields() {
-    const i = new AmountOfInjures();
-    return Object.keys(i);
-  }
-
-  static propertyDeserializers =
-  // eslint-disable-next-line no-unused-vars
-  new Map<string, ((value: any) => any) | undefined>([
-    ["minor", undefined],
-    ["medium", undefined],
-    ["severe", undefined]
-  ]);
-
-  public deserialise(amount: any): AmountOfInjures {
-    const props: SerialisableProperties[] = AmountOfInjures.fields.map(i => ({propName: i}));
-    const serialiser = new Deserialiser(AmountOfInjures, props);
-    return serialiser.deserialize(amount);
-  }
-}
+import InjuredFromAttack  from "./InjuredFromAttack";
+import InjureType from "./InjureType";
+import AmountOfInjures from "./AmountOfInjures";
 
 export default class FormData implements FormSerialisable<FormData> {
   name: string;

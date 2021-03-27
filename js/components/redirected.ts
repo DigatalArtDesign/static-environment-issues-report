@@ -1,7 +1,10 @@
 import { api } from "../api/api";
 import AppTable from "../classes/AppTable";
 import { TableElements, TableElementProps } from "../interfaces/appTable"; 
-import FormData, {InjureType, InjuredFromAttack, AmountOfInjures} from "../classes/form-data/FormData";
+import FormData from "../classes/form-data/FormData";
+import InjuredFromAttack  from "../classes/form-data/InjuredFromAttack";
+import InjureType from "../classes/form-data/InjureType";
+import AmountOfInjures from "../classes/form-data/AmountOfInjures";
 import downloadPdf from "../utils/createPdf";
 
 
