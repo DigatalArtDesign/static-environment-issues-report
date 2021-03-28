@@ -14,7 +14,7 @@
     "build:local": "NODE_ENV=development-local parcel build index.html",
     "dev:local": "NODE_ENV=development-local parcel index.html --open",
     "host:local": "ttab \"cd ./api && npm run start\"",
-    "start:local": "run-s build:local dev:local host:local",
+    "start:local": "run-s host:local dev:local build:local",
     "build": "NODE_ENV=production parcel build index.html",
     "serve": "NODE_ENV=development parcel build index.html",
     "dev": "NODE_ENV=development parcel index.html --open",
@@ -28,7 +28,6 @@
     "firebase-backend:local": "firebase emulators:start --only functions",
     "tab:firebase-frontend:local": "ttab npm run firebase-frontend:local",
     "tab:firebase-backend:local": "ttab npm run firebase-backend:local",
-    "parcel:dev": "run-s tab:firebase-backend:local start",
     "firebase:local": "run-s tab:firebase-frontend:local tab:firebase-backend:local",
     "firebase:deploy": "npm run build && firebase deploy"
   },

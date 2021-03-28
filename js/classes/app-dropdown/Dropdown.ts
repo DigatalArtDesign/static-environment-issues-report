@@ -114,22 +114,7 @@ export default class Dropdown {
 
     private dropdownElements: AppElementUI[] = [];
 
-    private createNewElement(element: Elementable): void {
-      const el = document.createElement(element.tag);
-      el.id = element.id;
-      element.class.map((i) => el.classList.add(i));
-      if (element.attributes) {
-        element.attributes.map((i) => el.setAttribute(i.name, i.value));
-      }
-      if (element.innerHtml) {
-        el.innerHTML = element.innerHtml;
-      }
-      const parent = document.getElementById(element.parentElementId);
-      parent.appendChild(el);
-    }
-
     constructor(props: DropdownContructor) {
-      // const id = uuid();
       this.dropdown = new AppDropdown().createElement(props.appendTo);
       this.dropdown.renderElement();
 
@@ -141,11 +126,9 @@ export default class Dropdown {
 
       this.dropdownOptions = new AppDropdownOptions().createElement(this.menuDropdown.id);
 
-      // Object.keys(this).map((i) => this.createNewElement(this[i]));
       props.arrayOfElements.map((i) => {
         const element = new AppDropdownElement().createElement(this.dropdownOptions.id, [{ name: "value", value: i.country }], i.country);
         this.dropdownElements.push(element);
-        // this.createNewElement(elem);
       });
       this.listenButton();
       this.clickOutsideListen();

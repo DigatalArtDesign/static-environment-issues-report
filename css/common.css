@@ -72,7 +72,6 @@
   --box-semi-light-green: #aff2af;
   --light-grey: #ededed;
   --simple-grey: rgba(0, 0, 0, 0.4);
-  --simple-grey: rgba(0, 0, 0, 0.2);
   --font-size: 75%;
   --xs: 500px;
   --sm: 650px;
@@ -243,6 +242,16 @@ a:visited {
   width: 225px;
   border: none;
   cursor: pointer;
+  pointer-events: visible;
+}
+
+.is-button[disable="true"] {
+  background-color: var(--simple-grey);
+  pointer-events: none;
+}
+
+.is-button[disable="true"]:hover {
+  background-color: var(--simple-grey);
 }
 
 .is-button:focus {

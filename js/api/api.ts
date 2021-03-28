@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import { Countriable } from "../interfaces/countries";
-import FormData from "../classes/app-form-data/FormData";
+import FormData, { FormDataRawable } from "../classes/app-form-data/FormData";
 
 export class Api {
     protected globalHttp: AxiosInstance
@@ -32,7 +32,7 @@ export class Api {
       });
     }
 
-    async sendReport(report: FormData): Promise<void> {
+    async sendReport(report: FormDataRawable): Promise<void> {
       await this.http.post("/reports", {
         ...report
       });

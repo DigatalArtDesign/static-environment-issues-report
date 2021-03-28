@@ -2,11 +2,25 @@ import FormData  from "../classes/app-form-data/FormData";
 import { api } from "../api/api";
 import Dropdown from "../classes/app-dropdown/Dropdown";
 import { Countriable } from "../interfaces/countries";
+import * as Validator from "validatorjs";
 
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
   let formData = new FormData();
+  let validation!: Validator;
+  let formValidation!: Validator;
+
+  const buttonState = () => document.getElementById("send-compliant").getAttribute("disable");
+  
+  const enableButton = () => {
+    document.getElementById("send-compliant").setAttribute("disable", "false");
+  };
+
+  const disableButton = () => {
+    document.getElementById("send-compliant").setAttribute("disable", "true");
+  };
+  disableButton();
 
   const initForm = () => {
     const injured = Object.values(formData.injuredFromAttack);
@@ -50,17 +64,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const domObject = document.getElementById(elementName);
     domObject.addEventListener("input", (e) => {
       formData[formObject] = (e.target as HTMLInputElement).value;
+      validation = new Validator({data: formData[formObject]}, {data: formData.rules[formObject]});
+      // @ts-ignore
+      if (formData.getFieldError(formObject) && validation.passes()) {
+        formData.unmountFieldError(formObject);
+      }
+
+      formValidation = new Validator(formData.getValidatedFields(), formData.rules);
+      // @ts-ignore
+      if(!formValidation.fails() && buttonState() === "true") {
+        enableButton();
+        sendForm();
+        // @ts-ignore
+      } else if(formValidation.fails() && buttonState() === "false") {
+        disableButton();
+      }
+    });
+
+    domObject.addEventListener("focus", () => {
+      validation = new Validator({data: formData[formObject]}, {data: formData.rules[formObject]});
+      // @ts-ignore
+      if(formData.getFieldError(formObject) && validation.passes()) { 
+        formData.unmountFieldError(formObject);
+      }
+    });
+
+    domObject.addEventListener("blur", () => {
+      validation = new Validator({data: formData[formObject]}, {data: formData.rules[formObject]});
+      // @ts-ignore
+      if (validation.fails()) {
+        if(formData.getFieldError(formObject) === null) {
+          console.log(formData.getFieldError(formObject));
+          formData.setFieldError(formObject);
+        }
+        formData.mountFieldError(formObject);
+      }
+      
     });
   };
 
   const sendForm = () => {
-    const button = document.getElementById("send-compliant");
-    button.addEventListener("click", async () => {
+    document.getElementById("send-compliant").addEventListener("click", async () => {
       formData.sentTime = new Date().getTime();
-      await api.sendReport(formData);
-      localStorage.setItem("formItem", JSON.stringify(formData));
+      await api.sendReport(formData.fields);
+      localStorage.setItem("formItem", JSON.stringify(formData.fields));
       window.location.href = ("./redirected.html");
     });
+    console.log( document.getElementById("send-compliant"));
   };
 
   const resetForm = () => {
