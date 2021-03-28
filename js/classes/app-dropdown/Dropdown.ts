@@ -4,7 +4,7 @@ import { Elementable, Attr } from "../../interfaces/elementable";
 import AppElementUI from "../AppElement";
 import AppElementCreator from "../ElementCreator";
 
-interface DropdownContructor {
+export interface DropdownContructor {
     arrayOfElements: Array<Countriable>;
     defaultText: string;
     appendTo: string;
@@ -133,6 +133,10 @@ export default class Dropdown {
       this.listenButton();
       this.clickOutsideListen();
     }
+
+    public resetValue(innerHTML: string) {
+      this.selected.changeInnerHtml(innerHTML);
+    } 
 
     public listenOptions(): void {
       const options = document.getElementsByClassName("option-dropdown");

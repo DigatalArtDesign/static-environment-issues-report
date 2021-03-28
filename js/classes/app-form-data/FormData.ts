@@ -5,6 +5,7 @@ import InjuredFromAttack  from "./InjuredFromAttack";
 import InjureType from "./InjureType";
 import AmountOfInjures from "./AmountOfInjures";
 import AppErrorText from "./AppErrorText";
+import Dropdown, { DropdownContructor } from "../app-dropdown/Dropdown";
 
 enum FormErrorTextEnum  {
   name = "nameError",
@@ -69,6 +70,8 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
   private issueError: AppErrorText | null = null;
   private emailError: AppErrorText | null = null;
   private descriptionError: AppErrorText | null = null;
+  private dropdownCountry: Dropdown;
+  private dropdownCountryProps: DropdownContructor;
 
   getValidatedFields() {
     return ({name: this.name,issue: this.issue, email: this.email, description: this.description});
@@ -165,6 +168,12 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
     this.resetForm(true);
   }
 
+  createDropdown(props: DropdownContructor) {
+    this.dropdownCountryProps = props;
+    this.dropdownCountry = new Dropdown(this.dropdownCountryProps);
+    this.dropdownCountry.listenOptions();
+  }
+
   resetForm(isConstructor = false) {
     this.name = "";
     this.issue = "";
@@ -174,6 +183,9 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
     this.type = new InjureType();
     this.amountOfInjures = new AmountOfInjures();
     this.description = "";
+    if(this.dropdownCountry) {
+      this.dropdownCountry.resetValue(this.dropdownCountryProps.defaultText);
+    }
     if(!isConstructor) {
       this.nameError?.unmountElement();
       this.issueError?.unmountElement();

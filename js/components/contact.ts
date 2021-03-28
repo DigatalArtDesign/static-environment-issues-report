@@ -1,6 +1,5 @@
 import FormData  from "../classes/app-form-data/FormData";
 import { api } from "../api/api";
-import Dropdown from "../classes/app-dropdown/Dropdown";
 import { Countriable } from "../interfaces/countries";
 import * as Validator from "validatorjs";
 
@@ -142,10 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
       defaultText: "Select your region",
       appendTo: "dropdown-section",
     };
-    // eslint-disable-next-line no-unused-vars
-    const drop = new Dropdown(props);
-    drop.listenOptions();
-    console.log(drop);
+    formData.createDropdown(props);
   });
 
   createDropdown();
