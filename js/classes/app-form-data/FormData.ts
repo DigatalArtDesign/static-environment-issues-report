@@ -49,10 +49,6 @@ export class FormDataRaw implements FormDataRawable {
     };
   }
 
-  constructor() {
-    console.log(this);
-  }
-
   protected get allData() {
     return ({
       name: this.name,
