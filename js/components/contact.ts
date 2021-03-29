@@ -1,12 +1,25 @@
-import FormData  from "../classes/FormData";
+import FormData  from "../classes/app-form-data/FormData";
 import { api } from "../api/api";
-import Dropdown from "../classes/Dropdown";
 import { Countriable } from "../interfaces/countries";
+import * as Validator from "validatorjs";
 
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
   let formData = new FormData();
+  let validation!: any;
+  let formValidation!: any;
+
+  const buttonState = () => document.getElementById("send-compliant").getAttribute("disable");
+  
+  const enableButton = () => {
+    document.getElementById("send-compliant").setAttribute("disable", "false");
+  };
+
+  const disableButton = () => {
+    document.getElementById("send-compliant").setAttribute("disable", "true");
+  };
+  disableButton();
 
   const initForm = () => {
     const injured = Object.values(formData.injuredFromAttack);
@@ -17,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Object.keys(formData.amountOfInjures).map((item, index) => (document.getElementsByClassName("form-radio-amount")[index] as HTMLInputElement).checked = formData.amountOfInjures[item]);
 
     Object.keys(formData).map((item) => {
-      if (typeof formData[item] !== "object" && item !== "description" && item !== "sentTime" && formData.isDomLinked(item)) {
+      if (typeof formData[item] !== "object" && item !== "description" && item !== "sentTime" && formData.isDomLinked(item) && item !== "country") {
         (document.getElementById(`form-${item}`) as HTMLInputElement).value = formData[item];
       }
     });
@@ -46,21 +59,88 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const mountValidation = (formObject: string) => {
+    if(formData.getFieldError(formObject) === null) {
+      formData.setFieldError(formObject);
+    }
+    formData.mountFieldError(formObject);
+  };
+
   const listenDomElement = (elementName, formObject) => {
     const domObject = document.getElementById(elementName);
     domObject.addEventListener("input", (e) => {
       formData[formObject] = (e.target as HTMLInputElement).value;
+      validation = new Validator({data: formData[formObject]}, {data: formData.rules[formObject]});
+      if (formData.getFieldError(formObject) && validation.passes()) {
+        formData.unmountFieldError(formObject);
+      }
+
+      formValidation = new Validator(formData.getValidatedFields(), formData.rules);
+      if(!formValidation.fails() || formData.dropdownSelected) {
+        if(formValidations(true)) {
+          enableButton();
+        } 
+      } else if(formValidation.fails() || !formData.dropdownSelected) {
+        disableButton();
+      }
+    });
+
+    domObject.addEventListener("focus", () => {
+      validation = new Validator({data: formData[formObject]}, {data: formData.rules[formObject]});
+      if(formData.getFieldError(formObject) && validation.passes()) { 
+        formData.unmountFieldError(formObject);
+      }
+    });
+
+    domObject.addEventListener("blur", () => {
+      validation = new Validator({data: formData[formObject]}, {data: formData.rules[formObject]});
+      if (validation.fails()) {
+        mountValidation(formObject);
+      } 
     });
   };
 
+  const formValidations = (checkOnly = false) => {
+    let success = Array(Object.keys(formData.rules).length).map(() => false);
+      (function() {
+          let i = 0;
+          for (const data of Object.entries(formData.rules)) {
+            const validation = new Validator({data: formData.fields[data[0]]}, {data: data[1]});
+            if (data[0] === "dropdown") {
+              if (!formData.dropdownSelected && !checkOnly) {
+                mountValidation(data[0]);
+              } else if (formData.dropdownSelected) {
+                success[i] = true;
+              }
+              
+            } else if (validation.fails() && !checkOnly) { 
+              mountValidation(data[0]);
+            } else if (!validation.fails()) {
+              success[i] = true;
+            }
+            i++;
+          }
+      }());
+      return success.filter(i => i === true).length === success.length;
+  };
+
+
   const sendForm = () => {
-    const button = document.getElementById("send-compliant");
-    button.addEventListener("click", async () => {
-      formData.sentTime = new Date().getTime();
-      await api.sendReport(formData);
-      localStorage.setItem("formItem", JSON.stringify(formData));
-      window.location.href = ("./redirected.html");
+    document.getElementById("send-compliant").addEventListener("click", async () => {
+      let passed = true;
+      if (buttonState() === "true") {
+        passed = formValidations();
+      }
+      
+      if (passed) {
+        enableButton();
+        formData.sentTime = new Date().getTime();
+        await api.sendReport(formData.fields);
+        localStorage.setItem("formItem", JSON.stringify(formData.fields));
+        window.location.href = ("./redirected.html");
+      } 
     });
+    console.log( document.getElementById("send-compliant"));
   };
 
   const resetForm = () => {
@@ -92,9 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
       defaultText: "Select your region",
       appendTo: "dropdown-section",
     };
-    // eslint-disable-next-line no-unused-vars
-    const drop = new Dropdown(props);
-    console.log(drop);
+    formData.createDropdown(props);
   });
 
   createDropdown();

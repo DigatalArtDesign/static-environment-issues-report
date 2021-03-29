@@ -80,6 +80,15 @@ form {
   /* border: 5px solid var(--black); */
 }
 
+.form-warning {
+  margin: 0;
+  margin-left: 2.5rem;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 300;
+  opacity: 0.4;
+}
+
 .form-name {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
@@ -92,10 +101,15 @@ form {
   margin-bottom: 1rem;
   padding: 0.3rem;
   padding-left: 0.7rem;
+  color: var(--semi-black);
   border-bottom: 3px solid var(--black);
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
+}
+
+input::placeholder {
+  color: var(--simple-grey);
 }
 
 .text-input:focus {

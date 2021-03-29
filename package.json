@@ -14,7 +14,7 @@
     "build:local": "NODE_ENV=development-local parcel build index.html",
     "dev:local": "NODE_ENV=development-local parcel index.html --open",
     "host:local": "ttab \"cd ./api && npm run start\"",
-    "start:local": "run-s build:local dev:local host:local",
+    "start:local": "run-s host:local dev:local build:local",
     "build": "NODE_ENV=production parcel build index.html",
     "serve": "NODE_ENV=development parcel build index.html",
     "dev": "NODE_ENV=development parcel index.html --open",
@@ -65,6 +65,7 @@
     "pdfmake": "^0.1.70",
     "semver": "^7.3.4",
     "ts-serializer": "^2.2.6",
-    "uuid": "^3.4.0"
+    "uuid": "^3.4.0",
+    "validatorjs": "^3.22.1"
   }
 }

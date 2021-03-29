@@ -1,0 +1,8 @@
+.error-place {
+  height: 20px;
+  display: block !important;
+}
+
+.error-place .field-error {
+  color: var(--rose);
+}

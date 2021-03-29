@@ -19,6 +19,7 @@
   <link rel="favicon" type="img/png" href="hold.png" />
   <!-- Place favicon.ico in the root directory -->
 
+  <link rel="stylesheet" href="css/components/error-text.css" />
   <link rel="stylesheet" href="css/common.css" />
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/main.css" />
@@ -66,17 +67,22 @@
         </div>
         <div class="form">
           <h2 class="form-title is-h2">Tell us<br />what <span class="primary-color">happened</span>?</h2>
+          <h6 class="form-warning">All required fields are marked by *</h6>
           <form>
-            <label class="form-name is-h3">Name:</label>
+            <label class="form-name is-h3">Name*</label>
             <input type="text" id="form-name" name="name" class="text-input" placeholder="Tommy Wiseau" />
-            <label for="form-issue" class="form-name is-h3">Issue name:</label>
-            <input type="text" id="form-issue" name="name" class="text-input" placeholder="Poaching on Costel river" />
-            <label for="form-email" class="form-name is-h3">E-mail:</label>
+            <div id="form-name-error" class="error-place"></div>
+            <label for="form-issue" class="form-name is-h3">Issue name*</label>
+            <input type="text" id="form-issue" name="issue" class="text-input" placeholder="Poaching on Costel river" />
+            <div id="form-issue-error" class="error-place"></div>
+            <label for="form-email" class="form-name is-h3">E-mail*</label>
             <input type="email" id="form-email" name="mailbox" class="text-input" placeholder="theroom@sp.com" />
+            <div id="form-email-error" class="error-place"></div>
             <div>
-              <p class="form-name is-h3">Select your region</p>
+              <p class="form-name is-h3">Select your region*</p>
               <div id="dropdown-section" class="dropdown-section">
               </div>
+              <div id="form-dropdown-error" class="error-place"></div>
             </div>
             <p class="form-name is-h3">Injured from attack</p>
             <div id="checkboxes" class="ifa">
@@ -142,8 +148,9 @@
               </div>
             </div>
             <div class="description">
-              <p class="form-name is-h3">Description</p>
+              <p class="form-name is-h3">Description*</p>
               <textarea id="form-description" placeholder="Provide a detailed description"></textarea>
+              <div id="form-description-error" class="error-place"></div>
             </div>
             <div class="buttons">
               <button id="send-compliant" type="button" class="is-button is-primary-button is-h3">Send complaint</button>

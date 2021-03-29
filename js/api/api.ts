@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import { Countriable } from "../interfaces/countries";
-import FormData from "../classes/FormData";
+import FormData, { FormDataRawable } from "../classes/app-form-data/FormData";
 
 export class Api {
     protected globalHttp: AxiosInstance
@@ -26,10 +26,13 @@ export class Api {
       const reports = await this.http.get("/reports");
       const mapCases = (reports.data).map(i => typeof i.id === "number" ? i.report : i);
 
-      return (mapCases).map(i => FormData.deserialize(i));
+      return (mapCases).map(i => {
+        const data = new FormData();
+        return data.deserialise(i);
+      });
     }
 
-    async sendReport(report: FormData): Promise<void> {
+    async sendReport(report: FormDataRawable): Promise<void> {
       await this.http.post("/reports", {
         ...report
       });

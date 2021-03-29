@@ -1,4 +1,4 @@
-import AppTable from "../classes/AppTable";
+import AppTable from "../classes/app-table/AppTable";
 import AppElementUI from "../classes/AppElement";
 import _ from "lodash";
 

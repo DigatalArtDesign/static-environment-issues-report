@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
-         with: { ref: debug }
+        with: { ref: debug }
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@main
         with:

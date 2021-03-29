@@ -1,8 +1,8 @@
-import { Attr, Elementable } from "../interfaces/elementable";
-import AppElementUI from "./AppElement";
-import AppElementCreator from "./ElementCreator";
+import { Attr, Elementable } from "../../interfaces/elementable";
+import AppElementUI from "../AppElement";
+import AppElementCreator from "../ElementCreator";
 import uuid from "uuid";
-import { TableElements, TableElementProps } from "../interfaces/appTable";
+import { TableElements, TableElementProps } from "../../interfaces/appTable";
 
 export class AppTbCreator extends AppElementCreator {
     public createElement(id: string, attributes?: Attr[], innerHTML?: string): AppElementUI {
