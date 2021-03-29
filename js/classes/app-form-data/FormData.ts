@@ -11,7 +11,8 @@ enum FormErrorTextEnum  {
   name = "nameError",
   issue = "issueError",
   email = "emailError",
-  description = "descriptionError"
+  description = "descriptionError",
+  dropdown = "dropdownCountryError"
 }
 
 export interface FormDataRawable {
@@ -72,6 +73,7 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
   private descriptionError: AppErrorText | null = null;
   private dropdownCountry: Dropdown;
   private dropdownCountryProps: DropdownContructor;
+  private dropdownCountryError: AppErrorText | null = null;
 
   getValidatedFields() {
     return ({name: this.name,issue: this.issue, email: this.email, description: this.description});
@@ -110,11 +112,23 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
         parentId = "form-description-error";
         innerHTML = "Please describe your issue in at least 10 characters";
         break;
+      case FormErrorTextEnum.dropdown:
+        parentId = "form-dropdown-error";
+        innerHTML = "Please select country before submitting";
+        break;
       default:
         break;
     }
     if (this[field] === null) {
       this[field] = new AppErrorText(parentId, innerHTML);
+    }
+  }
+
+  mountAllErrors() {
+    const fields = Object.keys(FormErrorTextEnum);
+    for (const field of fields) {
+      this.setFieldError(field);
+      this.mountFieldError(field);
     }
   }
 
@@ -129,7 +143,7 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
   unmountFieldError(fieldName: string) {
     const field: FormErrorTextEnum = FormErrorTextEnum[fieldName];
     if(!this[field]) {
-      throw console.log("ErrorField could not be found or wasnt set");
+      throw new Error("ErrorField could not be found or wasnt set");
     }
     this[field].unmountElement();
   }
@@ -171,7 +185,7 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
   createDropdown(props: DropdownContructor) {
     this.dropdownCountryProps = props;
     this.dropdownCountry = new Dropdown(this.dropdownCountryProps);
-    this.dropdownCountry.listenOptions();
+    this.dropdownCountry.listenOptions(() => this.unmountFieldError("dropdown"));
   }
 
   resetForm(isConstructor = false) {
@@ -184,6 +198,7 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
     this.amountOfInjures = new AmountOfInjures();
     this.description = "";
     if(this.dropdownCountry) {
+      this.dropdownCountry.firstClick = true;
       this.dropdownCountry.resetValue(this.dropdownCountryProps.defaultText);
     }
     if(!isConstructor) {
@@ -202,9 +217,18 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
       name: "required|min:2",
       issue: "required|min:5",
       email: "required|email",
-      description: "required|min:10"
+      description: "required|min:10",
+      dropdown: "required"
     };
   } 
+
+  get dropdownSelected() {
+    return this.dropdownCountry.value !== this.dropdownCountryProps.defaultText;
+  }
+
+  get dropdownValue(): string | null {
+    return this.dropdownCountry.value === this.dropdownCountryProps.defaultText ? undefined : this.dropdownCountry.value;
+  }
 
   public deserialise(formData: any): FormDataRaw {
     const props: SerialisableProperties[] = [

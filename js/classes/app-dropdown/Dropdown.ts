@@ -114,6 +114,8 @@ export default class Dropdown {
 
     private dropdownElements: AppElementUI[] = [];
 
+    private _firstClick = true;
+
     constructor(props: DropdownContructor) {
       this.dropdown = new AppDropdown().createElement(props.appendTo);
       this.dropdown.renderElement();
@@ -138,13 +140,21 @@ export default class Dropdown {
       this.selected.changeInnerHtml(innerHTML);
     } 
 
-    public listenOptions(): void {
+    set firstClick(b: boolean) {
+      this._firstClick = b;
+    }
+
+    public listenOptions(changeValidation: () => void): void {
       const options = document.getElementsByClassName("option-dropdown");
       const menu = document.getElementById(this.menuDropdown.id);
       for (const option of options) {
         option.addEventListener("click", (e) => {
           const selected = document.getElementById(this.selected.id);
           selected.innerHTML = (e.target as HTMLButtonElement).value;
+          if(this._firstClick) {
+            changeValidation();
+            this._firstClick = false;
+          }
 
           for (const option of options) {
             if ((option as HTMLInputElement).innerText === selected.innerText) {
@@ -158,6 +168,10 @@ export default class Dropdown {
           menu.classList.remove("dropdown-enter");
         });
       }
+    }
+
+    public get value() {
+      return document.getElementById(this.selected.id).innerHTML;
     }
 
     private listenButton(): void {

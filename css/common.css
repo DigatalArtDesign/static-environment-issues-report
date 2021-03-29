@@ -247,7 +247,7 @@ a:visited {
 
 .is-button[disable="true"] {
   background-color: var(--simple-grey);
-  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .is-button[disable="true"]:hover {

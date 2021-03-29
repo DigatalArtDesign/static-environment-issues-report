@@ -7,8 +7,8 @@ import * as Validator from "validatorjs";
 
 document.addEventListener("DOMContentLoaded", () => {
   let formData = new FormData();
-  let validation!: Validator;
-  let formValidation!: Validator;
+  let validation!: any;
+  let formValidation!: any;
 
   const buttonState = () => document.getElementById("send-compliant").getAttribute("disable");
   
@@ -59,30 +59,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const mountValidation = (formObject: string) => {
+    if(formData.getFieldError(formObject) === null) {
+      formData.setFieldError(formObject);
+    }
+    formData.mountFieldError(formObject);
+  };
+
   const listenDomElement = (elementName, formObject) => {
     const domObject = document.getElementById(elementName);
     domObject.addEventListener("input", (e) => {
       formData[formObject] = (e.target as HTMLInputElement).value;
       validation = new Validator({data: formData[formObject]}, {data: formData.rules[formObject]});
-      // @ts-ignore
       if (formData.getFieldError(formObject) && validation.passes()) {
         formData.unmountFieldError(formObject);
       }
 
       formValidation = new Validator(formData.getValidatedFields(), formData.rules);
-      // @ts-ignore
-      if(!formValidation.fails() && buttonState() === "true") {
-        enableButton();
-        sendForm();
-        // @ts-ignore
-      } else if(formValidation.fails() && buttonState() === "false") {
+      if(!formValidation.fails() || formData.dropdownSelected) {
+        if(formValidations(true)) {
+          enableButton();
+        } 
+      } else if(formValidation.fails() || !formData.dropdownSelected) {
         disableButton();
       }
     });
 
     domObject.addEventListener("focus", () => {
       validation = new Validator({data: formData[formObject]}, {data: formData.rules[formObject]});
-      // @ts-ignore
       if(formData.getFieldError(formObject) && validation.passes()) { 
         formData.unmountFieldError(formObject);
       }
@@ -90,24 +94,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
     domObject.addEventListener("blur", () => {
       validation = new Validator({data: formData[formObject]}, {data: formData.rules[formObject]});
-      // @ts-ignore
       if (validation.fails()) {
-        if(formData.getFieldError(formObject) === null) {
-          console.log(formData.getFieldError(formObject));
-          formData.setFieldError(formObject);
-        }
-        formData.mountFieldError(formObject);
-      }
-      
+        mountValidation(formObject);
+      } 
     });
   };
 
+  const formValidations = (checkOnly = false) => {
+    let success = Array(Object.keys(formData.rules).length).map(() => false);
+      (function() {
+          let i = 0;
+          for (const data of Object.entries(formData.rules)) {
+            const validation = new Validator({data: formData.fields[data[0]]}, {data: data[1]});
+            if (data[0] === "dropdown") {
+              if (!formData.dropdownSelected && !checkOnly) {
+                mountValidation(data[0]);
+              } else if (formData.dropdownSelected) {
+                success[i] = true;
+              }
+              
+            } else if (validation.fails() && !checkOnly) { 
+              mountValidation(data[0]);
+            } else if (!validation.fails()) {
+              success[i] = true;
+            }
+            i++;
+          }
+      }());
+      return success.filter(i => i === true).length === success.length;
+  };
+
+
   const sendForm = () => {
     document.getElementById("send-compliant").addEventListener("click", async () => {
-      formData.sentTime = new Date().getTime();
-      await api.sendReport(formData.fields);
-      localStorage.setItem("formItem", JSON.stringify(formData.fields));
-      window.location.href = ("./redirected.html");
+      let passed = true;
+      if (buttonState() === "true") {
+        passed = formValidations();
+      }
+      
+      if (passed) {
+        enableButton();
+        formData.sentTime = new Date().getTime();
+        await api.sendReport(formData.fields);
+        localStorage.setItem("formItem", JSON.stringify(formData.fields));
+        window.location.href = ("./redirected.html");
+      } 
     });
     console.log( document.getElementById("send-compliant"));
   };
