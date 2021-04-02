@@ -444,8 +444,42 @@ blockquote h3 {
 
 .page-print {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: fit-content;
+}
+
+.page-print .print-image {
+  mask: url("../img/print.svg");
+  mask-repeat: no-repeat;
+  width: 26px;
+  height: 26px;
+  mask-size: contain;
+  background-color: var(--white);
+  -webkit-mask: url("../img/print.svg");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.is-button-print {
+  height: 30px;
+  width: 100%;
+  max-width: 100px;
+  border: none;
+  cursor: pointer;
+  pointer-events: visible;
+  font-size: 1.4rem;
+  background: transparent;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+.print-wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 700px) {
@@ -475,5 +509,3 @@ blockquote h3 {
     font-size: 2.5rem !important;
   }
 }
-
-

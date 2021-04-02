@@ -29,14 +29,14 @@
   <meta name="theme-color" content="#fafafa" />
 </head>
 
-<body>
-  <div id="page-print" class="page-print"></div>
+<body id="body">
   <header class="nav-bar">
     <li class="is-list-item none is-h3">
       <a class="is-link" onclick="window.location = './404.html'" href="./404.html">About</a>
     </li>
     <h3 class="logo-text is-h3">
       <span class="cursor-pointer" onclick="window.location = './index.html'">SavePlanet</span>
+      <div id="page-print" class="page-print"></div>
     </h3>
     <nav class="is-half-flex-basis">
       <ul class="is-ul main-content__navigation-bar">
@@ -231,7 +231,8 @@
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script type="text/javascript" src="js/components/contact.ts"></script>
-  <script src="js/main.ts"></script>
+  <script type="text/javascript" src="js/components/pageprint.ts"></script>
+  <script src="js/main.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>

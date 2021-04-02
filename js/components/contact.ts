@@ -112,9 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
               } else if (formData.dropdownSelected) {
                 success[i] = true;
               }
-              
+            // @ts-ignore  
             } else if (validation.fails() && !checkOnly) { 
               mountValidation(data[0]);
+            // @ts-ignore
             } else if (!validation.fails()) {
               success[i] = true;
             }

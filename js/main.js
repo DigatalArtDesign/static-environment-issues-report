@@ -1,5 +1,3 @@
-import PagePrint from "./classes/page-print/PagePrint";
-
 document.addEventListener("DOMContentLoaded", () => {
     const pathnames = ["/", "/contact.html", "/404.html", "/redirected.html", "/index.html", "/about.html"];
     
@@ -14,6 +12,4 @@ document.addEventListener("DOMContentLoaded", () => {
         location.href = "./404.html";
     }
 
-    const pagePrint = new PagePrint("page-print", "Print this page");
-    pagePrint.render();
 });

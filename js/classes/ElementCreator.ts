@@ -4,7 +4,7 @@ import uuid from "uuid";
 
 export default abstract class AppElementCreator {
     // eslint-disable-next-line no-unused-vars
-    public abstract createElement(...args: [id: string, attributes?: Attr[], innerHTML?: string] | [id: string, innerHTML?: string]): AppElementUI;
+    public abstract createElement(...args: [id: string, attributes?: Attr[], innerHTML?: string] | [id: string, innerHTML?: string] | [id: string, tag?: string, attributes?: Attr[]]): AppElementUI;
 
     public toString(): string {
         const element = this.createElement(uuid());
