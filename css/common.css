@@ -442,6 +442,12 @@ blockquote h3 {
   border-radius: 30px;
 }
 
+.page-print {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
 @media screen and (max-width: 700px) {
   .footer {
     flex-wrap: wrap;
@@ -469,3 +475,5 @@ blockquote h3 {
     font-size: 2.5rem !important;
   }
 }
+
+
