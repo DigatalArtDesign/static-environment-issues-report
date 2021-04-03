@@ -509,3 +509,23 @@ blockquote h3 {
     font-size: 2.5rem !important;
   }
 }
+
+@media print {
+  *,
+  ::before,
+  ::after {
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  header,
+  footer {
+    display: none !important;
+  }
+
+  a[href^="http"]:not([href*="example.com"])::after {
+    content: " (" attr(href) ")";
+  }
+}

@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.print-image {
+  display: none;
+}
+
 .main-content__section-content {
   flex-basis: 50%;
   background-color: var(--primary);
@@ -39,5 +43,28 @@
 
   .main-content__section-content {
     order: 1;
+  }
+}
+
+@media print {
+  .main-content {
+    display: block;
+  }
+
+  .main-content__section-video {
+    display: none !important;
+  }
+
+  .print-image {
+    margin-top: 5rem;
+    display: block;
+    width: 500px;
+    height: 500px;
+    margin-left: 17%;
+  }
+
+  :is(.print-image) img {
+    width: 100%;
+    object-fit: contain;
   }
 }

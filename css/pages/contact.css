@@ -401,3 +401,55 @@ textarea:focus {
     margin-top: 4rem;
   }
 }
+
+@media print {
+  @page {
+    margin: 0.5cm;
+  }
+
+  .main-content {
+    display: block !important;
+  }
+
+  .form-parent {
+    position: relative !important;
+    top: auto !important;
+    margin-left: 5rem !important;
+  }
+
+  .section-call {
+    display: block !important;
+    height: auto !important;
+  }
+
+  .section-form {
+    height: auto !important;
+  }
+
+  .call {
+    margin: 10rem 5rem 0 !important;
+  }
+
+  .form-parent .contact-bullet {
+    margin-bottom: 0 !important;
+  }
+
+  .form-parent .form-title,
+  .form-warning,
+  form {
+    margin-left: 0 !important;
+  }
+
+  .form-call {
+    margin: 0 5rem 0 !important;
+    float: left !important;
+  }
+
+  .section-address {
+    display: block !important;
+  }
+
+  .section-address .address-box {
+    margin: 0 5rem 0 !important;
+  }
+}
