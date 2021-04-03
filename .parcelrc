@@ -3,6 +3,7 @@
   "extends": "../.parcelrc",
   "extends": ["@parcel/config-default"],
   "transformers": {
-      "*.css": ["@parcel/transformer-css"]
+      "*.css": ["@parcel/transformer-css"],
+      "*.{jpg,png,svg}": ["@parcel/transformer-raw"]
   }
 }

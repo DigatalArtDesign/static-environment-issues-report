@@ -62,6 +62,7 @@
   "dependencies": {
     "autoprefixer": "^10.2.5",
     "axios": "^0.21.1",
+    "browser-detect": "^0.2.28",
     "fs": "0.0.1-security",
     "lodash": "^4.17.21",
     "npm": "^7.6.0",

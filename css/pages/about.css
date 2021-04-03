@@ -559,7 +559,12 @@ blockquote h3 {
   }
 
   .youtube-container {
-    width: 63%;
+    width: 45%;
+    break-after: page;
+  }
+
+  figure {
+    break-inside: avoid;
   }
 
   .youtube-container .youtube-play-btn {
@@ -573,9 +578,17 @@ blockquote h3 {
     width: initial !important;
   }
 
+  .about-left {
+    display: none;
+  }
+
   :is(.about-text) .about-left,
   .about-right {
     width: inherit !important;
+  }
+
+  .about-right figure {
+    max-width: 400px;
   }
 
   :is(.about-right) .right-textbox {
@@ -607,8 +620,12 @@ blockquote h3 {
   }
 
   .iconbox-text {
-    font-size: 12pt;
+    font-size: 11pt;
     word-break: break-word;
+  }
+
+  .iconbox-title {
+    font-size: 13pt;
   }
 
   .iconbox-box .iconbox {
@@ -617,6 +634,7 @@ blockquote h3 {
 
   .section-cases {
     margin: 0 10rem 0 !important;
+    page-break-after: auto;
   }
 
   :is(.section-cases) .cases-title {
@@ -637,10 +655,18 @@ blockquote h3 {
     margin-bottom: 5rem;
   }
 
+  .txt-img-box p {
+    break-inside: avoid;
+  }
+
   .case-boxes .img-box {
     margin: 0 !important;
     width: 100%;
     height: initial;
+  }
+
+  .icon-img {
+    break-inside: avoid;
   }
 
   :is(.img-box) img {
@@ -651,5 +677,16 @@ blockquote h3 {
     position: relative;
     top: initial !important;
     left: initial;
+  }
+
+  .txt-img-box:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    page-break-after: auto;
+  }
+
+  .txt-img-box:last-child .txt-box {
+    padding-bottom: 0;
+    height: 20ch;
   }
 }

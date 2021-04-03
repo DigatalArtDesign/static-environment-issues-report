@@ -63,8 +63,18 @@
     margin-left: 17%;
   }
 
-  :is(.print-image) img {
+  .print-image img {
     width: 100%;
+    display: inline-block;
     object-fit: contain;
+    break-inside: avoid;
+  }
+
+  .sources {
+    display: block;
+  }
+
+  .sources > * {
+    display: block;
   }
 }

@@ -351,6 +351,10 @@ a:visited {
   margin-top: 3rem;
 }
 
+.up-ico {
+  width: 13px;
+}
+
 .internal-pages {
   width: 50%;
 }
@@ -518,6 +522,14 @@ blockquote h3 {
     color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
+  }
+
+  @page {
+    margin: 20mm;
+  }
+
+  .page-break-before {
+    page-break-before: always;
   }
 
   header,

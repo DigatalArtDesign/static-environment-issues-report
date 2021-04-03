@@ -407,6 +407,14 @@ textarea:focus {
     margin: 0.5cm;
   }
 
+  form {
+    position: relative;
+  }
+
+  #form-name-error {
+    page-break-before: always;
+  }
+
   .main-content {
     display: block !important;
   }
