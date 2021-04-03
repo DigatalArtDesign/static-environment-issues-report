@@ -3,9 +3,6 @@ import uuid from "uuid";
 import { Attr, Elementable } from "../../interfaces/elementable";
 import AppElementUI from "../AppElement";
 import AppElementCreator from "../ElementCreator";
-// import * as commonStyles from "url:../../../css/common.css";
-// import * as dropdownStyle from "url:../../../css/components/dropdown.css";
-// import * as contactStyle from "url:../../../css/pages/contact.css";
 
 class PrintAreaCreator extends AppElementCreator {
     createElement(id: string): AppElementUI {
