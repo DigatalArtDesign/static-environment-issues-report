@@ -11,8 +11,8 @@
   "license": "",
   "author": "Cristea Andrei && Diacenco Serghei",
   "scripts": {
-    "build:local": "NODE_ENV=development-local parcel build index.html",
-    "dev:local": "NODE_ENV=development-local parcel index.html --open",
+    "build:local": "NODE_ENV=development-local parcel build index.html css/**/*.css",
+    "dev:local": "NODE_ENV=development-local parcel index.html css/**/*.css --open",
     "host:local": "ttab \"cd ./api && npm run start\"",
     "start:local": "run-s build:local host:local dev:local",
     "build": "NODE_ENV=production parcel build index.html",
@@ -62,6 +62,7 @@
   "dependencies": {
     "autoprefixer": "^10.2.5",
     "axios": "^0.21.1",
+    "fs": "0.0.1-security",
     "lodash": "^4.17.21",
     "npm": "^7.6.0",
     "pdfmake": "^0.1.70",
