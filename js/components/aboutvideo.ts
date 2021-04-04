@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("loaded");
-    });/**
+        console.log("loaded");
+});/**
  * Get videos on load
  */
  (function () {

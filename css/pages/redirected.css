@@ -129,3 +129,13 @@
 .download {
   margin: 60px 0;
 }
+
+@media print {
+  .table-section {
+    display: none !important;
+  }
+
+  .download {
+    display: none !important;
+  }
+}

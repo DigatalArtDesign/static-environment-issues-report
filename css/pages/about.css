@@ -540,3 +540,153 @@ blockquote h3 {
     align-items: flex-end;
   }
 }
+
+@media print {
+  .section-call {
+    height: auto !important;
+    display: block !important;
+  }
+
+  :is(.section-call) .call {
+    padding: 0 10rem !important;
+    width: auto;
+    margin: 0 !important;
+  }
+
+  :is(.section-about) .about-bullet {
+    position: relative !important;
+    top: initial !important;
+  }
+
+  .youtube-container {
+    width: 45%;
+    break-after: page;
+  }
+
+  figure {
+    break-inside: avoid;
+  }
+
+  .youtube-container .youtube-play-btn {
+    display: none !important;
+  }
+
+  .about-text {
+    display: block !important;
+    margin-top: 0 !important;
+    margin-left: 10rem !important;
+    width: initial !important;
+  }
+
+  .about-left {
+    display: none;
+  }
+
+  :is(.about-text) .about-left,
+  .about-right {
+    width: inherit !important;
+  }
+
+  .about-right figure {
+    max-width: 400px;
+  }
+
+  :is(.about-right) .right-textbox {
+    justify-content: flex-start !important;
+  }
+
+  .about-right .right-title {
+    min-width: 2cm;
+  }
+
+  .icons-title-text {
+    margin-left: 10rem;
+    padding-bottom: 0 !important;
+    display: block !important;
+  }
+
+  .icons-title-text > * {
+    width: 100% !important;
+  }
+
+  .icons-text {
+    margin-top: 0 !important;
+  }
+
+  .iconbox-box {
+    position: relative !important;
+    top: initial !important;
+    margin-left: 10rem !important;
+  }
+
+  .iconbox-text {
+    font-size: 11pt;
+    word-break: break-word;
+  }
+
+  .iconbox-title {
+    font-size: 13pt;
+  }
+
+  .iconbox-box .iconbox {
+    min-width: 360px;
+  }
+
+  .section-cases {
+    margin: 0 10rem 0 !important;
+    page-break-after: auto;
+  }
+
+  :is(.section-cases) .cases-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: initial !important;
+  }
+
+  .cases-title div > * {
+    width: 100% !important;
+  }
+
+  .case-boxes {
+    display: block !important;
+  }
+
+  .case-boxes .txt-img-box {
+    margin-bottom: 5rem;
+  }
+
+  .txt-img-box p {
+    break-inside: avoid;
+  }
+
+  .case-boxes .img-box {
+    margin: 0 !important;
+    width: 100%;
+    height: initial;
+  }
+
+  .icon-img {
+    break-inside: avoid;
+  }
+
+  :is(.img-box) img {
+    height: 200px !important;
+  }
+
+  :is(.img-box) .txt-box {
+    position: relative;
+    top: initial !important;
+    left: initial;
+  }
+
+  .txt-img-box:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    page-break-after: auto;
+  }
+
+  .txt-img-box:last-child .txt-box {
+    padding-bottom: 0;
+    height: 20ch;
+  }
+}

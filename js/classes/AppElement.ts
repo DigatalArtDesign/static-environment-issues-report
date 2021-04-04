@@ -48,6 +48,10 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
         parentEl.removeChild(el);
     }
 
+    get mounted(): boolean {
+        return !!document.getElementById(this.id);
+    }
+
     changeInnerHtml(innerHTML: string) {
         const el = document.getElementById(this.id);
         if(!el) {

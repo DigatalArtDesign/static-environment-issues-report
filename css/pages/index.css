@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.image-print-wrapper {
+  display: none;
+}
+
 .main-content__section-content {
   flex-basis: 50%;
   background-color: var(--primary);
@@ -39,5 +43,42 @@
 
   .main-content__section-content {
     order: 1;
+  }
+}
+
+@media print {
+  .main-content {
+    display: block;
+  }
+
+  .main-content__section-video {
+    display: none !important;
+  }
+
+  .image-print-wrapper {
+    margin-top: 5rem;
+    display: block;
+    width: 500px;
+    height: 500px;
+    margin-left: 17%;
+  }
+
+  .is-h1 {
+    font-size: 30pt;
+  }
+
+  .image-print-wrapper img {
+    width: 100%;
+    display: inline-block;
+    object-fit: contain;
+    break-inside: avoid;
+  }
+
+  .sources {
+    display: block;
+  }
+
+  .sources > * {
+    display: block;
   }
 }

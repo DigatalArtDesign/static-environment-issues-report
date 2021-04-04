@@ -351,6 +351,10 @@ a:visited {
   margin-top: 3rem;
 }
 
+.up-ico {
+  width: 13px;
+}
+
 .internal-pages {
   width: 50%;
 }
@@ -442,6 +446,59 @@ blockquote h3 {
   border-radius: 30px;
 }
 
+.page-print {
+  position: fixed;
+  border: 2px solid var(--white);
+  width: 200px;
+  bottom: 0;
+  right: 20px;
+  height: fit-content;
+  background: var(--box-darkest-green);
+  transition: all 0.4s ease-in;
+}
+
+.page-print:hover {
+  background-color: var(--box-darker-green);
+}
+
+.page-print .print-image {
+  mask: url("/img/cmyk.svg");
+  mask-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  mask-size: contain;
+  background-color: var(--white);
+  -webkit-mask: url("/img/cmyk.svg");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+
+.is-button-print {
+  height: 30px;
+  width: 100%;
+  max-width: 100px;
+  border: none;
+  cursor: pointer;
+  pointer-events: visible;
+  font-size: 1.4rem;
+  background: transparent;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  outline: none;
+  font-weight: 400;
+}
+
+.print-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
 @media screen and (max-width: 700px) {
   .footer {
     flex-wrap: wrap;
@@ -467,5 +524,33 @@ blockquote h3 {
 
   .is-h1 {
     font-size: 2.5rem !important;
+  }
+}
+
+@media print {
+  *,
+  ::before,
+  ::after {
+    background: var(--white) !important;
+    color: var(--black) !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  @page {
+    margin: 20mm;
+  }
+
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  header,
+  footer {
+    display: none !important;
+  }
+
+  a[href^="http"]:not([href*="example.com"])::after {
+    content: " (" attr(href) ")";
   }
 }

@@ -11,4 +11,5 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(location.pathname);
         location.href = "./404.html";
     }
+
 });
