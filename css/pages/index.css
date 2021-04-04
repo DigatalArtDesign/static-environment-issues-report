@@ -4,7 +4,7 @@
   width: 100%;
 }
 
-.print-image {
+.image-print-wrapper {
   display: none;
 }
 
@@ -55,7 +55,7 @@
     display: none !important;
   }
 
-  .print-image {
+  .image-print-wrapper {
     margin-top: 5rem;
     display: block;
     width: 500px;
@@ -67,7 +67,7 @@
     font-size: 30pt;
   }
 
-  .print-image img {
+  .image-print-wrapper img {
     width: 100%;
     display: inline-block;
     object-fit: contain;
