@@ -63,6 +63,10 @@
     margin-left: 17%;
   }
 
+  .is-h1 {
+    font-size: 30pt;
+  }
+
   .print-image img {
     width: 100%;
     display: inline-block;
