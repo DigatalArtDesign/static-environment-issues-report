@@ -2,6 +2,7 @@ import AppLayoutChanger from "./AppLayoutChanger";
 import { AppObjectCreator } from "../app-element-creators/AppObjectCreator";
 import { AppSpanElementCreator } from "../app-element-creators/AppSpanElementCreator";
 import { Attr } from "../../interfaces/elementable";
+import axios from "axios";
 
 export interface AppLayoutContractProps {
     parentId: string; 
@@ -14,34 +15,39 @@ export interface AppLayoutContractProps {
 
 export default class AppLayoutContrast extends AppLayoutChanger {
     private isContactMode: boolean = false;
-    private hrefConrast: string;
+    private hrefContrast: string;
     private hrefCurrect!: string;
     constructor(props: AppLayoutContractProps) {
         super(props.parentId);
         if (props.object) {
             const attr: Attr[] = [{name: "class", value: "object-class"}, {name: "data", value: props.object.srcData}];
             this.objectHTMLElement = new AppObjectCreator().createElement(this.divHTMLElement.id, attr);
+            this.objectHTMLElement.renderElement();
         }
         this.descriptionElement = new AppSpanElementCreator().createElement(this.divHTMLElement.id, props.innerHtml); 
-        this.hrefConrast = props.contastUrl;
+        this.descriptionElement.renderElement();
+        this.hrefContrast = props.contastUrl;
     }
 
     watchElement() {
-        this.divHTMLElement.listenEvent("click", () => {
+        this.divHTMLElement.listenEvent("click", async () => {
             if (!this.isContactMode) {
-                const link = document.createElement("link");
-                link.href = this.hrefConrast;
-                link.rel = "stylesheet";   
+                const css = await axios.get(this.hrefContrast);
+                console.log(css.data);
+                const style = document.createElement("style");
+                style.innerHTML = css.data;
+                style.id = "contrast-style";
+                document.getElementsByTagName("head")[0].appendChild(style);
 
-                document.getElementsByTagName("head")[0].appendChild(link);
                 this.isContactMode = true;
             } else {
-                const link = Array.from(document.getElementsByTagName("link")).findIndex(i => i.href === this.hrefConrast);
-                if (link === -1) 
+                const style = Array.from(document.getElementsByTagName("style")).findIndex(i => i.id === "contrast-style");
+                if (style === -1) 
                 {
                     throw new Error("Please condider addind constast style before deleting it");
                 }
-                document.getElementsByTagName("head")[0].removeChild(document.getElementsByTagName("link")[link]);
+                document.getElementsByTagName("head")[0].removeChild(document.getElementsByTagName("style")[style]);
+                this.isContactMode = false;
             }  
         });
     }

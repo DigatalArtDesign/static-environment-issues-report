@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500;600;700&display=swap');
+
+/* common.css */
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  background-color: var(--black) !important;
+}
+
+body {
+  font-family: 'Red Rose', cursive;
+  background-color: var(--black);
+}
+
+.is-h2 {
+  font-size: 5.33rem;
+}
+
+.is-h3 {
+  font-size: 3.33rem;
+}
+
+:root {
+  --primary: #fcee0a;
+  --background: var(--primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label {
+  color: var(--white);
+}
+
+input {
+  height: 3.33rem;
+  font-size: 2.33rem;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.text-input {
+  height: 3.33rem;
+  font-size: 2.33rem;
+  background-color: var(--black);
+  color: var(--white);
+  border-bottom: 4px solid var(--white);
+}
+
+textarea {
+  font-size: 2.33rem !important;
+  background-color: var(--black);
+  color: var(--white);
+  border-left: 4px solid var(--white);
+}
+
+/* about.css */
+
+.form {
+  background-color: transparent;
+}
+
+.section-call {
+  background-color: transparent;
+}
+
+.section-form {
+  background-color: transparent;
+}
+
+.section-address {
+  background-color: transparent;
+}
+
+#reset-form {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.radiomark,
+.checkmark,
+#form-description {
+  border: 2px solid var(--white) !important;
+  background-color: var(--black);
+}
+
+.form-warning {
+  font-size: 1.5rem;
+}
+
+.error-place {
+  font-size: 1.33rem !important;
+}
+
+/* dropdown */
+
+.dropdown .select {
+  background-color: var(--black);
+  color: var(--white);
+  height: 5.83rem;
+  font-size: 2.22rem;
+}
+
+.dropdown .button .button-span {
+  font-size: 2.22rem;
+}
+
+.menu-dropdown {
+  background-color: var(--black);
+  color: var(--white);
+}

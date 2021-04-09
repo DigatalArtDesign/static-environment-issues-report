@@ -133,7 +133,6 @@ export default class Dropdown {
         this.dropdownElements.push(element);
       });
       this.listenButton();
-      this.clickOutsideListen();
     }
 
     public resetValue(innerHTML: string) {
@@ -144,7 +143,7 @@ export default class Dropdown {
       this._firstClick = b;
     }
 
-    public listenOptions(changeValidation: () => void): void {
+    public listenOptions(callback: () => void): void {
       const options = document.getElementsByClassName("option-dropdown");
       const menu = document.getElementById(this.menuDropdown.id);
       for (const option of options) {
@@ -152,8 +151,8 @@ export default class Dropdown {
           const selected = document.getElementById(this.selected.id);
           selected.innerHTML = (e.target as HTMLButtonElement).value;
           if(this._firstClick) {
-            changeValidation();
             this._firstClick = false;
+            callback();
           }
 
           for (const option of options) {
@@ -188,13 +187,16 @@ export default class Dropdown {
       });
     }
 
-    private clickOutsideListen(): void {
+    public clickOutsideListen(callback: () => void): void {
       document.addEventListener("click", (e) => {
         e.preventDefault();
         const dropdown = document.getElementById(this.dropdown.id);
         const isClickInside = dropdown.contains((e as any).target);
         const menu = document.getElementById(this.menuDropdown.id);
         if (!isClickInside && menu.classList.contains("dropdown-enter")) {
+          if (this._firstClick) {
+            callback();
+          }
           menu.classList.add("dropdown-leave");
           menu.classList.remove("dropdown-enter");
         }

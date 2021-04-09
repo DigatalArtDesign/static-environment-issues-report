@@ -185,7 +185,13 @@ export default class FormData extends FormDataRaw implements FormSerialisable<Fo
   createDropdown(props: DropdownContructor) {
     this.dropdownCountryProps = props;
     this.dropdownCountry = new Dropdown(this.dropdownCountryProps);
-    this.dropdownCountry.listenOptions(() => this.unmountFieldError("dropdown"));
+    const selectCallback = () => this.unmountFieldError("dropdown");
+    this.dropdownCountry.listenOptions(selectCallback);
+    const callback = () => {
+      this.setFieldError("dropdown");
+      this.mountFieldError("dropdown");
+    };
+    this.dropdownCountry.clickOutsideListen(callback);
   }
 
   resetForm(isConstructor = false) {

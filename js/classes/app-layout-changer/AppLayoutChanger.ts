@@ -8,6 +8,7 @@ export default abstract class AppLayoutChanger {
     
     constructor(parentId: string) {
         this.divHTMLElement = new AppDivElementCreator().createElement(parentId, []);
+        this.divHTMLElement.renderElement();
     }
 
     abstract watchElement();
