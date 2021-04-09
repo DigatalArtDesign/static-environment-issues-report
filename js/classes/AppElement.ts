@@ -85,6 +85,10 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
         }
     }
 
+    listenEvent(eventName: string, callback: (e: Event) => void) {
+        document.getElementById(this.id).addEventListener(eventName, callback);
+    }
+
     getInnerHtml() {
         return this.innerHtml;
     }

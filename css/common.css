@@ -52,6 +52,8 @@
   font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500;600;700&display=swap');
+
 /* variables */
 :root {
   --primary: #46cd9c;
@@ -84,7 +86,7 @@
 
 /* add this classes to organize your html */
 html {
-  font-size: var(--font-size) !important;
+  font-size: var(--font-size);
   scroll-behavior: smooth;
   box-sizing: border-box;
 }

@@ -1,33 +1,14 @@
 import printJS from "print-js";
 import uuid from "uuid";
 import { Attr, Elementable } from "../../interfaces/elementable";
+import { AppButtonCreator } from "../app-element-creators/AppButtonCreator";
+import { AppDivElementCreator } from "../app-element-creators/AppDivCreator";
 import AppElementUI from "../AppElement";
 import AppElementCreator from "../ElementCreator";
 
-class PrintAreaCreator extends AppElementCreator {
-    createElement(id: string): AppElementUI {
-        const props: Elementable = {
-            tag: "div",
-            id: uuid(), 
-            class: ["print-wrapper"],
-            parentElementId: id
-        };
-
-        return new AppElementUI(props);
-    }
-} 
-
 class PrintButtonCreator extends AppElementCreator {
     createElement(id: string, innerHTML: string): AppElementUI {
-        const props: Elementable = {
-            tag: "button",
-            id: uuid(), 
-            class: ["is-button-print"],
-            parentElementId: id,
-            innerHtml: innerHTML
-        };
-
-        return new AppElementUI(props);
+        return new AppButtonCreator().createElement(id, innerHTML, [{name: "class", value: "is-button-print"}]);
     }
 } 
 
@@ -66,7 +47,7 @@ export default class Print {
     private watchOnClickPrint: WatchOnClickPrint | false;
 
     constructor(parentId: string, buttonText: string, watchOnClickPrint: WatchOnClickPrint | false = false , image: ImageView | boolean) {
-        this.printElement = new PrintAreaCreator().createElement(parentId);
+        this.printElement = new AppDivElementCreator().createElement(parentId, [{name: "class", value: "print-wrapper"}]);
         this.printButton = new PrintButtonCreator().createElement(this.printElement.id, buttonText);
         if (image && typeof image === "object") {
             this.hasImage = true;
