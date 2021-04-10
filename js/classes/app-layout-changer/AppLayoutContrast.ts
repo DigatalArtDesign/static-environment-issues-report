@@ -71,6 +71,10 @@ export default class AppLayoutContrast extends AppLayoutChanger {
         }  
     }
 
+    changeDescriptionText(innerHTML: string) {
+        this.descriptionElement.changeInnerHtml(innerHTML);
+    }
+
     unmountElement() {
         this.descriptionElement.unmountElement();
         if (this.hasObjectHtml) {

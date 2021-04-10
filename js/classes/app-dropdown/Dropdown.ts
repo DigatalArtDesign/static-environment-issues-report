@@ -90,7 +90,7 @@ export class AppDropdownElement extends AppElementCreator {
   public createElement(id: string, attributes: Attr[], innerHTML: string): AppElementUI {
     const props: Elementable = {
       tag: "button",
-      id: `dropdown-element-${id}`,
+      id: `dropdown-element-${uuid()}-${id}`,
       class: ["option-dropdown", "select"],
       parentElementId: id,
       attributes: attributes,

@@ -34,6 +34,7 @@ export default class AppLayoutPrint extends AppLayoutChanger {
     }
 
     renderElement() {
+        console.log(this.divHTMLElement.mounted);
         this.divHTMLElement.renderElement();
         if (this.hasObjectHtml) {
             this.objectHTMLElement.renderElement();
@@ -60,6 +61,10 @@ export default class AppLayoutPrint extends AppLayoutChanger {
         } else if (!this._isPrintMode) {
             restoreScreenMedia();
         }
+    }
+
+    changeDescriptionText(innerHTML: string) {
+        this.descriptionElement.changeInnerHtml(innerHTML);
     }
 
     unmountElement() {

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const appLayoutProps: AppLayoutContractProps = {
         parentId: "layout",
-        innerHtml: "Contast Mode",
+        innerHtml: "Contrast Mode",
         object: false,
         contastUrl: constractCss
     };

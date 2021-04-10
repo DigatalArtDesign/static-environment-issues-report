@@ -11,9 +11,7 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
     public innerHtml: string;
     public attributes: Attr[]; 
     public insertBefore: InsertBefore = false;
-    private isRendered = false; 
     constructor(props: Elementable, renderImmediate = false, insertBefore: InsertBefore = false) {
-        this.isRendered = false; 
         Object.keys(props).map((i) => {
             this[i] = props[i];
         }); 
@@ -40,7 +38,7 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
         if (this.innerHtml) {
             el.innerHTML = this.innerHtml;
         }
-        if (this.isRendered) {
+        if (this.mounted) {
             console.error(`Element with tag ${this.tag} and  attributes: ${JSON.stringify(this.attributes)} is already in the DOM`);
             return;
         }
@@ -49,8 +47,6 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
         } else {
             parent.appendChild(el);
         }
-        
-        this.isRendered = true;
     }
     
     unmountElement(): void {
