@@ -634,6 +634,17 @@ blockquote h3 {
     page-break-before: always;
   }
 
+  .div-element {
+    position: absolute;
+    top: 1rem;
+    left: 5rem;
+    font-size: 18px;
+  }
+
+  .div-element .print-view-swicher {
+    cursor: pointer;
+  }
+
   header,
   footer {
     display: none !important;

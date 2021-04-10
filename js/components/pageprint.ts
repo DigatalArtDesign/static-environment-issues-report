@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import PagePrint, { WatchOnClickPrint } from "../classes/page-print/PagePrint";
+import AppLayoutPrint, { AppLayoutPrintProps } from "../classes/app-layout-changer/AppLayoutPrint";
 
 
 const printMain = (): PagePrint => {
@@ -24,6 +25,17 @@ const printMain = (): PagePrint => {
 
     const pagePrint = new PagePrint("layout", "Print Page", watchOptions, false);
     pagePrint.render();
+
+    const props: AppLayoutPrintProps = {
+        parentId: "body",
+        innerHtml: ["Go to normal view", "Go to normal view"],
+        object: false
+    };
+    const normalViewSwitcher = new AppLayoutPrint(props);
+    normalViewSwitcher.renderElement();
+    normalViewSwitcher.changeClass(["print-view-swicher"]);
+    normalViewSwitcher.watchElement();
+
 
     return pagePrint;
 };

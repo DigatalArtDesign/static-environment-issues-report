@@ -82,6 +82,6 @@ export default class AppLayoutPrint extends AppLayoutChanger {
     }
 
     changeClass(htmlClasses: string[]) {
-        this.objectHTMLElement.changeClasses(htmlClasses);
+        this.descriptionElement.changeClasses(htmlClasses);
     }
 }
