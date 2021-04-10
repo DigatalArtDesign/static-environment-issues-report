@@ -115,10 +115,10 @@ export default class Dropdown {
     private dropdownElements: AppElementUI[] = [];
 
     private _firstClick = true;
+    private _outsideClick = false;
 
     constructor(props: DropdownContructor) {
       this.dropdown = new AppDropdown().createElement(props.appendTo);
-      this.dropdown.renderElement();
 
       this.optionButton = new AppDropdownOptionButton().createElement(this.dropdown.id);
 
@@ -152,7 +152,10 @@ export default class Dropdown {
           selected.innerHTML = (e.target as HTMLButtonElement).value;
           if(this._firstClick) {
             this._firstClick = false;
+          } 
+          if (this._outsideClick) {
             callback();
+            this._outsideClick = false;
           }
 
           for (const option of options) {
@@ -196,6 +199,7 @@ export default class Dropdown {
         if (!isClickInside && menu.classList.contains("dropdown-enter")) {
           if (this._firstClick) {
             callback();
+            this._outsideClick = true;
           }
           menu.classList.add("dropdown-leave");
           menu.classList.remove("dropdown-enter");

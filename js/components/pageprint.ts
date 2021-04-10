@@ -1,16 +1,16 @@
 /* eslint-disable no-undef */
-import PagePrint, { ImageView, WatchOnClickPrint } from "../classes/page-print/PagePrint";
+import PagePrint, { WatchOnClickPrint } from "../classes/page-print/PagePrint";
 
 
-document.addEventListener("DOMContentLoaded", () => {
+export const printMain = () => {
     const body = document.getElementsByTagName("body");
     body[0].id = "body";
     const links = document.getElementsByTagName("link");
 
-    const image: ImageView = {
-        tag: "span",
-        imgAttr: [{name: "class", value: "print-image"}]
-    };
+    // const image: ImageView = {
+    //     tag: "span",
+    //     imgAttr: [{name: "class", value: "print-image"}]
+    // };
 
     let currentStyles = Array.from(links).filter(i => i.rel === "stylesheet").map(i => i.href); 
 
@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     console.log(currentStyles);
 
-    const pagePrint = new PagePrint("page-print", "Print page", watchOptions, image);
+    const pagePrint = new PagePrint("layout", "Print Page", watchOptions, false);
     pagePrint.render();
-});
+};
+

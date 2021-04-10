@@ -30,8 +30,15 @@
 </head>
 
 <body id="body">
-  <header class="nav-bar">
-    <div id="layout"></div>
+  <div id="menu" class="menu">
+    <a href="#">
+      <object data="./img/menu.svg" width="30" height="30"> 
+        No svg support 
+      </object>
+    </a>
+  </div>
+  <header id="nav-bar" class="nav-bar">
+    <div class="layout" id="layout"></div>
     <li class="is-list-item none is-h3">
       <a class="is-link" onclick="window.location = './404.html'" href="./404.html">About</a>
     </li>
@@ -231,8 +238,9 @@
   <!-- Add your site or application content here -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script type="text/javascript" src="js/components/pageprint.ts"></script>
+  <!-- <script type="text/javascript" src="js/components/pageprint.ts"></script> -->
   <script type="text/javascript" src="js/components/contact.ts"></script>
+  <script type="text/javascript" src="js/components/rightNavbar.ts"></script>
   <script type="text/javascript" src="js/components/layoutChanger.ts"></script>
   <script src="js/main.js"></script>
 

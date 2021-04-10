@@ -6,7 +6,7 @@ import uuid from "uuid";
 export class AppSpanElementCreator extends AppElementCreator {
     private renderImmediate = false;
 
-    constructor(renderImmediate?: boolean) {
+    constructor(renderImmediate: boolean = true) {
         super();
         this.renderImmediate = renderImmediate;
     }

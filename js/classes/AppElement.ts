@@ -1,5 +1,5 @@
 import { ChangeableDOM } from "../interfaces/changeElements";
-import { Attr, Elementable } from "../interfaces/elementable";
+import { Attr, Elementable, InsertBefore } from "../interfaces/elementable";
 import { Renderable } from "../interfaces/renderElement";
 
 
@@ -10,11 +10,15 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
     public parentElementId: string;
     public innerHtml: string;
     public attributes: Attr[]; 
-    constructor(props: Elementable, renderImmediate = false) {
+    public insertBefore: InsertBefore = false;
+    private isRendered = false; 
+    constructor(props: Elementable, renderImmediate = false, insertBefore: InsertBefore = false) {
+        this.isRendered = false; 
         Object.keys(props).map((i) => {
             this[i] = props[i];
         }); 
 
+        this.insertBefore = insertBefore;
         if (renderImmediate) {
             this.renderElement();
         }
@@ -36,7 +40,17 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
         if (this.innerHtml) {
             el.innerHTML = this.innerHtml;
         }
-        parent.appendChild(el);
+        if (this.isRendered) {
+            console.error(`Element with tag ${this.tag} and  attributes: ${JSON.stringify(this.attributes)} is already in the DOM`);
+            return;
+        }
+        if (this.insertBefore) {
+            parent.insertBefore(el, this.insertBefore === true ? parent.firstChild : this.insertBefore.element);
+        } else {
+            parent.appendChild(el);
+        }
+        
+        this.isRendered = true;
     }
     
     unmountElement(): void {

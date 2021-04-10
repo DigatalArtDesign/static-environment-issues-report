@@ -16,30 +16,29 @@ export interface AppLayoutContractProps {
 export default class AppLayoutContrast extends AppLayoutChanger {
     private isContactMode: boolean = false;
     private hrefContrast: string;
-    private hrefCurrect!: string;
     constructor(props: AppLayoutContractProps) {
         super(props.parentId);
         if (props.object) {
             const attr: Attr[] = [{name: "class", value: "object-class"}, {name: "data", value: props.object.srcData}];
             this.objectHTMLElement = new AppObjectCreator().createElement(this.divHTMLElement.id, attr);
-            this.objectHTMLElement.renderElement();
         }
-        this.descriptionElement = new AppSpanElementCreator().createElement(this.divHTMLElement.id, props.innerHtml); 
-        this.descriptionElement.renderElement();
+        this.descriptionElement = new AppSpanElementCreator(true).createElement(this.divHTMLElement.id, props.innerHtml); 
         this.hrefContrast = props.contastUrl;
+        this.isContactMode = Boolean(window.localStorage.getItem("isContractMode"));
     }
 
     watchElement() {
         this.divHTMLElement.listenEvent("click", async () => {
             if (!this.isContactMode) {
                 const css = await axios.get(this.hrefContrast);
-                console.log(css.data);
+                // console.log(css.data);
                 const style = document.createElement("style");
                 style.innerHTML = css.data;
                 style.id = "contrast-style";
                 document.getElementsByTagName("head")[0].appendChild(style);
 
                 this.isContactMode = true;
+                window.localStorage.setItem("isContractMode", "true");
             } else {
                 const style = Array.from(document.getElementsByTagName("style")).findIndex(i => i.id === "contrast-style");
                 if (style === -1) 
@@ -48,6 +47,7 @@ export default class AppLayoutContrast extends AppLayoutChanger {
                 }
                 document.getElementsByTagName("head")[0].removeChild(document.getElementsByTagName("style")[style]);
                 this.isContactMode = false;
+                window.localStorage.setItem("isContractMode", "false");
             }  
         });
     }
