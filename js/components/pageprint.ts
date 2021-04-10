@@ -34,7 +34,10 @@ const printMain = (): PagePrint => {
     const normalViewSwitcher = new AppLayoutPrint(props);
     normalViewSwitcher.renderElement();
     normalViewSwitcher.changeClass(["print-view-swicher"]);
-    normalViewSwitcher.watchElement();
+    normalViewSwitcher.watchElement(() => {
+        const el = document.querySelectorAll(".app-span")[0];
+        el.innerHTML = "Print Mode";
+    });
 
 
     return pagePrint;

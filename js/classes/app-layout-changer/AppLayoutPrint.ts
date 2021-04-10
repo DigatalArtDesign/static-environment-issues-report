@@ -44,7 +44,7 @@ export default class AppLayoutPrint extends AppLayoutChanger {
         this.descriptionElement.renderElement();
     }
 
-    watchElement() {
+    watchElement(callback?: () => void) {
         if (!this.divHTMLElement.mounted || !this.descriptionElement.mounted && !this.descriptionElement.mounted) {
             console.error("Elements are not in the DOM, or were unmounted from there. Please consider render them first");
             return;
@@ -53,6 +53,9 @@ export default class AppLayoutPrint extends AppLayoutChanger {
             this._isPrintMode = !this._isPrintMode;
             this.changeView();
             window.localStorage.setItem("isPrintMode", String(this._isPrintMode));
+            if (callback) {
+                callback();
+            }
             if (!this._isPrintMode) {
                 this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[0]);
             } else {
