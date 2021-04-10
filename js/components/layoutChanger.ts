@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const appPrintProps: AppLayoutPrintProps = {
         parentId: "layout",
-        innerHtml: ["Print Mode", "Back to normal mode"],
+        innerHtml: ["Print Mode", "Print Mode"],
         object: false,
     };
 
