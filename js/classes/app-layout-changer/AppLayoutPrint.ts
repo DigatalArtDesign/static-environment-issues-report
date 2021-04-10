@@ -14,7 +14,7 @@ export interface AppLayoutPrintProps {
 }
 
 export default class AppLayoutPrint extends AppLayoutChanger {
-    private isPrintMode = false;
+    private _isPrintMode = false;
     private hasObjectHtml = false;
 
 
@@ -26,7 +26,11 @@ export default class AppLayoutPrint extends AppLayoutChanger {
             this.objectHTMLElement = new AppObjectCreator().createElement(this.divHTMLElement.id, attr);
         }
         this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, props.innerHtml); 
-        this.isPrintMode = Boolean(window.localStorage.getItem("isPrintMode") === "true");
+        this._isPrintMode = Boolean(window.localStorage.getItem("isPrintMode") === "true");
+    }
+
+    get isPrintMode() {
+        return this._isPrintMode;
     }
 
     renderElement() {
@@ -44,17 +48,16 @@ export default class AppLayoutPrint extends AppLayoutChanger {
             return;
         }
         this.divHTMLElement.listenEvent("click", async () => {
-            this.isPrintMode = !this.isPrintMode;
+            this._isPrintMode = !this._isPrintMode;
             this.changeView();
-            window.localStorage.setItem("isPrintMode", String(this.isPrintMode));
+            window.localStorage.setItem("isPrintMode", String(this._isPrintMode));
         });
     }
 
     changeView() {
-        console.log(this.isPrintMode);
-        if (this.isPrintMode) {
+        if (this._isPrintMode) {
             simulatePrintMedia();
-        } else if (!this.isPrintMode) {
+        } else if (!this._isPrintMode) {
             restoreScreenMedia();
         }
     }

@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     };
 
-    if (isSecondPhase) {
+    if (isSecondPhase || printLayout.isPrintMode || appLayout.isContrastMode) {
         secondPhase();
     } else {
         firstPhase();

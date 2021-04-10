@@ -14,7 +14,7 @@ export interface AppLayoutContractProps {
 }
 
 export default class AppLayoutContrast extends AppLayoutChanger {
-    private isContactMode: boolean = false;
+    private _isContrastMode: boolean = false;
     private hrefContrast: string;
     private hasObjectHtml = false;
 
@@ -27,7 +27,11 @@ export default class AppLayoutContrast extends AppLayoutChanger {
         }
         this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, props.innerHtml); 
         this.hrefContrast = props.contastUrl;
-        this.isContactMode = Boolean(window.localStorage.getItem("isContractMode") === "true");
+        this._isContrastMode = Boolean(window.localStorage.getItem("isContractMode") === "true");
+    }
+
+    get isContrastMode() {
+        return this._isContrastMode;
     }
 
     renderElement() {
@@ -41,14 +45,14 @@ export default class AppLayoutContrast extends AppLayoutChanger {
 
     watchElement() {
         this.divHTMLElement.listenEvent("click", async () => {
-            this.isContactMode = !this.isContactMode;
+            this._isContrastMode = !this._isContrastMode;
             await this.changeView();
-            window.localStorage.setItem("isContractMode", String(this.isContactMode));
+            window.localStorage.setItem("isContractMode", String(this._isContrastMode));
         });
     }
 
     async changeView() {
-        if (this.isContactMode) {
+        if (this._isContrastMode) {
             const css = await axios.get(this.hrefContrast);
             // console.log(css.data);
             const style = document.createElement("style");
