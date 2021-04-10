@@ -5,9 +5,11 @@ import uuid from "uuid";
 
 export class AppObjectCreator extends AppElementCreator {
     insertBefore: InsertBefore;
-    constructor(insertBefore: InsertBefore = false) {
+    renderImmediate: boolean;
+    constructor(renderImmediate = false, insertBefore: InsertBefore = false) {
         super();
         this.insertBefore = insertBefore;
+        this.renderImmediate = renderImmediate;
     }
     createElement(id: string, attr: Attr[]): AppElementUI {
         const classes = attr.filter(i => i.name === "class").map(i => i.value);
@@ -19,6 +21,6 @@ export class AppObjectCreator extends AppElementCreator {
             parentElementId: id,
             attributes: attrs
         };
-        return new AppElementUI(props, true, this.insertBefore);
+        return new AppElementUI(props, this.renderImmediate, this.insertBefore);
     }
 }

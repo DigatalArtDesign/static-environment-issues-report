@@ -326,8 +326,25 @@ a:visited {
   align-items: center;
 }
 
+.layout.first-layout {
+  width: 65px;
+  height: 200px;
+}
+
+.layout.first-layout .change-appearance {
+  transform: rotate(270deg);
+  width: 150px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
 .layout .s-icon-wrapper {
   padding: 20px;
+  cursor: pointer;
+}
+
+.layout .s-icon-wrapper object {
+  pointer-events: none;
 }
 
 .layout .div-element {

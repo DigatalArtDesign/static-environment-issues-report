@@ -70,15 +70,14 @@ export default class Print {
 
     public unrender() {
         try {
-            this.printElement.unmountElement();
-            this.printElement.unmountElement();
-            if (this.hasImage) {
-                this.printImage.unmountElement();
-            }
-
             if (typeof this.watchOnClickPrint === "object") {
                 this.unWatchClick();
             }
+            this.printButton.unmountElement();
+            if (this.hasImage) {
+                this.printImage.unmountElement();
+            }
+            this.printElement.unmountElement();
         } catch (e) {
             console.error(e);
         }

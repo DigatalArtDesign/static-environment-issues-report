@@ -15,30 +15,56 @@ export interface AppLayoutPrintProps {
 
 export default class AppLayoutPrint extends AppLayoutChanger {
     private isPrintMode = false;
+    private hasObjectHtml = false;
 
 
     constructor(props: AppLayoutPrintProps) {
         super(props.parentId);
         if (props.object) {
+            this.hasObjectHtml = true;
             const attr: Attr[] = [{name: "class", value: "object-class"}, {name: "data", value: props.object.srcData}];
             this.objectHTMLElement = new AppObjectCreator().createElement(this.divHTMLElement.id, attr);
         }
-        this.descriptionElement = new AppSpanElementCreator(true).createElement(this.divHTMLElement.id, props.innerHtml); 
-        this.isPrintMode = Boolean(window.localStorage.getItem("isPrintMode"));
+        this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, props.innerHtml); 
+        this.isPrintMode = Boolean(window.localStorage.getItem("isPrintMode") === "true");
+    }
+
+    renderElement() {
+        this.divHTMLElement.renderElement();
+        if (this.hasObjectHtml) {
+            this.objectHTMLElement.renderElement();
+        }
+
+        this.descriptionElement.renderElement();
     }
 
     watchElement() {
+        if (!this.divHTMLElement.mounted || !this.descriptionElement.mounted && !this.descriptionElement.mounted) {
+            console.error("Elements are not in the DOM, or were unmounted from there. Please consider render them first");
+            return;
+        }
         this.divHTMLElement.listenEvent("click", async () => {
-            if (!this.isPrintMode) {
-                simulatePrintMedia();
-                this.isPrintMode = true;
-                window.localStorage.setItem("isPrintMode", "true");
-            } else if (this.isPrintMode) {
-                restoreScreenMedia();
-                this.isPrintMode = false;
-                window.localStorage.setItem("isPrintMode", "false");
-            }
+            this.isPrintMode = !this.isPrintMode;
+            this.changeView();
+            window.localStorage.setItem("isPrintMode", String(this.isPrintMode));
         });
+    }
+
+    changeView() {
+        console.log(this.isPrintMode);
+        if (this.isPrintMode) {
+            simulatePrintMedia();
+        } else if (!this.isPrintMode) {
+            restoreScreenMedia();
+        }
+    }
+
+    unmountElement() {
+        this.descriptionElement.unmountElement();
+        if (this.hasObjectHtml) {
+            this.objectHTMLElement.unmountElement();
+        }
+        this.divHTMLElement.unmountElement();
     }
 
     changeClass(htmlClasses: string[]) {

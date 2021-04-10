@@ -7,9 +7,12 @@ export default abstract class AppLayoutChanger {
     protected descriptionElement: AppElementUI;
     
     constructor(parentId: string) {
-        this.divHTMLElement = new AppDivElementCreator(true).createElement(parentId, []);
+        this.divHTMLElement = new AppDivElementCreator(false).createElement(parentId, []);
     }
 
+
+    abstract changeView();
+    abstract renderElement();
     abstract watchElement();
     abstract changeClass(htmlClasses: string[]);
 }

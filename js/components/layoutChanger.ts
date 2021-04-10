@@ -7,9 +7,14 @@ import { AppObjectCreator } from "../classes/app-element-creators/AppObjectCreat
 import { AppDivElementCreator } from "../classes/app-element-creators/AppDivCreator";
 import { printMain } from "./pageprint";
 import AppLayoutPrint, { AppLayoutPrintProps } from "../classes/app-layout-changer/AppLayoutPrint";
+import { AppSpanElementCreator } from "../classes/app-element-creators/AppSpanElementCreator";
+import PagePrint from "../classes/page-print/PagePrint";
 
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+    let isSecondPhase = false;
+    let pagePrint!: PagePrint;
+
     const appLayoutProps: AppLayoutContractProps = {
         parentId: "layout",
         innerHtml: "Contast Mode",
@@ -23,17 +28,67 @@ document.addEventListener("DOMContentLoaded", () => {
         object: false,
     };
 
-    // image 
-    const sImageDiv = new AppDivElementCreator(true).createElement(appLayoutProps.parentId, [{name: "class", value: "s-icon-wrapper"}]);
-    new AppObjectCreator(true).createElement(sImageDiv.id, [{name: "data", value: sImage}, {name: "width", value: "24"}, {name: "height", value: "31"}]);
-    
     // print layout
     const printLayout = new AppLayoutPrint(appPrintProps);
-    printLayout.watchElement();
-
+    printLayout.changeView();
     // contract layout
     const appLayout = new AppLayoutContrast(appLayoutProps);
-    appLayout.watchElement();
+    await appLayout.changeView();
+
+    const firstPhase = () => {
+        // image 
+        const sImageDiv = new AppDivElementCreator(true).createElement("layout", [{name: "class", value: "s-icon-wrapper"}]);
+        const sImageObject = new AppObjectCreator(true).createElement(sImageDiv.id, [{name: "data", value: sImage}, {name: "width", value: "24"}, {name: "height", value: "31"}]);
+
+        const spanElement = new AppSpanElementCreator(true).createElement("layout", "Change Apperarence", [{name: "class", value: "change-appearance"}]);
+        spanElement.listenEvent("click", () => {
+            sImageObject.unmountElement();
+            sImageDiv.unmountElement();
+            document.getElementById("layout").classList.remove("first-layout");
+            spanElement.unmountElement();
+            secondPhase();
+            isSecondPhase = true;
+        });
+        document.getElementById("layout").classList.add("first-layout");
+    };
+    const secondPhase = () => {
+        document.getElementById("layout").classList.add("second-layout");
     
-    printMain();
+        // image 
+        const sImageDiv = new AppDivElementCreator(true, true).createElement(appLayoutProps.parentId, [{name: "class", value: "s-icon-wrapper"}]);
+        const sImageObject = new AppObjectCreator(true, true).createElement(sImageDiv.id, [{name: "data", value: sImage}, {name: "width", value: "24"}, {name: "height", value: "31"}]);
+        
+        printLayout.renderElement();
+        printLayout.watchElement();
+        appLayout.renderElement();
+        appLayout.watchElement();
+        
+        pagePrint = printMain();
+        console.log(pagePrint);
+
+        const goBack = () => {
+           printLayout.unmountElement();
+           appLayout.unmountElement();
+           sImageObject.unmountElement();
+           sImageDiv.unmountElement();
+           if (!pagePrint) {
+               console.error("Page print was not initialized");
+           } else {
+               pagePrint.unrender();
+           }
+           isSecondPhase = false;
+           firstPhase();
+        };
+
+        sImageDiv.listenEvent("click", () => {  
+           goBack();
+        });
+    };
+
+    if (isSecondPhase) {
+        secondPhase();
+    } else {
+        firstPhase();
+    }
+    
 });

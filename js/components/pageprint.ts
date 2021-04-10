@@ -2,7 +2,7 @@
 import PagePrint, { WatchOnClickPrint } from "../classes/page-print/PagePrint";
 
 
-export const printMain = () => {
+const printMain = (): PagePrint => {
     const body = document.getElementsByTagName("body");
     body[0].id = "body";
     const links = document.getElementsByTagName("link");
@@ -24,5 +24,11 @@ export const printMain = () => {
 
     const pagePrint = new PagePrint("layout", "Print Page", watchOptions, false);
     pagePrint.render();
+
+    return pagePrint;
 };
 
+
+export {
+    printMain
+};

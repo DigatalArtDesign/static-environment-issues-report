@@ -14,7 +14,7 @@
     "build:local": "NODE_ENV=development-local parcel build index.html css/**/*.css",
     "dev:local": "NODE_ENV=development-local parcel index.html css/**/*.css --open",
     "host:local": "ttab \"cd ./api && npm run start\"",
-    "start:local": "run-s build:local host:local dev:local",
+    "start:local": "run-s build:local dev:local host:local",
     "build": "NODE_ENV=production parcel build index.html",
     "serve": "NODE_ENV=development parcel build index.html",
     "dev": "NODE_ENV=development parcel index.html --open",
