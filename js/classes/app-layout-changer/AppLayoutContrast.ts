@@ -6,7 +6,7 @@ import axios from "axios";
 
 export interface AppLayoutContractProps {
     parentId: string; 
-    innerHtml: string;
+    innerHtml: [string, string];
     object: false | {
         srcData: string;
     };
@@ -17,17 +17,19 @@ export default class AppLayoutContrast extends AppLayoutChanger {
     private _isContrastMode: boolean = false;
     private hrefContrast: string;
     private hasObjectHtml = false;
+    private descriptioninnerHTML: [string, string];
 
     constructor(props: AppLayoutContractProps) {
         super(props.parentId);
+        this.descriptioninnerHTML = props.innerHtml;
         if (props.object) {
             this.hasObjectHtml = true;
             const attr: Attr[] = [{name: "class", value: "object-class"}, {name: "data", value: props.object.srcData}];
             this.objectHTMLElement = new AppObjectCreator().createElement(this.divHTMLElement.id, attr);
         }
-        this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, props.innerHtml); 
-        this.hrefContrast = props.contastUrl;
         this._isContrastMode = Boolean(window.localStorage.getItem("isContractMode") === "true");
+        this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, this._isContrastMode ? props.innerHtml[1] : props.innerHtml[0]); 
+        this.hrefContrast = props.contastUrl;
     }
 
     get isContrastMode() {
@@ -48,6 +50,11 @@ export default class AppLayoutContrast extends AppLayoutChanger {
             this._isContrastMode = !this._isContrastMode;
             await this.changeView();
             window.localStorage.setItem("isContractMode", String(this._isContrastMode));
+            if (!this._isContrastMode) {
+                this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[0]);
+            } else {
+                this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[1]);
+            }
         });
     }
 
@@ -59,7 +66,6 @@ export default class AppLayoutContrast extends AppLayoutChanger {
             style.innerHTML = css.data;
             style.id = "contrast-style";
             document.getElementsByTagName("head")[0].appendChild(style);
-
         } else {
             const style = Array.from(document.getElementsByTagName("style")).findIndex(i => i.id === "contrast-style");
             if (style === -1) 

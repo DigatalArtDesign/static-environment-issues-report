@@ -17,14 +17,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const appLayoutProps: AppLayoutContractProps = {
         parentId: "layout",
-        innerHtml: "Contrast Mode",
+        innerHtml: ["Contrast Mode", "Back to normal mode"],
         object: false,
         contastUrl: constractCss
     };
 
     const appPrintProps: AppLayoutPrintProps = {
         parentId: "layout",
-        innerHtml: "Print Mode",
+        innerHtml: ["Print Mode", "Back to normal mode"],
         object: false,
     };
 

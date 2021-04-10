@@ -7,7 +7,7 @@ import { simulatePrintMedia, restoreScreenMedia } from "../../utils/printCssTogg
 
 export interface AppLayoutPrintProps {
     parentId: string; 
-    innerHtml: string;
+    innerHtml: [string, string];
     object: false | {
         srcData: string;
     };
@@ -16,17 +16,19 @@ export interface AppLayoutPrintProps {
 export default class AppLayoutPrint extends AppLayoutChanger {
     private _isPrintMode = false;
     private hasObjectHtml = false;
+    private descriptioninnerHTML: [string, string];
 
 
     constructor(props: AppLayoutPrintProps) {
         super(props.parentId);
+        this.descriptioninnerHTML = props.innerHtml;
         if (props.object) {
             this.hasObjectHtml = true;
             const attr: Attr[] = [{name: "class", value: "object-class"}, {name: "data", value: props.object.srcData}];
             this.objectHTMLElement = new AppObjectCreator().createElement(this.divHTMLElement.id, attr);
         }
-        this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, props.innerHtml); 
         this._isPrintMode = Boolean(window.localStorage.getItem("isPrintMode") === "true");
+        this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, this._isPrintMode ? props.innerHtml[1] : props.innerHtml[0]); 
     }
 
     get isPrintMode() {
@@ -34,7 +36,6 @@ export default class AppLayoutPrint extends AppLayoutChanger {
     }
 
     renderElement() {
-        console.log(this.divHTMLElement.mounted);
         this.divHTMLElement.renderElement();
         if (this.hasObjectHtml) {
             this.objectHTMLElement.renderElement();
@@ -52,6 +53,11 @@ export default class AppLayoutPrint extends AppLayoutChanger {
             this._isPrintMode = !this._isPrintMode;
             this.changeView();
             window.localStorage.setItem("isPrintMode", String(this._isPrintMode));
+            if (!this._isPrintMode) {
+                this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[0]);
+            } else {
+                this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[1]);
+            }
         });
     }
 
