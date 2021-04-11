@@ -3,6 +3,7 @@ import AppLayoutContrast, { AppLayoutContractProps } from "../classes/app-layout
 import constractCss from "url:./../../css/contrast.css";
 // @ts-ignore
 import sImage from "url:./../../img/s.svg";
+// @ts-ignore
 import { AppObjectCreator } from "../classes/app-element-creators/AppObjectCreator";
 import { AppDivElementCreator } from "../classes/app-element-creators/AppDivCreator";
 import { printMain } from "./pageprint";
@@ -27,6 +28,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         innerHtml: ["Print Mode", "Print Mode"],
         object: false,
     };
+
+    function createIndexMainBackground() {
+        document.getElementsByClassName("main-content__index")[0].classList.remove("main-content-no-background");
+    }
+
+    function removeImageBackground() {
+        document.getElementsByClassName("main-content__index")[0].classList.add("main-content-no-background");
+    }
 
     // print layout
     const printLayout = new AppLayoutPrint(appPrintProps);
@@ -61,7 +70,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         printLayout.renderElement();
         printLayout.watchElement();
         appLayout.renderElement();
-        appLayout.watchElement();
+        appLayout.watchElement((isContrastMode: boolean) => {
+            if (isContrastMode) {
+                createIndexMainBackground();
+            } else {
+                removeImageBackground();
+            }
+        });
         
         pagePrint = printMain();
         console.log(pagePrint);

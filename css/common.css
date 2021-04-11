@@ -535,35 +535,6 @@ blockquote h3 {
   border-radius: 30px;
 }
 
-.page-print {
-  position: fixed;
-  border: 2px solid var(--white);
-  width: 200px;
-  bottom: 0;
-  right: 20px;
-  height: fit-content;
-  background: var(--box-darkest-green);
-  transition: all 0.4s ease-in;
-}
-
-.page-print:hover {
-  background-color: var(--box-darker-green);
-}
-
-.page-print .print-image {
-  mask: url("/img/cmyk.svg");
-  mask-repeat: no-repeat;
-  width: 32px;
-  height: 32px;
-  mask-size: contain;
-  background-color: var(--white);
-  -webkit-mask: url("/img/cmyk.svg");
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-position: center;
-}
-
 .is-button-print {
   height: 30px;
   width: 100%;

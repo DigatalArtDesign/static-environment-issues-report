@@ -23,15 +23,23 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <!-- <link rel="stylesheet" href="css/main.css" /> -->
     <link rel="stylesheet" href="css/pages/index.css" />
+    <link rel="stylesheet" href="css/pages//index-contrast.css" />
 
     <meta name="theme-color" content="#fafafa" />
 </head>
 
-<body>
-  <header class="nav-bar">
+<body id="body">
+  <div id="menu" class="menu">
+    <a href="#">
+      <object data="./img/menu.svg" width="30" height="30"> 
+        No svg support 
+      </object>
+    </a>
+  </div>
+  <header id="nav-bar" class="nav-bar">
+    <div class="layout" id="layout"></div>
     <h3 class="logo-text is-h3">
       <span class="cursor-pointer" onclick="window.location = './index.html'">SavePlanet</span>
-      <div id="page-print" class="page-print"></div>
     </h3>
     <nav class="is-half-flex-basis">
       <ul class="is-ul main-content__navigation-bar">
@@ -53,7 +61,7 @@
       </ul>
     </nav>
   </header>
-  <main class="main-content">
+  <main class="main-content main-content__index">
     <section class="main-content__section-video is-half-flex-basis">
       <div class="main-content__main-image">
         <aside class="is-flex is-absolute is-flex-column sources">
@@ -88,7 +96,8 @@
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/components/pageprint.ts"></script>
+  <script type="text/javascript" src="js/components/rightNavbar.ts"></script>
+  <script type="text/javascript" src="js/components/layoutChanger.ts"></script>
   <script src="js/components//index.ts"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

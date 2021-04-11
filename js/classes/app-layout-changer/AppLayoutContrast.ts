@@ -27,7 +27,7 @@ export default class AppLayoutContrast extends AppLayoutChanger {
             const attr: Attr[] = [{name: "class", value: "object-class"}, {name: "data", value: props.object.srcData}];
             this.objectHTMLElement = new AppObjectCreator().createElement(this.divHTMLElement.id, attr);
         }
-        this._isContrastMode = Boolean(window.localStorage.getItem("isContractMode") === "true");
+        this._isContrastMode = Boolean(window.localStorage.getItem("isContrastMode") === "true");
         this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, this._isContrastMode ? props.innerHtml[1] : props.innerHtml[0]); 
         this.hrefContrast = props.contastUrl;
     }
@@ -45,11 +45,14 @@ export default class AppLayoutContrast extends AppLayoutChanger {
         this.descriptionElement.renderElement();
     }
 
-    watchElement() {
+    watchElement(callback?: (contrastMode?: boolean) => void) {
         this.divHTMLElement.listenEvent("click", async () => {
             this._isContrastMode = !this._isContrastMode;
             await this.changeView();
-            window.localStorage.setItem("isContractMode", String(this._isContrastMode));
+            window.localStorage.setItem("isContrastMode", String(this._isContrastMode));
+            if (callback) {
+                callback(this._isContrastMode);
+            }
             if (!this._isContrastMode) {
                 this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[0]);
             } else {

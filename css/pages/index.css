@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.main-content-no-background {
+  background-image: none !important;
+}
+
 .image-print-wrapper {
   display: none;
 }
