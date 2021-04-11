@@ -465,6 +465,10 @@ textarea {
   background: var(--primary);
 }
 
+.section-cases {
+  margin-bottom: 5rem !important;
+}
+
 @media screen and (max-width: 600px) {
   .case-boxes {
     display: flex;
