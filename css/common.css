@@ -395,7 +395,7 @@ a:visited {
 
 .opacity-off {
   opacity: 0;
-} 
+}
 
 .opacity-on {
   opacity: 1;
@@ -565,6 +565,12 @@ blockquote h3 {
   align-items: center;
   cursor: pointer;
   padding: 10px 20px;
+}
+
+html,
+body,
+.main-content__index {
+  transition: background-color 0.4s ease-in;
 }
 
 @media screen and (max-width: 700px) {
