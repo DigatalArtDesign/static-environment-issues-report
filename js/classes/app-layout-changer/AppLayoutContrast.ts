@@ -3,6 +3,7 @@ import { AppObjectCreator } from "../app-element-creators/AppObjectCreator";
 import { AppSpanElementCreator } from "../app-element-creators/AppSpanElementCreator";
 import { Attr } from "../../interfaces/elementable";
 import axios from "axios";
+import { ViewMode } from "../../interfaces/viewModes";
 
 export interface AppLayoutContractProps {
     parentId: string; 
@@ -59,6 +60,17 @@ export default class AppLayoutContrast extends AppLayoutChanger {
                 this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[1]);
             }
         });
+    }
+
+    changeViewDirect(mode: ViewMode) {
+        this._isContrastMode = mode === ViewMode.CONTRAST;
+        window.localStorage.setItem("isContrastMode", String(this._isContrastMode));
+        if (!this._isContrastMode) {
+            this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[0]);
+        } else {
+            this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[1]);
+        }
+        this.changeView();
     }
 
     async changeView() {

@@ -3,6 +3,7 @@ import { AppSpanElementCreator } from "../app-element-creators/AppSpanElementCre
 import AppLayoutChanger from "./AppLayoutChanger";
 import { Attr } from "../../interfaces/elementable";
 import { simulatePrintMedia, restoreScreenMedia } from "../../utils/printCssToggle";
+import { ViewMode } from "../../interfaces/viewModes";
 
 
 export interface AppLayoutPrintProps {
@@ -44,17 +45,18 @@ export default class AppLayoutPrint extends AppLayoutChanger {
         this.descriptionElement.renderElement();
     }
 
-    watchElement(callback?: () => void) {
+    watchElement(callback?: (printMode?: boolean) => void) {
         if (!this.divHTMLElement.mounted || !this.descriptionElement.mounted && !this.descriptionElement.mounted) {
             console.error("Elements are not in the DOM, or were unmounted from there. Please consider render them first");
             return;
         }
+        console.log(this.isPrintMode);
         this.divHTMLElement.listenEvent("click", async () => {
             this._isPrintMode = !this._isPrintMode;
             this.changeView();
             window.localStorage.setItem("isPrintMode", String(this._isPrintMode));
             if (callback) {
-                callback();
+                callback(this._isPrintMode);
             }
             if (!this._isPrintMode) {
                 this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[0]);
@@ -62,6 +64,12 @@ export default class AppLayoutPrint extends AppLayoutChanger {
                 this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[1]);
             }
         });
+    }
+
+    changeViewDirect(mode: ViewMode) {
+        this._isPrintMode = mode === ViewMode.PRINT;
+        window.localStorage.setItem("isPrintMode", String(this._isPrintMode));
+        this.changeView();
     }
 
     changeView() {

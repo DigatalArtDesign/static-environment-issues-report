@@ -6,6 +6,7 @@
 
 .main-content-no-background {
   background-image: none !important;
+  border: 0 !important;
 }
 
 .image-print-wrapper {
@@ -38,6 +39,12 @@
   left: 3%;
   bottom: 3%;
   color: var(--comment-white);
+}
+
+@media screen and (max-width: 1360px) {
+  .main-content__main-title {
+    max-width: 450px;
+  }
 }
 
 @media (max-width: 900px) {

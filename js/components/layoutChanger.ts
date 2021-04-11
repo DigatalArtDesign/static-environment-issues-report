@@ -10,6 +10,7 @@ import { printMain } from "./pageprint";
 import AppLayoutPrint, { AppLayoutPrintProps } from "../classes/app-layout-changer/AppLayoutPrint";
 import { AppSpanElementCreator } from "../classes/app-element-creators/AppSpanElementCreator";
 import PagePrint from "../classes/page-print/PagePrint";
+import { ViewMode } from "../interfaces/viewModes";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -25,15 +26,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const appPrintProps: AppLayoutPrintProps = {
         parentId: "layout",
-        innerHtml: ["Print Mode", "Print Mode"],
+        innerHtml: ["Print Mode", "Back to normal mode"],
         object: false,
     };
 
     function createIndexMainBackground() {
+        if (!document.getElementsByClassName("main-content__index")[0]) {
+            console.warn("no background change");
+            return;
+        }
         document.getElementsByClassName("main-content__index")[0].classList.remove("main-content-no-background");
     }
 
     function removeImageBackground() {
+        if (!document.getElementsByClassName("main-content__index")[0]) {
+            console.warn("no background change");
+            return;
+        }
         document.getElementsByClassName("main-content__index")[0].classList.add("main-content-no-background");
     }
 
@@ -49,7 +58,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         const sImageDiv = new AppDivElementCreator(true).createElement("layout", [{name: "class", value: "s-icon-wrapper"}]);
         const sImageObject = new AppObjectCreator(true).createElement(sImageDiv.id, [{name: "data", value: sImage}, {name: "width", value: "24"}, {name: "height", value: "31"}]);
 
-        const spanElement = new AppSpanElementCreator(true).createElement("layout", "Change Apperarence", [{name: "class", value: "change-appearance"}]);
+    const spanElement = new AppSpanElementCreator(true).createElement("layout", "Change Apperarence", [{name: "class", value: "change-appearance"}]);
+        removeImageBackground();
         spanElement.listenEvent("click", () => {
             sImageObject.unmountElement();
             sImageDiv.unmountElement();
@@ -68,10 +78,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         const sImageObject = new AppObjectCreator(true, true).createElement(sImageDiv.id, [{name: "data", value: sImage}, {name: "width", value: "24"}, {name: "height", value: "31"}]);
         
         printLayout.renderElement();
-        printLayout.watchElement();
+        printLayout.watchElement((isPrintMode: boolean) => {
+            if(isPrintMode) {
+                appLayout.changeViewDirect(ViewMode.PRINT);
+            } 
+            removeImageBackground();
+        });
         appLayout.renderElement();
         appLayout.watchElement((isContrastMode: boolean) => {
             if (isContrastMode) {
+                printLayout.changeViewDirect(ViewMode.CONTRAST);
                 createIndexMainBackground();
             } else {
                 removeImageBackground();

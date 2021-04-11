@@ -612,11 +612,49 @@ blockquote h3 {
     font-size: 18px;
   }
 
+  .layout {
+    position: initial;
+  }
+
+  .main-content {
+    padding-top: 30px;
+  }
+
+  .main-content__index {
+    background-image: none !important;
+    border: none !important;
+  }
+
   .div-element .print-view-swicher {
     cursor: pointer;
   }
 
-  header,
+  .nav-bar .logo-text,
+  .nav-bar nav {
+    display: none;
+  }
+
+  .layout .app-span {
+    max-width: initial;
+    text-align: center;
+    width: initial;
+  }
+
+  .s-icon-wrapper {
+    display: none;
+  }
+
+  .div-element:not(:nth-child(2)) {
+    display: none;
+  }
+
+  .div-element:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+  }
+
   footer {
     display: none !important;
   }

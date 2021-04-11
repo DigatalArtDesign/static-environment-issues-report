@@ -12,7 +12,7 @@
   "author": "Cristea Andrei && Diacenco Serghei",
   "scripts": {
     "build:local": "NODE_ENV=development-local parcel build index.html css/**/*.css",
-    "dev:local": "NODE_ENV=development-local parcel serve index.html css/**/*.css",
+    "dev:local": "NODE_ENV=development-local parcel serve *.html",
     "host:local": "ttab \"cd ./api && npm run start\"",
     "start:local": "run-s build:local dev:local host:local",
     "build": "NODE_ENV=production parcel build index.html",
