@@ -182,8 +182,17 @@ textarea {
 }
 
 @media screen and (max-height: 700px) {
+  .nav-bar {
+    flex-wrap: nowrap;
+  }
+  
   .nav-bar .logo-text {
     padding-top: 0;
+    height: 2rem;
+  }
+
+  .logo-text span {
+    height: inherit;
   }
 }
 
@@ -606,9 +615,18 @@ textarea {
   .main-content__index {
     width: 70%;
   }
+
+  .main-content__redirected {
+    width: 65%;
+  }
 }
 
 @media screen and (max-width: 600px) {
+  .call {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
   .is-h3 {
     font-size: 2.3rem !important;
   }
