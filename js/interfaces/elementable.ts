@@ -15,3 +15,9 @@ export interface Elementable {
 export type InsertBefore = boolean | {
     element: Node;
 }
+
+export enum ChangeClass {
+    REPLACE = "replace",
+    ADD = "ADD",
+    REPLACE_ALL = "replaceAll"
+}

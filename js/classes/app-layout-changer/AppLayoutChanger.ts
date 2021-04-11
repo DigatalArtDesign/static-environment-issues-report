@@ -1,3 +1,4 @@
+import { ChangeClass } from "../../interfaces/elementable";
 import { AppDivElementCreator } from "../app-element-creators/AppDivCreator";
 import AppElementUI from "../AppElement";
 
@@ -14,5 +15,5 @@ export default abstract class AppLayoutChanger {
     abstract changeView();
     abstract renderElement();
     abstract watchElement();
-    abstract changeClass(htmlClasses: string[]);
+    abstract changeClass(htmlClasses: string[], changeType: ChangeClass, replaceClasses?: string[]);
 }

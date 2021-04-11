@@ -393,6 +393,15 @@ a:visited {
   border: 3px solid var(--background);
 }
 
+.opacity-off {
+  opacity: 0;
+} 
+
+.opacity-on {
+  opacity: 1;
+}
+
+
 /* buttons */
 
 .is-primary-button {

@@ -1,7 +1,7 @@
 import { AppObjectCreator } from "../app-element-creators/AppObjectCreator";
 import { AppSpanElementCreator } from "../app-element-creators/AppSpanElementCreator";
 import AppLayoutChanger from "./AppLayoutChanger";
-import { Attr } from "../../interfaces/elementable";
+import { Attr, ChangeClass } from "../../interfaces/elementable";
 import { simulatePrintMedia, restoreScreenMedia } from "../../utils/printCssToggle";
 import { ViewMode } from "../../interfaces/viewModes";
 
@@ -92,7 +92,7 @@ export default class AppLayoutPrint extends AppLayoutChanger {
         this.divHTMLElement.unmountElement();
     }
 
-    changeClass(htmlClasses: string[]) {
-        this.descriptionElement.changeClasses(htmlClasses);
+    changeClass(htmlClasses: string[], changeType: ChangeClass, replaceClasses?: string[]) {
+        this.descriptionElement.changeClasses(htmlClasses, changeType, replaceClasses);
     }
 }

@@ -1,5 +1,5 @@
 import { ChangeableDOM } from "../interfaces/changeElements";
-import { Attr, Elementable, InsertBefore } from "../interfaces/elementable";
+import { Attr, ChangeClass, Elementable, InsertBefore } from "../interfaces/elementable";
 import { Renderable } from "../interfaces/renderElement";
 
 
@@ -71,12 +71,15 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
         el.innerHTML = this.innerHtml;
     }
 
-    changeClasses(classes: string[]) {
+    changeClasses(classes: string[], changeType: ChangeClass, replaceClasses?: string[]) {
         const el = document.getElementById(this.id);
         if(!el) {
             throw new Error("Change Inner HTML Error: No such element was rendered to DOM. Please double check that this element exist, or did not delete it before");
         }
-        this.class = classes;
+        this.class = changeType === ChangeClass.ADD 
+        ? [...this.class.concat(classes)]
+        : ChangeClass.REPLACE ? [...this.class.filter(i => !replaceClasses.includes(i)).concat(classes) ]
+        : [...classes];
         el.removeAttribute("class");
         this.class.map((i) => el.classList.add(i));   
     } 

@@ -64,8 +64,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             sImageObject.unmountElement();
             sImageDiv.unmountElement();
             document.getElementById("layout").classList.remove("first-layout");
+            
+            const whiteBlock = document.getElementById("layout");
+            whiteBlock.style.transition = "width 0.5s";
             spanElement.unmountElement();
             secondPhase();
+            const divs = whiteBlock.getElementsByClassName("div-element");
+            for (let i = 0; i < divs.length; i++) {
+                divs[i].style.opacity = "0";   
+            }
+            setTimeout(() => {
+                for (const div of divs) {
+                    div.style.opacity = "1";
+                }
+            }, 500);
             isSecondPhase = true;
         });
         document.getElementById("layout").classList.add("first-layout");

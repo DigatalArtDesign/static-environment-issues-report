@@ -1,7 +1,7 @@
 import AppLayoutChanger from "./AppLayoutChanger";
 import { AppObjectCreator } from "../app-element-creators/AppObjectCreator";
 import { AppSpanElementCreator } from "../app-element-creators/AppSpanElementCreator";
-import { Attr } from "../../interfaces/elementable";
+import { Attr, ChangeClass } from "../../interfaces/elementable";
 import axios from "axios";
 import { ViewMode } from "../../interfaces/viewModes";
 
@@ -104,7 +104,7 @@ export default class AppLayoutContrast extends AppLayoutChanger {
         this.divHTMLElement.unmountElement();
     }
 
-    changeClass(htmlClasses: string[]) {
-        this.objectHTMLElement.changeClasses(htmlClasses);
+    changeClass(htmlClasses: string[], changeType: ChangeClass, replaceClasses?: string[]) {
+        this.objectHTMLElement.changeClasses(htmlClasses, changeType, replaceClasses);
     }
 }
