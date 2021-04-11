@@ -104,7 +104,7 @@ textarea {
 
 .nav-bar {
   box-sizing: border-box;
-  position: fixed;
+  position: fixed !important;
   flex-direction: column;
   right: -500px;
   overflow-x: hidden;
@@ -448,10 +448,31 @@ textarea {
   justify-self: start;
 }
 
+/* redirected.html */
+.table__body-element {
+  background: var(--black) !important;
+  color: var(--white) !important;
+  border: 2px solid var(--primary) !important;
+}
+
+.download .is-button.is-dark-button {
+  width: 100%;
+  max-width: 450px;
+  height: 75px;
+}
+
+.download .is-button.is-dark-button:hover {
+  background: var(--primary);
+}
+
 @media screen and (max-width: 600px) {
   .case-boxes {
     display: flex;
     flex-direction: column;
+  }
+
+  .download .is-button.is-dark-button {
+    max-width: 300px;
   }
 }
 
