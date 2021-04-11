@@ -1,5 +1,5 @@
 import { ChangeableDOM } from "../interfaces/changeElements";
-import { Attr, Elementable } from "../interfaces/elementable";
+import { Attr, ChangeClass, Elementable, InsertBefore } from "../interfaces/elementable";
 import { Renderable } from "../interfaces/renderElement";
 
 
@@ -10,11 +10,13 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
     public parentElementId: string;
     public innerHtml: string;
     public attributes: Attr[]; 
-    constructor(props: Elementable, renderImmediate = false) {
+    public insertBefore: InsertBefore = false;
+    constructor(props: Elementable, renderImmediate = false, insertBefore: InsertBefore = false) {
         Object.keys(props).map((i) => {
             this[i] = props[i];
         }); 
 
+        this.insertBefore = insertBefore;
         if (renderImmediate) {
             this.renderElement();
         }
@@ -36,7 +38,15 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
         if (this.innerHtml) {
             el.innerHTML = this.innerHtml;
         }
-        parent.appendChild(el);
+        if (this.mounted) {
+            console.error(`Element with tag ${this.tag} and  attributes: ${JSON.stringify(this.attributes)} is already in the DOM`);
+            return;
+        }
+        if (this.insertBefore) {
+            parent.insertBefore(el, this.insertBefore === true ? parent.firstChild : this.insertBefore.element);
+        } else {
+            parent.appendChild(el);
+        }
     }
     
     unmountElement(): void {
@@ -61,12 +71,15 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
         el.innerHTML = this.innerHtml;
     }
 
-    changeClasses(classes: string[]) {
+    changeClasses(classes: string[], changeType: ChangeClass, replaceClasses?: string[]) {
         const el = document.getElementById(this.id);
         if(!el) {
             throw new Error("Change Inner HTML Error: No such element was rendered to DOM. Please double check that this element exist, or did not delete it before");
         }
-        this.class = classes;
+        this.class = changeType === ChangeClass.ADD 
+        ? [...this.class.concat(classes)]
+        : ChangeClass.REPLACE ? [...this.class.filter(i => !replaceClasses.includes(i)).concat(classes) ]
+        : [...classes];
         el.removeAttribute("class");
         this.class.map((i) => el.classList.add(i));   
     } 
@@ -83,6 +96,10 @@ export default class AppElementUI implements Elementable, Renderable, Changeable
         } else {
             this.attributes[attrIndex].value = attrValue;
         }
+    }
+
+    listenEvent(eventName: string, callback: (e: Event) => void) {
+        document.getElementById(this.id).addEventListener(eventName, callback);
     }
 
     getInnerHtml() {

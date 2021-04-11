@@ -28,11 +28,18 @@
     <meta name="theme-color" content="#fafafa" />
 </head>
 
-<body>
-    <header class="nav-bar">
+<body id="body">
+    <div id="menu" class="menu">
+        <a href="#">
+          <object data="./img/menu.svg" width="30" height="30"> 
+            No svg support 
+          </object>
+        </a>
+    </div>
+    <header id="nav-bar" class="nav-bar">
+        <div class="layout" id="layout"></div>
         <h3 class="logo-text is-h3">
             <span class="cursor-pointer" onclick="window.location = './index.html'">SavePlanet</span>
-            <div id="page-print" class="page-print"></div>
         </h3>
         <nav class="is-half-flex-basis">
             <ul class="is-ul main-content__navigation-bar">
@@ -51,7 +58,7 @@
             </ul>
         </nav>
     </header>
-    <main class="main-content">
+    <main class="main-content main-content__about">
         <section class="section-call is-display-flex">
             <div class="call">
                 <p>The true secret of our happiness which is to keep out animals<br /><span
@@ -70,7 +77,9 @@
                 <div class="black-square"></div>
             </div>
             <div class="about-text is-display-flex">
-                <h1 class="about-left is-h2">The true secret of our happiness which is to keep out animals</h1>
+                <h1 class="about-left is-h2">Working hard on 
+                    our goal, making 
+                    world a better place</h1>
                 <div class="about-right is-flex-column">
                     <div class="right-textbox is-display-flex">
                         <p class="right-title">WHO</p>
@@ -96,7 +105,7 @@
         </section>
         <section class="section-icons">
             <div class="icons-title-text is-display-flex">
-                <h2 class="icons-title is-h2">The true secter of our happiness which is to keep out animals</h2>
+                <h2 class="icons-title is-h2">The true secret of our happiness which is to keep out animals</h2>
                 <div class="icons-text">
                     <h3 class="is-h3">Some of the most known facts are being written here. They help us realise how much
                         even a single event can affect the entire humanity. As uncle Ben said “The more power you have,
@@ -327,7 +336,8 @@
     <script src="./js/plugins.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/components/aboutvideo.ts"></script>
-    <script src="js/components/pageprint.ts"></script>
+    <script type="text/javascript" src="js/components/rightNavbar.ts"></script>
+    <script type="text/javascript" src="js/components/layoutChanger.ts"></script>
     <script src="./js/components/aboutimages.ts"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

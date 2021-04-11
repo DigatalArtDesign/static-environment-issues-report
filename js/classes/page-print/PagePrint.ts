@@ -1,35 +1,10 @@
 import printJS from "print-js";
 import uuid from "uuid";
-import { Attr, Elementable } from "../../interfaces/elementable";
+import { Attr, ChangeClass, Elementable } from "../../interfaces/elementable";
+import { AppDivElementCreator } from "../app-element-creators/AppDivCreator";
+import { AppSpanElementCreator } from "../app-element-creators/AppSpanElementCreator";
 import AppElementUI from "../AppElement";
 import AppElementCreator from "../ElementCreator";
-
-class PrintAreaCreator extends AppElementCreator {
-    createElement(id: string): AppElementUI {
-        const props: Elementable = {
-            tag: "div",
-            id: uuid(), 
-            class: ["print-wrapper"],
-            parentElementId: id
-        };
-
-        return new AppElementUI(props);
-    }
-} 
-
-class PrintButtonCreator extends AppElementCreator {
-    createElement(id: string, innerHTML: string): AppElementUI {
-        const props: Elementable = {
-            tag: "button",
-            id: uuid(), 
-            class: ["is-button-print"],
-            parentElementId: id,
-            innerHtml: innerHTML
-        };
-
-        return new AppElementUI(props);
-    }
-} 
 
 class PrintImageCreator extends AppElementCreator {
     createElement(id: string, tag: string, attributes: Attr[]): AppElementUI {
@@ -66,8 +41,8 @@ export default class Print {
     private watchOnClickPrint: WatchOnClickPrint | false;
 
     constructor(parentId: string, buttonText: string, watchOnClickPrint: WatchOnClickPrint | false = false , image: ImageView | boolean) {
-        this.printElement = new PrintAreaCreator().createElement(parentId);
-        this.printButton = new PrintButtonCreator().createElement(this.printElement.id, buttonText);
+        this.printElement = new AppDivElementCreator().createElement(parentId, [{name: "class", value: "div-element-switcher opacity-off"}]);
+        this.printButton = new AppSpanElementCreator(false).createElement(this.printElement.id, buttonText);
         if (image && typeof image === "object") {
             this.hasImage = true;
             this.printImage = new PrintImageCreator().createElement(this.printElement.id, image.tag, image.imgAttr);
@@ -93,17 +68,20 @@ export default class Print {
         
     }
 
+    changeDivClass(classes: string[], changeType: ChangeClass, replaceClasses: string[]) {
+        this.printElement.changeClasses(classes, changeType, replaceClasses);
+    }
+
     public unrender() {
         try {
-            this.printElement.unmountElement();
-            this.printElement.unmountElement();
-            if (this.hasImage) {
-                this.printImage.unmountElement();
-            }
-
             if (typeof this.watchOnClickPrint === "object") {
                 this.unWatchClick();
             }
+            this.printButton.unmountElement();
+            if (this.hasImage) {
+                this.printImage.unmountElement();
+            }
+            this.printElement.unmountElement();
         } catch (e) {
             console.error(e);
         }

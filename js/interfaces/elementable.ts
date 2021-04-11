@@ -11,3 +11,13 @@ export interface Elementable {
     innerHtml?: string;
     attributes?: Attr[];
 }
+
+export type InsertBefore = boolean | {
+    element: Node;
+}
+
+export enum ChangeClass {
+    REPLACE = "replace",
+    ADD = "ADD",
+    REPLACE_ALL = "replaceAll"
+}

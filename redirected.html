@@ -25,8 +25,16 @@
     <link rel="stylesheet" href="css/pages/redirected.css" />
     <link rel="stylesheet" href="css/components/table.css" />
 </head>
-<body>
-    <header class="nav-bar is-relative">
+<body id="body">
+    <div id="menu" class="menu">
+      <a href="#">
+        <object data="./img/menu.svg" width="30" height="30"> 
+          No svg support 
+        </object>
+      </a>
+    </div>
+    <header id="nav-bar" class="nav-bar is-relative">
+        <div class="layout" id="layout"></div>
         <h3 class="logo-text is-h3">
           <span class="cursor-pointer" onclick="window.location = './index.html'">SavePlanet</span>
         </h3>
@@ -47,7 +55,7 @@
           </ul>
         </nav>
       </header>
-    <main>
+    <main class="main-content__redirected">
         <section class="title-section is-display-flex is-flex-end">
             <article class="title-section__article is-half-flex-basis is-display-flex is-justify-center">
                 <div class="title-section__wrapper">
@@ -136,6 +144,8 @@
         </a>
       </div>
     </footer>
+    <script type="text/javascript" src="js/components/rightNavbar.ts"></script>
+    <script type="text/javascript" src="js/components/layoutChanger.ts"></script>
     <script type="text/javascript" src="./js//components/redirected.ts"></script>
 </body>
 </html>
