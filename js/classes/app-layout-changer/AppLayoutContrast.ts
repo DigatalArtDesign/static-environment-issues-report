@@ -104,7 +104,7 @@ export default class AppLayoutContrast extends AppLayoutChanger {
         this.divHTMLElement.unmountElement();
     }
 
-    changeClass(htmlClasses: string[], changeType: ChangeClass, replaceClasses?: string[]) {
-        this.objectHTMLElement.changeClasses(htmlClasses, changeType, replaceClasses);
+    changeDivClass(htmlClasses: string[], changeType: ChangeClass, replaceClasses?: string[]) {
+        this.divHTMLElement.changeClasses(htmlClasses, changeType, replaceClasses);
     }
 }

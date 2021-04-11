@@ -13,12 +13,14 @@ export class AppDivElementCreator extends AppElementCreator {
     }
 
     createElement(id: string, attr: Attr[]): AppElementUI {
+        const classes = attr.length > 0 ? attr.find(i => i.name === "class").value.split(" ").concat(["div-element"]) : ["div-element"];
+        const attrs =  attr.length  > 0 ? attr.filter(i => i.name !== "class") : attr;
         const props: Elementable = {
             tag: "div",
             id: uuid(), 
-            class: ["div-element"],
+            class: classes,
             parentElementId: id,
-            attributes: attr
+            attributes: attrs
         };
 
         return new AppElementUI(props, this.renderImmediate, this.insertBefore);

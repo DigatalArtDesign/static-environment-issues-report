@@ -8,12 +8,12 @@ export default abstract class AppLayoutChanger {
     protected descriptionElement: AppElementUI;
     
     constructor(parentId: string) {
-        this.divHTMLElement = new AppDivElementCreator().createElement(parentId, []);
+        this.divHTMLElement = new AppDivElementCreator().createElement(parentId, [{name: "class", value: "div-element-switcher opacity-off"}]);
     }
 
 
     abstract changeView();
     abstract renderElement();
     abstract watchElement();
-    abstract changeClass(htmlClasses: string[], changeType: ChangeClass, replaceClasses?: string[]);
+    abstract changeDivClass(htmlClasses: string[], changeType: ChangeClass, replaceClasses?: string[]);
 }

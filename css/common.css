@@ -347,7 +347,7 @@ a:visited {
   pointer-events: none;
 }
 
-.layout .div-element {
+.layout .div-element-switcher {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -360,7 +360,7 @@ a:visited {
   margin: 1px 0;
 }
 
-.layout .div-element:last-child {
+.layout .div-element-switcher:last-child {
   margin: 1px 0 0;
 }
 
@@ -374,12 +374,12 @@ a:visited {
   align-items: center;
 }
 
-.layout .div-element::before {
+.layout .div-element-switcher::before {
   content: '';
   transition: all 0.4s ease-in;
 }
 
-.layout .div-element:hover.div-element::before {
+.layout .div-element-switcher:hover.div-element::before {
   content: '';
   position: absolute;
   left: 17%;
@@ -389,7 +389,7 @@ a:visited {
   background: var(--background);
 }
 
-.layout .div-element:hover {
+.layout .div-element-switcher:hover {
   border: 3px solid var(--background);
 }
 
@@ -400,7 +400,6 @@ a:visited {
 .opacity-on {
   opacity: 1;
 }
-
 
 /* buttons */
 
@@ -614,7 +613,7 @@ blockquote h3 {
     page-break-before: always;
   }
 
-  .div-element {
+  .div-element-switcher {
     position: absolute;
     top: 1rem;
     left: 5rem;
@@ -634,7 +633,7 @@ blockquote h3 {
     border: none !important;
   }
 
-  .div-element .print-view-swicher {
+  .div-element-switcher .print-view {
     cursor: pointer;
   }
 
@@ -653,11 +652,11 @@ blockquote h3 {
     display: none;
   }
 
-  .div-element:not(:nth-child(2)) {
+  .div-element-switcher:not(:nth-child(2)) {
     display: none;
   }
 
-  .div-element:nth-child(2) {
+  .div-element-switcher:nth-child(2) {
     position: absolute;
     top: 0;
     left: 0;

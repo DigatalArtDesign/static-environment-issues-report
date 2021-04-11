@@ -1,6 +1,6 @@
 import printJS from "print-js";
 import uuid from "uuid";
-import { Attr, Elementable } from "../../interfaces/elementable";
+import { Attr, ChangeClass, Elementable } from "../../interfaces/elementable";
 import { AppDivElementCreator } from "../app-element-creators/AppDivCreator";
 import { AppSpanElementCreator } from "../app-element-creators/AppSpanElementCreator";
 import AppElementUI from "../AppElement";
@@ -41,7 +41,7 @@ export default class Print {
     private watchOnClickPrint: WatchOnClickPrint | false;
 
     constructor(parentId: string, buttonText: string, watchOnClickPrint: WatchOnClickPrint | false = false , image: ImageView | boolean) {
-        this.printElement = new AppDivElementCreator().createElement(parentId, []);
+        this.printElement = new AppDivElementCreator().createElement(parentId, [{name: "class", value: "div-element-switcher opacity-off"}]);
         this.printButton = new AppSpanElementCreator(false).createElement(this.printElement.id, buttonText);
         if (image && typeof image === "object") {
             this.hasImage = true;
@@ -66,6 +66,10 @@ export default class Print {
             console.error(e);
         }
         
+    }
+
+    changeDivClass(classes: string[], changeType: ChangeClass, replaceClasses: string[]) {
+        this.printElement.changeClasses(classes, changeType, replaceClasses);
     }
 
     public unrender() {

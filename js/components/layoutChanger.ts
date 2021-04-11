@@ -11,11 +11,13 @@ import AppLayoutPrint, { AppLayoutPrintProps } from "../classes/app-layout-chang
 import { AppSpanElementCreator } from "../classes/app-element-creators/AppSpanElementCreator";
 import PagePrint from "../classes/page-print/PagePrint";
 import { ViewMode } from "../interfaces/viewModes";
+import { ChangeClass } from "../interfaces/elementable";
 
 
 document.addEventListener("DOMContentLoaded", async () => {
     let isSecondPhase = false;
     let pagePrint!: PagePrint;
+    const animationTime = 500;
 
     const appLayoutProps: AppLayoutContractProps = {
         parentId: "layout",
@@ -66,18 +68,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById("layout").classList.remove("first-layout");
             
             const whiteBlock = document.getElementById("layout");
-            whiteBlock.style.transition = "width 0.5s";
+            whiteBlock.style.transition = `width ${animationTime / 1000}s`;
             spanElement.unmountElement();
             secondPhase();
-            const divs = whiteBlock.getElementsByClassName("div-element");
-            for (let i = 0; i < divs.length; i++) {
-                divs[i].style.opacity = "0";   
-            }
-            setTimeout(() => {
-                for (const div of divs) {
-                    div.style.opacity = "1";
-                }
-            }, 500);
             isSecondPhase = true;
         });
         document.getElementById("layout").classList.add("first-layout");
@@ -107,9 +100,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
         
         pagePrint = printMain();
-        console.log(pagePrint);
+
+        setTimeout(() => {
+            pagePrint.changeDivClass(["opacity-on"], ChangeClass.REPLACE, ["opacity-off"]);
+            appLayout.changeDivClass(["opacity-on"], ChangeClass.REPLACE, ["opacity-off"]);
+            printLayout.changeDivClass(["opacity-on"], ChangeClass.REPLACE, ["opacity-off"]);
+        }, animationTime);
 
         const goBack = () => {
+           printLayout.changeDivClass(["opacity-off"], ChangeClass.REPLACE, ["opacity-on"]);
+           appLayout.changeDivClass(["opacity-off"], ChangeClass.REPLACE, ["opacity-on"]);
            printLayout.unmountElement();
            appLayout.unmountElement();
            sImageObject.unmountElement();
