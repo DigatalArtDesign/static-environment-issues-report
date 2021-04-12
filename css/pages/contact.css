@@ -17,9 +17,9 @@ body {
 }
 
 .section-call {
+  padding-bottom: 30rem;
   background-color: var(--primary);
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: flex-end;
 }
@@ -32,19 +32,18 @@ body {
 
 .section-form {
   background-color: var(--background);
-  height: 120rem;
   position: relative;
   color: var(--black);
+  padding-bottom: 10rem;
 }
 
 .form-parent {
+  margin-top: -23rem;
   max-width: 550px;
-  position: absolute;
   margin-left: 10rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  top: -25rem;
 }
 
 .contact-bullet {
@@ -271,7 +270,7 @@ textarea:focus {
   font-size: 3rem;
   color: var(--white);
   float: right;
-  margin: 60rem 9rem 0 0;
+  padding-right: 10rem;
 }
 
 .section-address {
@@ -305,12 +304,13 @@ textarea:focus {
 @media screen and (max-width: 1200px) {
   .section-form {
     display: flex !important;
-    align-items: flex-end;
-    height: 130rem;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .form-call {
-    margin: 0 0 0 10rem;
+    padding-left: 10rem;
+    padding-right: 0;
   }
 }
 
@@ -362,6 +362,7 @@ textarea:focus {
     width: 100%;
     height: fit-content;
     margin-top: 22%;
+    padding-bottom: 0;
     justify-content: center;
   }
 
@@ -376,6 +377,10 @@ textarea:focus {
 }
 
 @media screen and (max-width: 520px) {
+  .form-call {
+    padding-left: 0;
+  }
+
   :is(.ifa) .ifa-select1,
   :is(.ifa) .ifa-select2,
   :is(.ifa) .ifa-select3 {

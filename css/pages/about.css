@@ -17,7 +17,6 @@ body {
 }
 
 .section-call {
-  height: 100vh;
   justify-content: flex-end;
   width: 100%;
 }
@@ -37,8 +36,6 @@ body {
 .about-bullet {
   color: var(--white);
   display: flex;
-  position: absolute;
-  top: -15rem;
   margin-left: 10rem;
 }
 
@@ -125,7 +122,6 @@ div.youtube-play-btn:hover {
 
 .about-text {
   width: 100%;
-  margin-top: 20rem;
   justify-content: space-evenly;
 }
 
@@ -294,6 +290,21 @@ blockquote h3 {
 }
 
 @media screen and (max-width: 1260px) {
+  .section-icons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .icons-title-text {
+    flex-direction: column;
+    width: 86%;
+  }
+
+  .icons-text {
+    margin-top: 0;
+    width: 84ch;
+  }
+
   .case-boxes {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -310,6 +321,10 @@ blockquote h3 {
 }
 
 @media screen and (max-width: 1000px) {
+  .call {
+    width: 50%;
+  }
+
   .txt-box {
     width: 100% !important;
   }
@@ -319,6 +334,10 @@ blockquote h3 {
   .cases-title {
     width: calc(100% - 2rem);
     padding-left: 2rem;
+  }
+
+  .iconbox-box {
+    top: 64rem;
   }
 
   .case-boxes {
@@ -362,6 +381,15 @@ blockquote h3 {
 }
 
 @media screen and (max-width: 700px) {
+  .call {
+    width: 100%;
+    margin-left: 30px;
+  }
+
+  .iconbox-box {
+    top: 40rem;
+  }
+
   .cases-title {
     height: calc(44vw / 100 + 1000px) !important;
   }
@@ -385,9 +413,12 @@ blockquote h3 {
     display: none;
   }
 
+  .about-bullet {
+    margin-left: 20px;
+  }
+
   .section-call {
     justify-content: center;
-    height: 70vh;
   }
 
   .call {
@@ -421,7 +452,7 @@ blockquote h3 {
   }
 
   .iconbox-box {
-    top: 40rem;
+    top: 24rem;
   }
 
   .iconbox-box .iconbox-text {
@@ -442,7 +473,7 @@ blockquote h3 {
   }
 
   .cases-title {
-    height: calc(100vw / 0.27 / 100 + 1200px) !important;
+    height: calc(100vw / 4.27 / 100 + 900px) !important;
   }
 }
 
