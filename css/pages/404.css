@@ -4,29 +4,85 @@
 }
 
 html {
-  color: #888;
+  color: var(--white);
   display: table;
   font-family: sans-serif;
   height: 100%;
   text-align: center;
   width: 100%;
+  background-image: none;
+  background-color: var(--black);
 }
 
 body {
-  display: table-cell;
+  display: flex;
   vertical-align: middle;
-  margin: 2em auto;
+  height: 100%;
+  background-image: url("/img/dark-forest.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: flex-end;
+}
+
+.main-content {
+  width: 90%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.logo-wrapper {
+  position: absolute;
+  top: 50px;
+  cursor: pointer;
 }
 
 h1 {
-  color: #555;
-  font-size: 2em;
-  font-weight: 400;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.app-404 {
+  margin-left: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.app-404::after {
+  margin-left: 20px;
+  content: '';
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: var(--white);
+  display: block;
+  border-radius: 50%;
 }
 
 p {
-  margin: 0 auto;
-  width: 280px;
+  font-weight: 400;
+  width: 100%;
+  max-width: 450px;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.home-link {
+  margin-top: 3.5rem;
+}
+
+a {
+  font-size: 2rem;
+}
+
+a:hover {
+  border-color: var(--white);
+  color: var(--white) !important;
 }
 
 @media only screen and (max-width: 280px) {
