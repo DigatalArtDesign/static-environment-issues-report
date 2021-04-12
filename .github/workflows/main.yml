@@ -32,7 +32,7 @@ jobs:
         run: npm install && npm run build
       # Runs Deployment command
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@main
+        uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
