@@ -452,7 +452,7 @@ blockquote h3 {
   }
 
   .iconbox-box {
-    top: 24rem;
+    top: 32rem;
   }
 
   .iconbox-box .iconbox-text {
@@ -473,7 +473,7 @@ blockquote h3 {
   }
 
   .cases-title {
-    height: calc(100vw / 4.27 / 100 + 900px) !important;
+    height: calc(100vw / 4.27 / 100 + 1000px) !important;
   }
 }
 
