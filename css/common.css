@@ -218,10 +218,12 @@ a {
   color: var(--white);
   text-decoration: none;
   transition: all 0.4s ease-in;
+  border-bottom: 2px solid transparent;
 }
 
 a:hover {
   color: var(--background) !important;
+  border-bottom: 2px solid var(--background);
 }
 
 a:visited {
