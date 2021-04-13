@@ -362,6 +362,7 @@ textarea {
 .section-icons {
   background-color: transparent;
   margin-left: 10rem;
+  flex-direction: column;
 }
 
 .section-icons .icons-title-text {
@@ -479,6 +480,10 @@ textarea {
 }
 
 @media screen and (max-width: 600px) {
+  .section-call {
+    margin-top: 5rem;
+  }
+
   .case-boxes {
     display: flex;
     flex-direction: column;

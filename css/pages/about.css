@@ -158,6 +158,7 @@ div.youtube-play-btn:hover {
 .section-icons {
   background-color: #a6ffd4;
   position: relative;
+  padding-left: 10rem;
 }
 
 .icons-title-text {
@@ -390,6 +391,10 @@ blockquote h3 {
     top: 40rem;
   }
 
+  .iconbox {
+    max-width: 100%;
+  }
+
   .cases-title {
     height: calc(44vw / 100 + 1000px) !important;
   }
@@ -411,6 +416,10 @@ blockquote h3 {
   :is(.case-boxes) .txt-img-box:nth-child(5),
   :is(.case-boxes) .txt-img-box:nth-child(7) {
     display: none;
+  }
+
+  .section-icons {
+    padding-left: 20px;
   }
 
   .about-bullet {
@@ -453,6 +462,7 @@ blockquote h3 {
 
   .iconbox-box {
     top: 32rem;
+    margin: 0;
   }
 
   .iconbox-box .iconbox-text {
@@ -603,6 +613,10 @@ blockquote h3 {
     display: none !important;
   }
 
+  .section-icons {
+    flex-direction: column;
+  }
+
   .about-text {
     display: block !important;
     margin-top: 0 !important;
@@ -632,7 +646,6 @@ blockquote h3 {
   }
 
   .icons-title-text {
-    margin-left: 10rem;
     padding-bottom: 0 !important;
     display: block !important;
   }
@@ -648,7 +661,6 @@ blockquote h3 {
   .iconbox-box {
     position: relative !important;
     top: initial !important;
-    margin-left: 10rem !important;
   }
 
   .iconbox-text {
