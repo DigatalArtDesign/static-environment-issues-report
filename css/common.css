@@ -631,6 +631,7 @@ body,
 
   .layout {
     position: initial;
+    filter: none;
   }
 
   .main-content {
@@ -670,6 +671,17 @@ body,
     top: 0;
     left: 0;
     justify-content: center;
+    border: none;
+    box-shadow: none !important;
+  }
+
+  .div-element-switcher:nth-child(2):hover {
+    border: none;
+  }
+
+  .div-element-switcher:nth-child(2)::before {
+    content: none;
+    display: none;
   }
 
   footer {
