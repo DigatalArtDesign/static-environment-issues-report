@@ -17,7 +17,9 @@ const printMain = (): PagePrint => {
     
     console.log(currentStyles);
 
-    const pagePrint = new PagePrint("layout", "Print Page", watchOptions, false);
+    const disableElementsClasses = ["div-element-switcher"];
+
+    const pagePrint = new PagePrint("layout", "Print Page", watchOptions, false, disableElementsClasses);
     pagePrint.render();
 
 

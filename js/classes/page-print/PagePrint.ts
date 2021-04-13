@@ -39,8 +39,9 @@ export default class Print {
     private printImage: AppElementUI;
     private hasImage = false;
     private watchOnClickPrint: WatchOnClickPrint | false;
+    private disableElements: string[]
 
-    constructor(parentId: string, buttonText: string, watchOnClickPrint: WatchOnClickPrint | false = false , image: ImageView | boolean) {
+    constructor(parentId: string, buttonText: string, watchOnClickPrint: WatchOnClickPrint | false = false , image: ImageView | boolean, disableElementClasses: string[]) {
         this.printElement = new AppDivElementCreator().createElement(parentId, [{name: "class", value: "div-element-switcher opacity-off"}]);
         this.printButton = new AppSpanElementCreator(false).createElement(this.printElement.id, buttonText);
         if (image && typeof image === "object") {
@@ -48,6 +49,7 @@ export default class Print {
             this.printImage = new PrintImageCreator().createElement(this.printElement.id, image.tag, image.imgAttr);
         }
         this.watchOnClickPrint = watchOnClickPrint;
+        this.disableElements = disableElementClasses;
     }
 
     public render() { 
@@ -89,7 +91,13 @@ export default class Print {
 
     public watchClick = () => {
         document.getElementById(this.printElement.id).addEventListener("click", () => {
+            if (this.disableElements.length > 0) {
+                this.disableElements.map(i => Array.from(document.getElementsByClassName(i)).map(i => (i as HTMLElement).style.display = "none"));
+            }
             this.printPage();
+            if (this.disableElements.length > 0) {
+                this.disableElements.map(i => Array.from(document.getElementsByClassName(i)).map(i => (i as HTMLElement).style.display = "initial"));
+            }
         });
     }
 
