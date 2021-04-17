@@ -24,7 +24,7 @@ export default class Deserialiser<T> {
   
           form[propName] = deserializer === undefined ? formData[propName] : deserializer(formData[propName]);
         } else {
-          throw Error(`No serialiser for ${propName} !`);
+          console.error(`No serialiser for ${propName} !`, formData);
         }
       }
       return form;
