@@ -192,7 +192,6 @@ export default class Dropdown {
 
     public clickOutsideListen(callback: () => void): void {
       document.addEventListener("click", (e) => {
-        e.preventDefault();
         const dropdown = document.getElementById(this.dropdown.id);
         const isClickInside = dropdown.contains((e as any).target);
         const menu = document.getElementById(this.menuDropdown.id);

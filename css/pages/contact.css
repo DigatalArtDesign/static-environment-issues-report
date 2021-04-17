@@ -242,6 +242,10 @@ input::placeholder {
   margin-bottom: 2rem;
 }
 
+.mail-link:hover {
+  color: var(--primary) !important;
+}
+
 textarea {
   padding-left: 20px;
   width: 95%;
