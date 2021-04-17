@@ -2,11 +2,12 @@
   "short_name": "Save",
   "name": "Save&Save",
   "icons": [{
-    "src": "icon.png",
+    "src": "./icons/192x192.png",
     "type": "image/png",
     "sizes": "192x192"
   }],
-  "start_url": "/?utm_source=homescreen",
-  "background_color": "#fafafa",
-  "theme_color": "#fafafa"
+  "start_url": "/index.html",
+  "background_color": "#35E2A3",
+  "theme_color": "#35E2A3",
+  "display": "standalone"
 }
