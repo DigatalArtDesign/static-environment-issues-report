@@ -87,7 +87,7 @@ div.youtube-play-btn {
   margin-left: -36px;
   margin-top: -36px;
   position: absolute;
-  background: url("../../img/playbutton.svg") no-repeat center center;
+  background: url("url:../../img/playbutton.svg") no-repeat center center;
   background-size: 72px 72px;
   border-radius: 50%;
   transition: background-color 0.4s ease-in-out;

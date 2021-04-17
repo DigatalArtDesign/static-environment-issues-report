@@ -1,5 +1,5 @@
 .main-content__index {
-  background-image: url("../../img/darker-forest.jpg");
+  background-image: url("url:../../img/darker-forest.jpg");
   background-size: cover;
   border: 8px solid var(--primary);
   box-sizing: border-box;
