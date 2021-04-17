@@ -21,7 +21,7 @@
 .main-content__main-image {
   height: 100%;
   background-size: cover;
-  background-image: url("../../img/green_nature.jpg");
+  background-image: url("url:../../img/green-nature.svg");
   background-repeat: no-repeat;
   background-position: center;
   display: flex;

@@ -18,7 +18,7 @@ body {
   display: flex;
   vertical-align: middle;
   height: 100%;
-  background-image: url("/img/dark-forest.svg");
+  background-image: url("url:/img/dark-forest.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

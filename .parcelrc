@@ -4,6 +4,6 @@
   "extends": ["@parcel/config-default"],
   "transformers": {
       "*.css": ["@parcel/transformer-css"],
-      "*.{jpg,png,svg}": ["@parcel/transformer-raw"]
+      "*.{jpg,png,svg}": ["@parcel/transformer-image"]
   }
 }
