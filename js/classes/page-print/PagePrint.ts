@@ -96,7 +96,7 @@ export default class Print {
             }
             this.printPage();
             if (this.disableElements.length > 0) {
-                this.disableElements.map(i => Array.from(document.getElementsByClassName(i)).map(i => (i as HTMLElement).style.display = "initial"));
+                this.disableElements.map(i => Array.from(document.getElementsByClassName(i)).map(i => (i as HTMLElement).style.display = "flex"));
             }
         });
     }
