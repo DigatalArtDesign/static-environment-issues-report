@@ -1,4 +1,5 @@
-export enum ViewMode {
-    CONTRAST = "contrast",
-    PRINT = "print"
+export enum AppViewModes {
+    STANDARD,
+    CONTRAST,
+    PRINT
 }

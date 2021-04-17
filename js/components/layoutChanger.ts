@@ -10,7 +10,7 @@ import { printMain } from "./pageprint";
 import AppLayoutPrint, { AppLayoutPrintProps } from "../classes/app-layout-changer/AppLayoutPrint";
 import { AppSpanElementCreator } from "../classes/app-element-creators/AppSpanElementCreator";
 import PagePrint from "../classes/page-print/PagePrint";
-import { ViewMode } from "../interfaces/viewModes";
+import { AppViewModes } from "../interfaces/viewModes";
 import { ChangeClass } from "../interfaces/elementable";
 
 
@@ -85,14 +85,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         printLayout.renderElement();
         printLayout.watchElement((isPrintMode: boolean) => {
             if(isPrintMode) {
-                appLayout.changeViewDirect(ViewMode.PRINT);
+                appLayout.changeViewDirect(AppViewModes.PRINT);
             } 
             removeImageBackground();
         });
         appLayout.renderElement();
         appLayout.watchElement((isContrastMode: boolean) => {
             if (isContrastMode) {
-                printLayout.changeViewDirect(ViewMode.CONTRAST);
+                printLayout.changeViewDirect(AppViewModes.CONTRAST);
                 createIndexMainBackground();
             } else {
                 removeImageBackground();

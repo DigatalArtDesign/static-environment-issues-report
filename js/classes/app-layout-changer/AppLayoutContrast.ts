@@ -3,7 +3,8 @@ import { AppObjectCreator } from "../app-element-creators/AppObjectCreator";
 import { AppSpanElementCreator } from "../app-element-creators/AppSpanElementCreator";
 import { Attr, ChangeClass } from "../../interfaces/elementable";
 import axios from "axios";
-import { ViewMode } from "../../interfaces/viewModes";
+import appSettings from "../AppSettings";
+import { AppViewModes } from "../../interfaces/viewModes";
 
 export interface AppLayoutContractProps {
     parentId: string; 
@@ -28,13 +29,17 @@ export default class AppLayoutContrast extends AppLayoutChanger {
             const attr: Attr[] = [{name: "class", value: "object-class"}, {name: "data", value: props.object.srcData}];
             this.objectHTMLElement = new AppObjectCreator().createElement(this.divHTMLElement.id, attr);
         }
-        this._isContrastMode = Boolean(window.localStorage.getItem("isContrastMode") === "true");
+        this.setContractMode(appSettings.currentMode);
         this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, this._isContrastMode ? props.innerHtml[1] : props.innerHtml[0]); 
         this.hrefContrast = props.contastUrl;
     }
 
     get isContrastMode() {
         return this._isContrastMode;
+    }
+
+    setContractMode(mode: AppViewModes) {
+        this._isContrastMode = mode === AppViewModes.CONTRAST;
     }
 
     renderElement() {
@@ -50,7 +55,7 @@ export default class AppLayoutContrast extends AppLayoutChanger {
         this.divHTMLElement.listenEvent("click", async () => {
             this._isContrastMode = !this._isContrastMode;
             await this.changeView();
-            window.localStorage.setItem("isContrastMode", String(this._isContrastMode));
+            appSettings.currentMode = this._isContrastMode ? AppViewModes.CONTRAST : AppViewModes.STANDARD;
             if (callback) {
                 callback(this._isContrastMode);
             }
@@ -62,9 +67,9 @@ export default class AppLayoutContrast extends AppLayoutChanger {
         });
     }
 
-    changeViewDirect(mode: ViewMode) {
-        this._isContrastMode = mode === ViewMode.CONTRAST;
-        window.localStorage.setItem("isContrastMode", String(this._isContrastMode));
+    changeViewDirect(mode: AppViewModes) {
+        this.setContractMode(mode);
+        appSettings.currentMode = this._isContrastMode ? AppViewModes.CONTRAST : AppViewModes.STANDARD;
         if (!this._isContrastMode) {
             this.descriptionElement.changeInnerHtml(this.descriptioninnerHTML[0]);
         } else {

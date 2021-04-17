@@ -3,7 +3,8 @@ import { AppSpanElementCreator } from "../app-element-creators/AppSpanElementCre
 import AppLayoutChanger from "./AppLayoutChanger";
 import { Attr, ChangeClass } from "../../interfaces/elementable";
 import { simulatePrintMedia, restoreScreenMedia } from "../../utils/printCssToggle";
-import { ViewMode } from "../../interfaces/viewModes";
+import { AppViewModes } from "../../interfaces/viewModes";
+import appSettings from "../AppSettings";
 
 
 export interface AppLayoutPrintProps {
@@ -28,8 +29,12 @@ export default class AppLayoutPrint extends AppLayoutChanger {
             const attr: Attr[] = [{name: "class", value: "object-class"}, {name: "data", value: props.object.srcData}];
             this.objectHTMLElement = new AppObjectCreator().createElement(this.divHTMLElement.id, attr);
         }
-        this._isPrintMode = Boolean(window.localStorage.getItem("isPrintMode") === "true");
+        this.setPrintMode(appSettings.currentMode);
         this.descriptionElement = new AppSpanElementCreator(false).createElement(this.divHTMLElement.id, this._isPrintMode ? props.innerHtml[1] : props.innerHtml[0]); 
+    }
+
+    setPrintMode(mode: AppViewModes) {
+        this._isPrintMode = mode === AppViewModes.PRINT;
     }
 
     get isPrintMode() {
@@ -54,7 +59,7 @@ export default class AppLayoutPrint extends AppLayoutChanger {
         this.divHTMLElement.listenEvent("click", async () => {
             this._isPrintMode = !this._isPrintMode;
             this.changeView();
-            window.localStorage.setItem("isPrintMode", String(this._isPrintMode));
+            appSettings.currentMode = this._isPrintMode ? AppViewModes.PRINT : AppViewModes.STANDARD;
             if (callback) {
                 callback(this._isPrintMode);
             }
@@ -66,8 +71,8 @@ export default class AppLayoutPrint extends AppLayoutChanger {
         });
     }
 
-    changeViewDirect(mode: ViewMode) {
-        this._isPrintMode = mode === ViewMode.PRINT;
+    changeViewDirect(mode: AppViewModes) {
+        this.setPrintMode(mode);
         window.localStorage.setItem("isPrintMode", String(this._isPrintMode));
         this.changeView();
     }
