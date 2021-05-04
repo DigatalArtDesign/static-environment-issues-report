@@ -16,7 +16,17 @@ enum ProgressType {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const lastReport: FormData = JSON.parse(localStorage.getItem("formItem"));
+    const lastReport: FormData | null = JSON.parse(localStorage.getItem("formItem"));
+    if (lastReport === null) {
+        const explanatoryText = document.getElementById("explanatory-text");
+        explanatoryText.getElementsByTagName("h2")[0].innerHTML = "Unsuccessful submittion";
+        explanatoryText.getElementsByTagName("h3")[0].innerHTML = 
+        "Browser did not save your data from your last report submittion." + 
+        " Please go first to <a href='/contact.html'>contact page</a> first.";
+        document.getElementById("table-section").classList.add("none-important");
+        document.getElementById("browser-print").classList.add("none-important");
+        return;
+    }
     const progressType: ProgressType = (new Date(lastReport.sentTime).getHours() - new Date().getHours()) > 2 ? ProgressType.SUCCESSED : ProgressType.PROCESSED;
     const problemTypes = {
         arson: "Arson",
