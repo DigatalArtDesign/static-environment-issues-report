@@ -148,6 +148,7 @@ export default class Dropdown {
       const menu = document.getElementById(this.menuDropdown.id);
       for (const option of options) {
         option.addEventListener("click", (e) => {
+          e.preventDefault();
           const selected = document.getElementById(this.selected.id);
           selected.innerHTML = (e.target as HTMLButtonElement).value;
           if(this._firstClick) {
@@ -178,7 +179,8 @@ export default class Dropdown {
 
     private listenButton(): void {
       const optionButton = document.getElementById(this.optionButton.id);
-      optionButton.addEventListener("click", () => {
+      optionButton.addEventListener("click", (e) => {
+        e.preventDefault();
         const menu = document.getElementById(this.menuDropdown.id);
         if (menu.classList.contains("dropdown-leave")) {
           menu.classList.remove("dropdown-leave");

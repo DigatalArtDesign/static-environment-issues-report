@@ -41,12 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const domObject = document.getElementsByClassName(element);
 
     for (let i = 0; i < domObject.length; i++) {
-      domObject[i].addEventListener(listener, () => {
+      domObject[i].addEventListener(listener, (e) => {
+        e.preventDefault();
         if (isRadio) {
           Object.keys(formObject).map((i) => {
             formObject[i] = false;
           });
         }
+
         const key = Object.keys(formObject).find((_, ind) => ind === i);
         formObject[key] = !formObject[key];
         const el = <HTMLInputElement>domObject[i].getElementsByClassName(inputClass)[0];
@@ -55,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           console.error("Selection error: This element doesn't have input with checked attribute");
         }
-      }, true);
+      });
     }
   };
 
