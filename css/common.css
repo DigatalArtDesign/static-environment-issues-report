@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500;600;700&display=swap');
 /* fonts connection */
 
 @font-face {
@@ -51,8 +52,6 @@
   font-weight: bold;
   font-style: normal;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500;600;700&display=swap');
 
 /* variables */
 :root {
@@ -312,7 +311,7 @@ a:visited {
     flex-wrap: wrap;
   }
 
-  :is(.nav-bar) .logo-text {
+  .nav-bar .logo-text {
     justify-content: center;
     display: flex;
   }
