@@ -39,9 +39,9 @@
   </div>
   <header id="nav-bar" class="nav-bar">
     <div class="layout" id="layout"></div>
-    <li class="is-list-item none is-h3">
+    <div class="is-list-item none is-h3">
       <a class="is-link" onclick="window.location = './404.html'" href="./404.html">About</a>
-    </li>
+    </div>
     <h3 class="logo-text is-h3">
       <span class="cursor-pointer" onclick="window.location = './index.html'">SavePlanet</span>
     </h3>
@@ -62,7 +62,7 @@
   <main class="main-content is-flex-column">
     <section class="section-call">
       <div class="call">
-        <h1 class="is-h2">Reach us so that we can <br />take actions <span class="background-color">together</span>.</h1>
+        <h1 class="is-h2">Reach us so that we can <br />take actions <span class="attract-color">together</span>.</h1>
       </div>
     </section>
     <section class="section-form">
@@ -76,15 +76,15 @@
         <div class="form">
           <h2 class="form-title is-h2">Tell us<br />what <span class="primary-color">happened</span>?</h2>
           <h6 class="form-warning">All required fields are marked by *</h6>
-          <form>
-            <label class="form-name is-h3">Name*</label>
-            <input type="text" id="form-name" name="name" class="text-input" placeholder="Tommy Wiseau" />
+          <form id="contact-form">
+            <label for="form-name" class="form-name is-h3">Name*</label>
+            <input maxlength="20" type="text" id="form-name" name="name" class="text-input" placeholder="Tommy Wiseau" />
             <div id="form-name-error" class="error-place"></div>
             <label for="form-issue" class="form-name form-issue is-h3">Name of the issue*</label>
-            <input type="text" id="form-issue" name="issue" class="text-input" placeholder="Poaching on Costel river" />
+            <input maxlength="30" type="text" id="form-issue" name="issue" class="text-input" placeholder="Poaching on Costel river" />
             <div id="form-issue-error" class="error-place"></div>
             <label for="form-email" class="form-name is-h3">E-mail*</label>
-            <input type="email" id="form-email" name="mailbox" class="text-input" placeholder="theroom@sp.com" />
+            <input maxlength="20" type="email" id="form-email" name="mailbox" class="text-input" placeholder="theroom@sp.com" />
             <div id="form-email-error" class="error-place"></div>
             <div>
               <p class="form-name is-h3">Select your region*</p>
@@ -154,11 +154,15 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>  
             <div class="description">
-              <p class="form-name is-h3">Description*</p>
-              <textarea id="form-description" placeholder="Provide a detailed description"></textarea>
+              <label for="form-description" class="form-name is-h3">Description*</label>
+              <textarea maxlength="400" id="form-description" placeholder="Provide a detailed description"></textarea>
               <div id="form-description-error" class="error-place"></div>
+            </div>
+            <div id="checkbox-email" class="checkbox-email-send">
+              <div class="checkbox-wrapper cursor-pointer cb-container"><label class="label"><input type="checkbox"
+                class="checkbox" /><span class="checkmark"></span>Send to email instead</label></div>
             </div>
             <div class="buttons">
               <button id="send-compliant" type="button" class="is-button is-primary-button is-h3">Send complaint</button>
@@ -170,7 +174,7 @@
         </div><!-- form -->
       </div><!-- form-parent -->
       <aside class="form-call">
-        <p>For more concrete cases<br />send us an email to<br /><a href="mailto:saveanimals@sp.com?subject=Environmental issue report" class="primary-color mail-link">saveanimals@sp.com</a>
+        <p>For more concrete cases<br />send us an email to<br /><a href="mailto:saveanimals@sp.com?subject=Environmental_issue_report" class="attract-color mail-link">saveanimals@sp.com</a>
         </p>
       </aside>
     </section>
@@ -212,9 +216,9 @@
               minds cannot change
               anything.”
             </h3>
-            <figcaption>
+            <div>
               <h3 class="qoute-author is-h3"><b>George Bernard Shaw</b></h3>
-            </figcaption>
+            </div>
           </blockquote>
         </div>
         <div class="socials is-display-flex is-flex-column is-align-items-center">
@@ -238,8 +242,8 @@
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <!-- <script type="text/javascript" src="js/components/pageprint.ts"></script> -->
-  <script type="text/javascript" src="js/components/rightNavbar.ts"></script>
-  <script type="text/javascript" src="js/components/layoutChanger.ts"></script>
+  <script src="js/components/rightNavbar.ts"></script>
+  <script src="js/components/layoutChanger.ts"></script>
   <script src="js/components/contactpage.ts"></script>
   <script src="js/main.js"></script>
 

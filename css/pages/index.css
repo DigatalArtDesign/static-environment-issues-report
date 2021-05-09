@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.logo-text {
+  color: var(--background) !important;
+}
+
 .main-content-no-background {
   background-image: none !important;
   border: 0 !important;

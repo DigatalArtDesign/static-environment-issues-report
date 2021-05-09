@@ -2,14 +2,6 @@ body {
   height: 100%;
 }
 
-.primary-color {
-  color: var(--primary);
-}
-
-.background-color {
-  color: var(--background);
-}
-
 .main-content {
   height: 100%;
   display: flex;
@@ -117,7 +109,7 @@ input::placeholder {
 
 .checkmark {
   position: absolute;
-  top: 0;
+  top: 2px;
   left: 0;
   height: 15px;
   width: 15px;
@@ -168,6 +160,10 @@ input::placeholder {
 
 .aoi {
   margin-left: 12rem;
+}
+
+.checkbox-email-send .label {
+  max-width: 25ch;
 }
 
 .cb-container {
@@ -240,6 +236,10 @@ input::placeholder {
 .description {
   margin-top: 4rem;
   margin-bottom: 2rem;
+}
+
+.description textarea {
+  margin-top: 10px;
 }
 
 .mail-link:hover {

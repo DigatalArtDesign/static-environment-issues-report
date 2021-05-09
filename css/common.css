@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500;600;700&display=swap');
 /* fonts connection */
 
 @font-face {
@@ -52,11 +53,10 @@
   font-style: normal;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;500;600;700&display=swap');
-
 /* variables */
 :root {
-  --primary: #35e2a3;
+  /* --primary: #35e2a3; */
+  --primary: #006157;
   --primary-light: rgba(70, 205, 156, 0.6);
   --black: rgba(0, 0, 0, 1);
   --white: rgba(255, 255, 255, 1);
@@ -201,6 +201,18 @@ body {
 }
 
 /* other */
+.primary-color {
+  color: var(--primary);
+}
+
+.attract-color {
+  color: var(--attract);
+}
+
+.background-color {
+  color: var(--background);
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -219,7 +231,7 @@ body {
 
 a {
   cursor: pointer;
-  color: var(--white);
+  color: var(--light-grey);
   text-decoration: none;
   transition: all 0.4s ease-in;
   border-bottom: 2px solid transparent;
@@ -299,7 +311,7 @@ a:visited {
     flex-wrap: wrap;
   }
 
-  :is(.nav-bar) .logo-text {
+  .nav-bar .logo-text {
     justify-content: center;
     display: flex;
   }
