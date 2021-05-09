@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let formData = new FormData();
   let validation!: any;
   let formValidation!: any;
+  let submitEmailButton = false;
 
   const buttonState = () => document.getElementById("send-compliant").getAttribute("disable");
   
@@ -127,6 +128,33 @@ document.addEventListener("DOMContentLoaded", () => {
       return success.filter(i => i === true).length === success.length;
   };
 
+  document.getElementById("checkbox-email").addEventListener("click", () => {
+    const el = document.getElementById("checkbox-email").getElementsByClassName("checkbox")[0] as HTMLInputElement;
+    if (el.checked) {
+      submitEmailButton = true;
+      document.getElementById("send-compliant").setAttribute("type", "submit");
+      let form = document.getElementById("contact-form");
+      form.setAttribute("action", "mailto:saveanimals@sp.com?subject=Environmental issue report");
+      form.setAttribute("method", "POST");
+      form.setAttribute("enctype", "multipart/form-data");
+      form.setAttribute("name", "EmailForm");
+    } else {
+      submitEmailButton = false;
+      document.getElementById("send-compliant").setAttribute("type", "button");
+      let form = document.getElementById("contact-form");
+      form.removeAttribute("action");
+      form.removeAttribute("method");
+      form.removeAttribute("enctype");
+      form.removeAttribute("name");
+    }
+  });
+
+
+  let form = document.getElementById("contact-form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
+
 
   const sendForm = () => {
     document.getElementById("send-compliant").addEventListener("click", async () => {
@@ -136,6 +164,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       if (passed) {
+        if (submitEmailButton) {
+          // @ts-ignore
+          form.submit();
+          return;
+        }
         enableButton();
         formData.sentTime = new Date().getTime();
         await api.sendReport(formData.fields);
@@ -152,6 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("reset form");
       formData.resetForm();
       initForm();
+      disableButton();
     });
   };
 

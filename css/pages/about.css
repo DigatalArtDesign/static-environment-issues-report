@@ -4,14 +4,6 @@ body {
   background-color: var(--primary);
 }
 
-.primary-color {
-  color: var(--primary);
-}
-
-.background-color {
-  color: var(--background);
-}
-
 .main-content {
   height: 100%;
 }
