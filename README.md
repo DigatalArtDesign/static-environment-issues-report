@@ -24,8 +24,12 @@
 `npm run build:local`
 ##### For development version on localhost
 `npm run dev:local`
-##### For backend server run **be aware that json-server and firebase server do not share same data!**
+##### For backend server run **be aware that json-server and firebase server do not share same data!** `NO-W`
 `npm run host:local`
+##### Use instead 
+0. open new terminal/command prompt window
+1. `cd ./api` or `dir .\api`
+2. `npm run start`
 ##### Build and run both backend and front-end `NO-W`
 `npm run start:local`
 
@@ -36,7 +40,7 @@
 `npm run firebase-frontend:local`
 ##### For backend
 `npm run firebase-backend:local`
-##### Altogether
+##### Altogether `NO-W`
 `npm run firebase:local`
 
 ##### For firebase deploy (**use it only if you have a stable version of application**)
