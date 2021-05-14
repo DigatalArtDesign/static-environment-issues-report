@@ -9,15 +9,16 @@
     "environment"
   ],
   "license": "",
-  "author": "Cristea Andrei && Diacenco Serghei",
+  "author": "Cristea Andrei",
   "scripts": {
-    "build:local": "NODE_ENV=development-local parcel build index.html css/**/*.css",
-    "dev:local": "NODE_ENV=development-local parcel serve *.html",
+    "install:windows": "npm i --no-optional", 
+    "build:local": "npx cross-env NODE_ENV=development-local parcel build index.html css/**/*.css",
+    "dev:local": "npx cross-env NODE_ENV=development-local parcel serve *.html",
     "host:local": "ttab \"cd ./api && npm run start\"",
     "start:local": "run-s build:local host:local dev:local",
-    "build": "NODE_ENV=production parcel build index.html css/**/*.css",
-    "serve": "parcel serve *.html",
-    "dev": "NODE_ENV=production parcel serve *.html",
+    "build": "npx cross-env NODE_ENV=production parcel build index.html css/**/*.css",
+    "serve": "npx cross-env parcel serve *.html",
+    "dev": "npx cross-env NODE_ENV=production parcel serve *.html",
     "start": "npm run build && npm run dev",
     "test": "jshint || true",
     "lint": "npm run lint:css && npm run lint:html && npm run lint:js",
@@ -51,14 +52,16 @@
     "eslint-watch": "^7.0.0",
     "htmlhint": "^0.14.2",
     "npm-run-all": "^4.1.5",
-    "parcel": "^2.0.0-beta.1",
-    "parcel-bundler": "^1.12.4",
-    "postcss": "^8.2.6",
+    "parcel": "^2.0.0-nightly.665",
+    "postcss": "^8.2.15",
     "postcss-flexbugs-fixes": "^5.0.2",
+    "sharp": "^0.28.2",
     "stylelint": "^13.11.0",
     "stylelint-config-standard": "^20.0.0",
-    "ttab": "^0.7.0",
     "typescript": "^4.2.2"
+  },
+  "optionalDependencies": {
+    "ttab": "^0.7.0"
   },
   "dependencies": {
     "autoprefixer": "^10.2.5",

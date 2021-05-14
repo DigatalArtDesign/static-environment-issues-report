@@ -8,6 +8,16 @@
 
 
 ### How to run?
+#### **Important!** You need to have nodejs to run these project
+#### For that please download it and install from [official webpage](https://nodejs.org/en/)
+**Warning** Most of the commands described here are not available on Windows. The ones which are not working on Windows are marked with `NO-W`. Do not worry such commands are based on simpler commands which should work everywhere. More of commands you can find in `package.json` file under `scripts` key
+#### First Launch Installation
+0. Download nodejs( if you do not have it)
+1. use `npm i` or `npm install` for Mac and Linux, `npm install:windows` for Windows
+2. use `npm run build:local`
+3. use `npm run dev:local`
+4. switch to new terminal tab and use `npm run host:local`
+
 #### Local server and parcel server
 
 ##### For first static server run 
@@ -16,11 +26,11 @@
 `npm run dev:local`
 ##### For backend server run **be aware that json-server and firebase server do not share same data!**
 `npm run host:local`
-##### Build and run both backend and front-end
+##### Build and run both backend and front-end `NO-W`
 `npm run start:local`
 
 
-#### Local server with firebase
+#### Local server with firebase (need to install firebase globally first)
 ##### Create local firebase based server
 ##### For frontend
 `npm run firebase-frontend:local`
